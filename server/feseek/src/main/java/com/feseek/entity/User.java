@@ -19,5 +19,6 @@ public class User {
 	private String id;
 	private String password;
 	private String e_mail;
+	private String user_name;
 	private Integer categories_id;
 }
