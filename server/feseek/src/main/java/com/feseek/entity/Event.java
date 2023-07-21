@@ -2,6 +2,9 @@ package com.feseek.entity;
 
 import java.sql.Date;
 
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +16,9 @@ import lombok.NoArgsConstructor;
 @Table(name="events")
 public class Event 
 {
+	//ID列の指定
+		@Id
+		@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String users_id;
 	private String event_name;
