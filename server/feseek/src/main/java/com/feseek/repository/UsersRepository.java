@@ -1,7 +1,10 @@
 package com.feseek.repository;
 
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UsersRepository extends JpaRepository<T, ID> {
+import com.feseek.entity.User;
+
+public interface UsersRepository extends JpaRepository<User, String> {
 
 }

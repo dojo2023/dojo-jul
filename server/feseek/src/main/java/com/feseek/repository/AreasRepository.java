@@ -2,6 +2,9 @@ package com.feseek.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface AreasRepository extends JpaRepository<T, ID> {
+import com.feseek.entity.Area;
+
+public interface AreasRepository 
+extends JpaRepository<Area, Integer> {
 
 }
