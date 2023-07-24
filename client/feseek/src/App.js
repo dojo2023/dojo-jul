@@ -3,7 +3,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import EventSearch from './eventSearch/EventSearch';
-import MyEventList from './myReviewList/MyReviewList';
+import MyReviewList from './myReviewList/MyReviewList';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MyEventList from './myReviewList/MyReviewList';
@@ -17,7 +17,7 @@ export default class App extends React.Component {
           <BrowserRouter>
             <Routes>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
-              <Route path="/MyEventList" element={<myReviewList></myReviewList>}></Route>
+              <Route path="/MyReviewList" element={<myReviewList></myReviewList>}></Route>
             </Routes>
           </BrowserRouter>
         </header>
