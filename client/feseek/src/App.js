@@ -16,6 +16,10 @@ import GeneralAndSponsorInquiryDetail from './InquiryDetail/GeneralAndSponsorInq
 import AdminInquiryDetail from './InquiryDetail/AdminInquiryDetail';
 import ConfirmForIPassword from './confirm/ConfirmForPassword';
 import PasswordReRegister from './confirm/PasswordReRegister';
+import NewUserRegister from './user/NewUserRegister';
+import UserEdit from './user/UserEdit';
+import EventList from './eventList/EventList';
+import Timeline from './eventDetail/Timeline';
 
 
 export default class App extends React.Component {
@@ -37,6 +41,10 @@ export default class App extends React.Component {
               <Route path='/GeneralAndSponsorInquiryList' element={<GeneralAndSponsorInquiryList></GeneralAndSponsorInquiryList>}></Route>
               <Route path='/GeneralAndSponsorInquiryDetail' element={<GeneralAndSponsorInquiryDetail></GeneralAndSponsorInquiryDetail>}></Route>
               <Route path='/AdminInquiryDetail' element={<AdminInquiryDetail></AdminInquiryDetail>}></Route>
+              <Route path='/NewUserRegister' element={<NewUserRegister></NewUserRegister>}></Route>
+              <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
+              <Route path='/EventList' element={<EventList></EventList>}></Route>
+              <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
             </Routes>
           </BrowserRouter>
         </header>
