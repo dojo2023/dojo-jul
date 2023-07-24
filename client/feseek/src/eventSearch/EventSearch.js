@@ -24,10 +24,12 @@ export default class EventSearch extends React.Component{
                         <option>c</option>
                         <option>d</option>
                     </select>
+                    <br/>
                     
                     
                     日付
                     <input type="date"></input>
+                    <br/>
 
                     都道府県
                     <select name="prefectures">
@@ -36,6 +38,7 @@ export default class EventSearch extends React.Component{
                         <option>c</option>
                         <option>d</option>
                     </select>
+                    <br/>
 
                         
                     季節

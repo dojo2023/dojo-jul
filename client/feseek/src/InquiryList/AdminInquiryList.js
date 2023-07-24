@@ -18,8 +18,6 @@ export default class AdminInquiryList extends React.Component{
                     </tr>
                 </table>
 
-
-
                 <div>
                     <a href="./AdminInquiryDetail">管理者お問い合わせ詳細ページに遷移</a>
                 </div>
