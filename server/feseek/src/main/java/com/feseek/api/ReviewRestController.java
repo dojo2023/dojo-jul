@@ -18,12 +18,13 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewsRepository repository;
 		
-	//イベント詳細ページでの口コミ一覧表示
+	//イベント詳細ページでの口コミ一覧表示(並び替えは後でする)
+
 	@GetMapping("/api/review/show")
 	protected List<Review> events_review(@RequestBody Integer events_id){
 		return repository.findEventsReview(events_id);
 	}
-	
+
 	
 	//投稿
 	@PostMapping("/api/review/post")
@@ -32,7 +33,7 @@ public class ReviewRestController {
 		return Review;
 	}
 	
-	//自分が投稿した口コミ一覧表示
+	//自分が投稿した口コミ一覧表示(並び替えは後でする)
 	@GetMapping("/api/review/mylist")
 	protected List<Review> user_review(@RequestBody Integer users_id){
 		return repository.findMyReview(users_id);
