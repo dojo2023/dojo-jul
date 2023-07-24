@@ -2,6 +2,9 @@ package com.feseek.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface EventsRepository extends JpaRepository<T, ID> {
+import com.feseek.entity.Event;
+
+public interface EventsRepository extends JpaRepository<Event,Integer > 
+{
 
 }
