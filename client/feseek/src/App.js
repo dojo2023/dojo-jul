@@ -7,6 +7,7 @@ import MyReviewList from './myReviewList/MyReviewList';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MyEventList from './myReviewList/MyReviewList';
+import Login from './login/Login';
 
 
 export default class App extends React.Component {
@@ -16,6 +17,7 @@ export default class App extends React.Component {
         <header className="App-header">
           <BrowserRouter>
             <Routes>
+              <Route path='/login' element={<Login></Login>}></Route>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<myReviewList></myReviewList>}></Route>
             </Routes>
