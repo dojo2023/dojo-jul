@@ -1,0 +1,52 @@
+作製テーブル
+
+AREAS
+〇CATEGORIES
+EVENTS
+EVENT_GENRES
+GENRES
+INQUIRIES
+INQUIRY_CONTENTS
+REVIRWS
+TIMELINES
+〇USERS
+
+---------------------------------------------------------------------------------------------
+
+INSERT INTO users (ID, PASSWORD, E_MAIL, USER_NAME, CATEGORIES_ID) VALUES ('a0001','a1a1','mail1@user1.jp','user1',0);
+INSERT INTO users (ID, PASSWORD, E_MAIL, USER_NAME, CATEGORIES_ID) VALUES ('b0002','b2b2','mail2@user2.jp','user2',1);
+INSERT INTO users (ID, PASSWORD, E_MAIL, USER_NAME, CATEGORIES_ID) VALUES ('c0003','c3c3','mail3@user3.jp','user3',0);
+INSERT INTO users (ID, PASSWORD, E_MAIL, USER_NAME, CATEGORIES_ID) VALUES ('d0004','d4d4','mail4@user4.jp','user4',1);
+INSERT INTO users (ID, PASSWORD, E_MAIL, USER_NAME, CATEGORIES_ID) VALUES ('e0005','e5e5','mail5@user5.jp','user5',0);
+
+INSERT INTO categories (CATEGORY) VALUES ('一般利用者');
+INSERT INTO categories (CATEGORY) VALUES ('主催者');
+INSERT INTO categories (CATEGORY) VALUES ('管理者');
+
+INSERT INTO areas (Area) VALUES ('福岡');
+
+INSERT INTO event_genres(events_id, genres_id) VALUES (1, 1);
+INSERT INTO event_genres(events_id, genres_id) VALUES (2, 2);
+
+insert into timelines (event_id, infomation) values ('1','当日は先着100名様で抽選会を行います!'); 
+
+INSERT INTO reviews (AGAIN, ATMOSPHERE, COMMENT, CONTINUATION, EVENTS_ID, REV_DATE, REV_IMAGE, REV_TITLE, SATISFACTION, SECURITY, USERS_ID) VALUES ('1', '1', '初めて来たのですが、とても楽しい催しばかりでした。', '1', '1', '2023-07-15', 'src/main/resources/static/img/summer_festival.jpg', '夏祭りレビュー', '1', '0', 'a0001');
+
+INSERT INTO inquiries (subject) VALUES ('紛失物について');
+INSERT INTO inquiries (subject) VALUES ('100万円拾いました');
+
+INSERT INTO inquiry_contents (inquiries_id, users_id, inq_date, inquiry) VALUES ('00001', 'omatsuri', '2023-07-28', '鳥居の付近で財布がないことに気付きました。そちらに届いていませんか。');
+INSERT INTO inquiry_contents (inquiries_id, users_id, inq_date, inquiry) VALUES ('00001', 'unnei', '2023-07-29', '一件の届けがあります。');
+INSERT INTO inquiry_contents (inquiries_id, users_id, inq_date, inquiry) VALUES ('00002', 'wasshoi', '2023-07-29', '100万円拾ったんですが、どうしたらいいですか？');
+
+INSERT INTO genres  (genre_name)
+       VALUES ('食べる');
+INSERT INTO genres  (genre_name)
+       VALUES ('見る');
+INSERT INTO genres  (genre_name)
+       VALUES ('体験する');
+INSERT INTO genres  (genre_name)
+       VALUES ('その他');
+
+INSERT INTO events (users_id,event_name,start_date,end_date,open_time,address,access,map,costs,areas_id,detail,organizer,url,url_first,url_second,url_third,url_fourth,url_fifth,contact_address)
+VALUES('aaa','夏祭り','2023-7-24','2023-7-31','17:30～21:30','〒102-0084 東京都千代田区二番町１１−１９ 興和二番町ビル2階','東京メトロ有楽町線 麹町駅3番出口より徒歩2分','https://goo.gl/maps/ZGSbtzVRVD4nWuhW9','大人1000円子供500円','1','楽しい祭りなのでぜひ来てください!','桜田 雅美','https://www.sumidagawa-hanabi.com/','src/main/resources/static/img/sample_event.jpg','src/main/resources/static/img/sample_event2.jpg','src/main/resources/static/img/sample_event3.jpg','src/main/resources/static/img/sample_event4.jpg','src/main/resources/static/img/sample_event5.jpg','natumaturi@exampke.com')
