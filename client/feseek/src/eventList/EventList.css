@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+.event_li{
+    list-style: none;
+    border-top: dotted;
+    border-bottom: dotted;
+    margin-top: 8px;
+    color:blueviolet;
+}
