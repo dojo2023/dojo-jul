@@ -2,6 +2,8 @@ package com.feseek.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface InquiryContentRepository extends JpaRepository<T, ID> {
+import com.feseek.entity.InquiryContent;
+
+public interface InquiryContentRepository extends JpaRepository<InquiryContent, Integer> {
 
 }
