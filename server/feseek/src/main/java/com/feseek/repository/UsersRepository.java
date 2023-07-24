@@ -19,4 +19,7 @@ public interface UsersRepository extends JpaRepository<User, String> {
 
     // ユーザー名またはメールアドレスを使用してユーザー情報を取得するためのメソッド
     Optional<User> findByUser_nameOrE_mail(String user_name, String e_mail);
+    
+    //種別IDを使用してユーザー種別を取得するためのメソッド（いらなければ削除してよし）
+    Optional<User> findByCategories_id(Integer Categories_id);
 }
