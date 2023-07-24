@@ -8,6 +8,8 @@ import MyReviewList from './myReviewList/MyReviewList';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MyEventList from './myReviewList/MyReviewList';
 import Login from './login/Login';
+import GeneralMenubar from './menubar/GeneralMenubar';
+
 
 
 export default class App extends React.Component {
@@ -18,6 +20,7 @@ export default class App extends React.Component {
           <BrowserRouter>
             <Routes>
               <Route path='/login' element={<Login></Login>}></Route>
+              <Route path="/generalmenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<myReviewList></myReviewList>}></Route>
             </Routes>
