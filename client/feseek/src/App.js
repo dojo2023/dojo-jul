@@ -20,6 +20,12 @@ import NewUserRegister from './user/NewUserRegister';
 import UserEdit from './user/UserEdit';
 import EventList from './eventList/EventList';
 import Timeline from './eventDetail/Timeline';
+import GuestMenubar from './menubar/GuestMenubar';
+import GeneralProfile from './profile/GeneralProfile';
+import GeneralEventDetail from './eventDetail/GeneralEventDetail';
+import GuestEventDetail from './eventDetail/GuestEventDetail';
+import SponsorEventDetail from './eventDetail/SponsorEventDetail';
+import Review from './eventDetail/Review';
 
 
 export default class App extends React.Component {
@@ -34,7 +40,7 @@ export default class App extends React.Component {
               <Route path='/confirm/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
               <Route path='/confirm/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
               <Route path='/confirm/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
-              <Route path="/generalmenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
+              <Route path="/generalMenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<MyReviewList></MyReviewList>}></Route>
               <Route path='/AdminInquiryList' element={<AdminInquiryList></AdminInquiryList>}></Route>
@@ -45,6 +51,13 @@ export default class App extends React.Component {
               <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
               <Route path='/EventList' element={<EventList></EventList>}></Route>
               <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
+
+              <Route path="/guestMenubar" element={<GuestMenubar></GuestMenubar>}></Route>
+              <Route path="/generalProfile" element={<GeneralProfile></GeneralProfile>}></Route>
+              <Route path="/generalEventDetail" element={<GeneralEventDetail></GeneralEventDetail>}></Route>
+              <Route path="/guestEventDetail" element={<GuestEventDetail></GuestEventDetail>}></Route>
+              <Route path="/sponsorEventDetail" element={<SponsorEventDetail></SponsorEventDetail>}></Route>
+              <Route path="/review" element={<Review></Review>}></Route>
             </Routes>
           </BrowserRouter>
         </header>
