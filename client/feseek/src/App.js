@@ -26,6 +26,10 @@ import GeneralEventDetail from './eventDetail/GeneralEventDetail';
 import GuestEventDetail from './eventDetail/GuestEventDetail';
 import SponsorEventDetail from './eventDetail/SponsorEventDetail';
 import Review from './eventDetail/Review';
+import SponsorProfile from './profile/SponsorProfile';
+import MyEventList from './myReviewList/MyEventList';
+import SponsorMenubar from './menubar/SponsorMenubar';
+import AdminMenubar from './menubar/AdminMenubar';
 
 
 export default class App extends React.Component {
@@ -51,13 +55,16 @@ export default class App extends React.Component {
               <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
               <Route path='/EventList' element={<EventList></EventList>}></Route>
               <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
-
               <Route path="/guestMenubar" element={<GuestMenubar></GuestMenubar>}></Route>
               <Route path="/generalProfile" element={<GeneralProfile></GeneralProfile>}></Route>
               <Route path="/generalEventDetail" element={<GeneralEventDetail></GeneralEventDetail>}></Route>
               <Route path="/guestEventDetail" element={<GuestEventDetail></GuestEventDetail>}></Route>
               <Route path="/sponsorEventDetail" element={<SponsorEventDetail></SponsorEventDetail>}></Route>
-              <Route path="/review" element={<Review></Review>}></Route>
+              <Route path="/review" element={<Review></Review>}></Route>]
+              <Route path='/SponsorProfile' element={<SponsorProfile></SponsorProfile>}></Route>
+              <Route path='/SponsorProfile/MyEventList' element={<MyEventList></MyEventList>}></Route>
+              <Route path='/SponsorMenubar' element={<SponsorMenubar></SponsorMenubar>}></Route>
+              <Route path='/AdminMenubar' element={<AdminMenubar></AdminMenubar>}></Route>
             </Routes>
           </BrowserRouter>
         </header>
