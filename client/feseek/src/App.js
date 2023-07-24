@@ -5,6 +5,8 @@ import './App.css';
 
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './login/Login';
+import ConfirmForId from './confirm/ConfirmForId';
+import IdReRegister from './confirm/IdReRegister';
 import GeneralMenubar from './menubar/GeneralMenubar';
 import EventSearch from './eventSearch/EventSearch';
 import MyReviewList from './myReviewList/MyReviewList';
@@ -12,6 +14,8 @@ import AdminInquiryList from './InquiryList/AdminInquiryList';
 import GeneralAndSponsorInquiryList from './InquiryList/GeneralAndSponsorInquiryList';
 import GeneralAndSponsorInquiryDetail from './InquiryDetail/GeneralAndSponsorInquiryDetail';
 import AdminInquiryDetail from './InquiryDetail/AdminInquiryDetail';
+import ConfirmForIPassword from './confirm/ConfirmForPassword';
+import PasswordReRegister from './confirm/PasswordReRegister';
 
 
 export default class App extends React.Component {
@@ -22,6 +26,10 @@ export default class App extends React.Component {
           <BrowserRouter>
             <Routes>
               <Route path='/login' element={<Login></Login>}></Route>
+              <Route path='/confirm/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
+              <Route path='/confirm/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
+              <Route path='/confirm/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
+              <Route path='/confirm/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
               <Route path="/generalmenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<MyReviewList></MyReviewList>}></Route>
