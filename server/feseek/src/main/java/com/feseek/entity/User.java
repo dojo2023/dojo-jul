@@ -1,6 +1,7 @@
 package com.feseek.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -22,10 +23,16 @@ public class User {
 	private String id;
 	@NonNull
 	private String password;
+	
 	@NonNull
-	private String e_mail;
+	@Column(name="e_mail")
+	private String eMail;
+	
+	@Column(name="user_name")
 	@NonNull
-	private String user_name;
+	private String userName;
+	
+	@Column(name="categories_id")
 	@NonNull
-	private Integer categories_id;
+	private Integer categoriesId;
 }

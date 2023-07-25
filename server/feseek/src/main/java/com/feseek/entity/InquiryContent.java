@@ -2,6 +2,7 @@ package com.feseek.entity;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,12 +22,18 @@ public class  InquiryContent{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="inquiries_id")
 	@NonNull
-	private Integer inquiries_id;
+	private Integer inquiriesId;
+	
+	@Column(name="users_id")
 	@NonNull
-	private String users_id;
+	private String usersId;
+	
+	@Column(name="inq_date")
 	@NonNull
-	private Date inq_date;
+	private Date inqDate;
 	@NonNull
 	private String inquiry;
 
