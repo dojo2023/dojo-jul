@@ -1,28 +1,23 @@
 package com.feseek.api;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.feseek.entity.Event;
-import com.feseek.repository.EventsRepository;
 
 @RestController
 public class EventSearchRestController 
 {
+	/*
+}
 	@Autowired
 	private EventsRepository repository;
 	//イベント検索(キーワード)
 	@PostMapping("/api/event/keysearch")
-	protected List<Event> keysearch(@RequestBody Event event)
+	protected List<Event> keysearch(@RequestBody EventSearch event)
 	{
-		//String keyword = event.getKeyword();
+		/*
+		String keyword = event.getKeyword();
 		
-		return repository. findByEvent_Name("%夏%");
-				/*
+		return repository. findByEvent_nameOrOpenTimeOrAddressOrAccessOrCostsOrDetailOrOrganizerOrContactAddress
+				
 				 (
 				  "%" + keyword + "%"
 				 ,"%" + keyword + "%"
@@ -33,7 +28,7 @@ public class EventSearchRestController
 				 ,"%" + keyword + "%"
 				 ,"%" + keyword + "%"
 				);
-				*/
+				
 	}
 	/*
 	 // ジャンル、都道府県、日付、季節を入力して検索（画面設計図利用者側1ページ)
