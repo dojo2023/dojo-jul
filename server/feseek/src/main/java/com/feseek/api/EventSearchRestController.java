@@ -1,13 +1,10 @@
 package com.feseek.api;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.feseek.entity.Event;
@@ -37,7 +34,7 @@ public class EventSearchRestController
 				 ,"%" + keyword + "%"
 				);
 	}
-	
+	/*
 	 // ジャンル、都道府県、日付、季節を入力して検索（画面設計図利用者側1ページ)
     @GetMapping("/api/search")
     protected List<Event> searchEvents(
@@ -63,4 +60,5 @@ public class EventSearchRestController
             return repository.findAll();
         }
     }
+    */
 }
