@@ -1,5 +1,7 @@
 package com.feseek.repository;
 
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.feseek.entity.Event;
@@ -15,5 +17,7 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 //	List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
 
 	//List<Event> findByGenre(String genre);
+	
+	Optional<Event> findById(Integer id);
 
 }
