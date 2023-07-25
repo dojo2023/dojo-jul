@@ -18,7 +18,9 @@ import ConfirmForIPassword from './confirm/ConfirmForPassword';
 import PasswordReRegister from './confirm/PasswordReRegister';
 import NewUserRegister from './user/NewUserRegister';
 import UserEdit from './user/UserEdit';
-import EventList from './eventList/EventList';
+import GuestEventList from './eventList/GuestEventList';
+import GeneralEventList from './eventList/GeneralEventList';
+import SponsorEventList from './eventList/SponsorEventList';
 import Timeline from './eventDetail/Timeline';
 import GuestMenubar from './menubar/GuestMenubar';
 import GeneralProfile from './profile/GeneralProfile';
@@ -33,12 +35,22 @@ import AdminMenubar from './menubar/AdminMenubar';
 
 
 export default class App extends React.Component {
+
+  handleSearch = (keyword) => {
+    console.log('handleSearch:' + keyword);
+  }
+
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <BrowserRouter>
             <Routes>
+              <Route index element={
+                <div>
+                  <EventSearch handleSearch={this.handleSearch}></EventSearch>
+                </div>
+              }></Route>
               <Route path='/login' element={<Login></Login>}></Route>
               <Route path='/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
               <Route path='/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
@@ -53,14 +65,16 @@ export default class App extends React.Component {
               <Route path='/AdminInquiryDetail' element={<AdminInquiryDetail></AdminInquiryDetail>}></Route>
               <Route path='/NewUserRegister' element={<NewUserRegister></NewUserRegister>}></Route>
               <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
-              <Route path='/EventList' element={<EventList></EventList>}></Route>
+              <Route path='/GuestEventList' element={<GuestEventList></GuestEventList>}></Route>
+              <Route path='/GeneralEventList' element={<GeneralEventList></GeneralEventList>}></Route>
+              <Route path='/SponsorEventList' element={<SponsorEventList></SponsorEventList>}></Route>
               <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
               <Route path="/guestMenubar" element={<GuestMenubar></GuestMenubar>}></Route>
               <Route path="/generalProfile" element={<GeneralProfile></GeneralProfile>}></Route>
               <Route path="/generalEventDetail" element={<GeneralEventDetail></GeneralEventDetail>}></Route>
               <Route path="/guestEventDetail" element={<GuestEventDetail></GuestEventDetail>}></Route>
               <Route path="/sponsorEventDetail" element={<SponsorEventDetail></SponsorEventDetail>}></Route>
-              <Route path="/review" element={<Review></Review>}></Route>]
+              <Route path="/review" element={<Review></Review>}></Route>
               <Route path='/SponsorProfile' element={<SponsorProfile></SponsorProfile>}></Route>
               <Route path='/MyEventList' element={<MyEventList></MyEventList>}></Route>
               <Route path='/SponsorMenubar' element={<SponsorMenubar></SponsorMenubar>}></Route>

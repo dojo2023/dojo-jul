@@ -13,35 +13,19 @@ export default class EventList extends React.Component{
     render(){
         return(
             <div>
-                <div>イベントリストページ</div>
+                <div>一般イベントリストページ</div>
                 <ul class="event_ul">
                     <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
+                        <a href="/guestEventDetail">
+                            <div class="list_title">ゲストイベント詳細リンク</div><br></br>
                             <div class="list_genre">ジャンル</div>
                             <div class="list_prefecture">都道府県</div>
                             <div class="list_remarks">詳細</div>
                         </a>
                     </li>
                     <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
-                            <div class="list_genre">ジャンル</div>
-                            <div class="list_prefecture">都道府県</div>
-                            <div class="list_remarks">詳細</div>
-                        </a>
-                    </li>
-                    <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
-                            <div class="list_genre">ジャンル</div>
-                            <div class="list_prefecture">都道府県</div>
-                            <div class="list_remarks">詳細</div>
-                        </a>
-                    </li>
-                    <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
+                        <a href="/generalEventDetail">
+                            <div class="list_title">一般利用者イベント詳細リンク</div><br></br>
                             <div class="list_genre">ジャンル</div>
                             <div class="list_prefecture">都道府県</div>
                             <div class="list_remarks">詳細</div>
