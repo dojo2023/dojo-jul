@@ -40,10 +40,10 @@ export default class App extends React.Component {
           <BrowserRouter>
             <Routes>
               <Route path='/login' element={<Login></Login>}></Route>
-              <Route path='/confirm/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
-              <Route path='/confirm/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
-              <Route path='/confirm/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
-              <Route path='/confirm/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
+              <Route path='/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
+              <Route path='/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
+              <Route path='/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
+              <Route path='/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
               <Route path="/generalMenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
               <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<MyReviewList></MyReviewList>}></Route>
@@ -62,7 +62,7 @@ export default class App extends React.Component {
               <Route path="/sponsorEventDetail" element={<SponsorEventDetail></SponsorEventDetail>}></Route>
               <Route path="/review" element={<Review></Review>}></Route>]
               <Route path='/SponsorProfile' element={<SponsorProfile></SponsorProfile>}></Route>
-              <Route path='/SponsorProfile/MyEventList' element={<MyEventList></MyEventList>}></Route>
+              <Route path='/MyEventList' element={<MyEventList></MyEventList>}></Route>
               <Route path='/SponsorMenubar' element={<SponsorMenubar></SponsorMenubar>}></Route>
               <Route path='/AdminMenubar' element={<AdminMenubar></AdminMenubar>}></Route>
             </Routes>
