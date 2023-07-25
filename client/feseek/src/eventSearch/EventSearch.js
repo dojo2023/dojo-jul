@@ -11,6 +11,7 @@ export default class EventSearch extends React.Component{
         this.handleSearch = prop.handleSearch;
         //stateの設定
         this.state = {
+            events:[],
             keyword: "",
             genre: "",
             date: "",
@@ -28,6 +29,14 @@ export default class EventSearch extends React.Component{
     keywordSearch = () => {
         const {keyword} = this.state;
         this.handleSearch(keyword);
+
+        const data = {keyword:keyword};
+        axios.post("api/book/search",data)
+        .then((json) => {
+          this.setState({
+            events:json.data
+          })
+        });
     }
 
     // keywordSearch = (keyword) => {
@@ -94,10 +103,10 @@ export default class EventSearch extends React.Component{
                     <input type="radio" name="season" value={season}/>冬
                     <br/>
                         
-                    <button onClick={this.detailSearch}>検索</button>
+                    <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
 
                     <div>
-                        <a href="./EventList">戻る</a>
+                        <a href="/GuestEventList">戻る</a>
                     </div>
                 </div>
 
