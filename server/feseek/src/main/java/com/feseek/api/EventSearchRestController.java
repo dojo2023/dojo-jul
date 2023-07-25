@@ -22,9 +22,8 @@ public class EventSearchRestController
 		String keyword = event.getKeyword();
 		
 		return repository.findByKeywordSearch
-				 ("%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
+				 (
+				  "%" + keyword + "%"
 				 ,"%" + keyword + "%"
 				 ,"%" + keyword + "%"
 				 ,"%" + keyword + "%"
