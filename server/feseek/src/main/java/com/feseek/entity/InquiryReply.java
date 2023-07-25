@@ -17,7 +17,7 @@ import lombok.NonNull;
 @NoArgsConstructor
 @Data
 @Table(name="inquiry_contents")
-public class  InquiryContent{
+public class  InquiryReply{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -27,6 +27,8 @@ public class  InquiryContent{
 	private String users_id;
 	@NonNull
 	private Date inq_date;
+	@NonNull
+	private String subject;
 	@NonNull
 	private String inquiry;
 	
