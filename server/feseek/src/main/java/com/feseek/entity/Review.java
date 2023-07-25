@@ -2,6 +2,7 @@ package com.feseek.entity;
 
 import java.sql.Date;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,28 +22,43 @@ public class Review {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="users_id")
 	@NonNull
-	private String users_id;
+	private String usersId;
+	
+	@Column(name="events_id")
 	@NonNull
-	private Integer events_id;
+	private Integer eventsId;
+	
 	@NonNull
 	private Integer satisfaction;
+	
 	@NonNull
 	private Integer security;
+	
 	@NonNull
 	private Integer again;
+	
 	@NonNull
 	private Integer atmosphere;
+	
 	@NonNull
 	private Integer continuation;
+	
+	@Column(name="rev_date")
 	@NonNull
-	private Date rev_date;
+	private Date revDate;
+	
+	@Column(name="rev_title")
 	@NonNull
-	private String rev_title;
+	private String revTitle;
+	
 	@NonNull
 	private String comment;
 	
-	private String rev_image;
+	@Column(name="rev_image")
+	private String revImage;
 	
 
 }

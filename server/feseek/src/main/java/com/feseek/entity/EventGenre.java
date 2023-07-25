@@ -1,6 +1,7 @@
 package com.feseek.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,8 +23,12 @@ public class EventGenre
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="events_id")
 	@NonNull
-	private Integer events_id;
+	private Integer eventsId;
+	
+	@Column(name="genres_id")
 	@NonNull
-	private Integer genres_id;
+	private Integer genresId;
 }

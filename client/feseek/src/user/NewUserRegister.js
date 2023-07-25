@@ -22,7 +22,7 @@ export default class User extends React.Component{
                 {/* <p class="user_p">ユーザー名</p> */}
                 <input type="text" class="u_text" name="u_name" minlength="2" required placeholder="ユーザー名(2~20文字で入力ください)"></input><br></br>
                 {/* <p class="user_p">メールアドレス</p> */}
-                <input type="text" class="u_text" name="u_name" required placeholder="メールアドレス"></input><br></br>
+                <input type="text" class="u_text" name="mail_ad" required placeholder="メールアドレス"></input><br></br>
                 {/* <p class="user_p">権限選択</p> */}
                 <select name="authority">
                     <option value="">選択してください</option>

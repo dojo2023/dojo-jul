@@ -21,7 +21,7 @@ public class Timeline {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	@NonNull
-	private Integer event_id;
+	private Integer events_id;
 	@NonNull
 	private String infomation;
 
