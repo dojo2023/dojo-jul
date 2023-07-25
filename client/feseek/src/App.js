@@ -18,7 +18,9 @@ import ConfirmForIPassword from './confirm/ConfirmForPassword';
 import PasswordReRegister from './confirm/PasswordReRegister';
 import NewUserRegister from './user/NewUserRegister';
 import UserEdit from './user/UserEdit';
-import EventList from './eventList/EventList';
+import GuestEventList from './eventList/GuestEventList';
+import GeneralEventList from './eventList/GeneralEventList';
+import SponsorEventList from './eventList/SponsorEventList';
 import Timeline from './eventDetail/Timeline';
 import GuestMenubar from './menubar/GuestMenubar';
 import GeneralProfile from './profile/GeneralProfile';
@@ -53,7 +55,9 @@ export default class App extends React.Component {
               <Route path='/AdminInquiryDetail' element={<AdminInquiryDetail></AdminInquiryDetail>}></Route>
               <Route path='/NewUserRegister' element={<NewUserRegister></NewUserRegister>}></Route>
               <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
-              <Route path='/EventList' element={<EventList></EventList>}></Route>
+              <Route path='/GuestEventList' element={<GuestEventList></GuestEventList>}></Route>
+              <Route path='/GeneralEventList' element={<GeneralEventList></GeneralEventList>}></Route>
+              <Route path='/SponsorEventList' element={<SponsorEventList></SponsorEventList>}></Route>
               <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
               <Route path="/guestMenubar" element={<GuestMenubar></GuestMenubar>}></Route>
               <Route path="/generalProfile" element={<GeneralProfile></GeneralProfile>}></Route>
