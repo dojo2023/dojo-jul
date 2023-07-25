@@ -46,18 +46,13 @@ export default class App extends React.Component {
         <header className="App-header">
           <BrowserRouter>
             <Routes>
-              <Route index element={
-                <div>
-                  <EventSearch handleSearch={this.handleSearch}></EventSearch>
-                </div>
-              }></Route>
               <Route path='/login' element={<Login></Login>}></Route>
               <Route path='/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
               <Route path='/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
               <Route path='/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
               <Route path='/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
               <Route path="/generalMenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
-              <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
+              <Route path="/eventSearch" element={<EventSearch handleSearch={this.handleSearch}></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<MyReviewList></MyReviewList>}></Route>
               <Route path='/AdminInquiryList' element={<AdminInquiryList></AdminInquiryList>}></Route>
               <Route path='/GeneralAndSponsorInquiryList' element={<GeneralAndSponsorInquiryList></GeneralAndSponsorInquiryList>}></Route>
