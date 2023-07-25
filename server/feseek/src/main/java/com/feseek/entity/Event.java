@@ -60,9 +60,5 @@ public class Event
 	private String url_fifth;
 	private String contact_address;
 	
-	//キーワード検索に必要なもの
-	private String keyword;
-	private String genre;
-	private String prefecture;
-	private String date;
+
 }

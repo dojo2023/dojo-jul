@@ -19,9 +19,10 @@ public class EventSearchRestController
 	@PostMapping("/api/event/keysearch")
 	protected List<Event> keysearch(@RequestBody Event event)
 	{
-		String keyword = event.getKeyword();
+		//String keyword = event.getKeyword();
 		
-		return repository.findByKeywordSearch
+		return repository. findByEvent_Name("%夏%");
+				/*
 				 (
 				  "%" + keyword + "%"
 				 ,"%" + keyword + "%"
@@ -32,6 +33,7 @@ public class EventSearchRestController
 				 ,"%" + keyword + "%"
 				 ,"%" + keyword + "%"
 				);
+				*/
 	}
 	/*
 	 // ジャンル、都道府県、日付、季節を入力して検索（画面設計図利用者側1ページ)

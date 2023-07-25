@@ -1,16 +1,17 @@
 package com.feseek.repository;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.feseek.entity.Event;
-
+		
 public interface EventsRepository extends JpaRepository<Event,Integer > 
 {
 	//キーワード検索用メソッド
-	List<Event>findByKeywordSearch(String event_name,String open_time,String address,String access,String costs,String detail,String organizer,String contact_address);
+	List<Event> findByEvent_Name(String event_name);
 	//詳細検索用
-	List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
+	List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, LocalDate date, String season, String detail);
+
 }
