@@ -35,12 +35,22 @@ import AdminMenubar from './menubar/AdminMenubar';
 
 
 export default class App extends React.Component {
+
+  handleSearch = (keyword) => {
+    console.log('handleSearch:' + keyword);
+  }
+
   render(){
     return (
       <div className="App">
         <header className="App-header">
           <BrowserRouter>
             <Routes>
+              <Route index element={
+                <div>
+                  <EventSearch handleSearch={this.handleSearch}></EventSearch>
+                </div>
+              }></Route>
               <Route path='/login' element={<Login></Login>}></Route>
               <Route path='/ConfirmForId' element={<ConfirmForId></ConfirmForId>}></Route>
               <Route path='/ConfirmForPassword' element={<ConfirmForIPassword></ConfirmForIPassword>}></Route>
@@ -64,7 +74,7 @@ export default class App extends React.Component {
               <Route path="/generalEventDetail" element={<GeneralEventDetail></GeneralEventDetail>}></Route>
               <Route path="/guestEventDetail" element={<GuestEventDetail></GuestEventDetail>}></Route>
               <Route path="/sponsorEventDetail" element={<SponsorEventDetail></SponsorEventDetail>}></Route>
-              <Route path="/review" element={<Review></Review>}></Route>]
+              <Route path="/review" element={<Review></Review>}></Route>
               <Route path='/SponsorProfile' element={<SponsorProfile></SponsorProfile>}></Route>
               <Route path='/MyEventList' element={<MyEventList></MyEventList>}></Route>
               <Route path='/SponsorMenubar' element={<SponsorMenubar></SponsorMenubar>}></Route>
