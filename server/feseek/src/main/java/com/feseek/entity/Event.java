@@ -47,6 +47,8 @@ public class Event
 	private String detail;
 	@NonNull
 	private String organizer;
+	@NonNull
+	private String season;
 	//------ここまで必須入力項目---------
 	
 	private String url;
