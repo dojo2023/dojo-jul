@@ -65,5 +65,4 @@ public class Event
 	private String genre;
 	private String prefecture;
 	private String date;
-	private String season;
 }
