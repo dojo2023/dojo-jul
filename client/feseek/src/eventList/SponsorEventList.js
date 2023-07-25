@@ -32,16 +32,8 @@ export default class EventList extends React.Component{
                         </a>
                     </li>
                     <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
-                            <div class="list_genre">ジャンル</div>
-                            <div class="list_prefecture">都道府県</div>
-                            <div class="list_remarks">詳細</div>
-                        </a>
-                    </li>
-                    <li class="event_li">
-                        <a href="">
-                            <div class="list_title">eventtitle</div><br></br>
+                        <a href="/sponsorEventDetail">
+                            <div class="list_title">主催者イベント詳細リンク</div><br></br>
                             <div class="list_genre">ジャンル</div>
                             <div class="list_prefecture">都道府県</div>
                             <div class="list_remarks">詳細</div>
