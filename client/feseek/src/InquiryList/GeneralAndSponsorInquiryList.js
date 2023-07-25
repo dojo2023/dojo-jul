@@ -50,14 +50,10 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
                         <td>件名</td>
                         <td>内容</td>
                         <td>
-                            <button name="register">確認</button>
+                        <a href="./GeneralAndSponsorInquiryDetail"><button name="register">確認</button></a>
                         </td>
                     </tr>
                 </table>
-
-                <div>
-                    <a href="./GeneralAndSponsorInquiryDetail">一般利用者、主催者お問い合わせ詳細ページに遷移</a>
-                </div>
 
                 <div>
                     <a href="./EventList">戻る</a>
