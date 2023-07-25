@@ -2,16 +2,23 @@ import React from 'react';
 
 export default class GuestEventDetail extends React.Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            
+        }
+    }
+
     render(){
         return(
-            <div>
+            <div class="body">
                 <h1>ゲストイベント詳細画面　タイトル</h1>
                 <img src="　"></img>
                 
                 <p>ここに詳細文をたくさん記載</p>
 
                 <h2>基本情報</h2>
-                <table border="1">
+                <table class="list">
                     <tr>
                         <th>イベント名</th> <td>あ</td>
                     </tr>
@@ -41,15 +48,19 @@ export default class GuestEventDetail extends React.Component{
                     </tr>
                 </table>
 
-                <h3>口コミ</h3>
-                <br />
-                <iframe src="./review" width="500" height="400"></iframe>
+                <div class="side">
+                    <div class="review">
+                    <h3>口コミ</h3>
+                        <br />
+                        <iframe src="./review"></iframe>
+                    </div>
 
-                <h3>タイムライン</h3>
-                <br />
-                <iframe src="./Timeline" width="500" height="400"></iframe>
-
-
+                    <div class="timeline">
+                    <h3>タイムライン</h3>
+                        <br />
+                        <iframe src="./Timeline"></iframe>
+                    </div>
+                </div>
 
 
             </div>
