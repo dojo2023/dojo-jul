@@ -31,7 +31,7 @@ export default class EventSearch extends React.Component{
         this.handleSearch(keyword);
 
         const data = {keyword:keyword};
-        axios.post("api/book/search",data)
+        axios.post("/api/event/keysearch",data)
         .then((json) => {
           this.setState({
             events:json.data
@@ -54,6 +54,14 @@ export default class EventSearch extends React.Component{
     detailSearch = () => {
         const {genre,date,prefecture,season} = this.state;
         this.handleSearch(genre,date,prefecture,season);
+
+        const data = {genre:genre,date:date,prefecture:prefecture,season:season};
+        axios.post("/api/search",data)
+        .then((json) => {
+          this.setState({
+            events:json.data
+            })
+        });
     }
 
     render(){

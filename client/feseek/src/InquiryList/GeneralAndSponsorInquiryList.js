@@ -8,13 +8,28 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
-            // books:[]
+            inquiry_contents:[],
             subject: "",
             inquiry: "",
             showModal: false,
             modSubject: "",
             modInquiry: "",
         }
+    }
+
+    //マウント後に自動で動作する
+    componentDidMount(){
+        //学習用にaxiosでなく、標準のfetchを利用している。
+        fetch("/inquiries/{userId}")
+        .then(res => res.json())
+        .then(json => {
+            console.log(json);
+            //stateのreviewsに受け取ったデータを保持する。
+            //stateが変わると自動的に画面が再描画される。
+            this.setState({
+                inquiry_contents:json
+            })
+        });
     }
     
     //モーダルウィンドウの表示切り替え
@@ -33,7 +48,7 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
 
     render(){
 
-            const {showModal} =this.state;
+            const {inquiry_contents, showModal} =this.state;
 
         return(
             <div>
@@ -49,10 +64,18 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
                         <td>日時</td>
                         <td>件名</td>
                         <td>内容</td>
+                        <td></td>
+                    </tr>
+                    {inquiry_contents.map((inquiry_content,index) =>
+                    <tr class="inquiry_contentrow">
+                        <td></td>
+                        <td class="inq_date">{inquiry_content.inq_date}</td>
+                        <td class="inquiry">{inquiry_content.inquiry}</td>
                         <td>
                         <a href="./GeneralAndSponsorInquiryDetail"><button name="register">確認</button></a>
                         </td>
                     </tr>
+                    )}
                 </table>
 
                 <div>
