@@ -14,7 +14,7 @@ import lombok.NonNull;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Table(name="users")
+@Table(name = "users")
 
 public class User {
 	//ID列の指定

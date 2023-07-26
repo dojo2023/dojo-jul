@@ -1,12 +1,22 @@
 package com.feseek.api;
 
+import java.util.Optional;
+
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.feseek.entity.User;
+import com.feseek.repository.UsersRepository;
 
 @RestController
 @RequestMapping("/api")
 public class UserRestController {
-	/*
+	
 
     private UsersRepository usersRepository;
 
@@ -21,10 +31,10 @@ public class UserRestController {
         
       //   UserRegistrationRequestからUserエンティティを作成します。
         User user = new User();
-        user.setUser_name(request.getUser_name());
-        user.setE_mail(request.getE_mail());
+        user.setUserName(request.getUserName());
+        user.setEMail(request.getEMail());
         user.setPassword(request.getPassword());
-        user.setCategories_id(request.getCategories_id());
+        user.setCategoriesId(request.getCategoriesId());
 
     //     データベースにユーザーを保存します。
         usersRepository.save(user);
@@ -59,13 +69,13 @@ public class UserRestController {
             User user = optionalUser.get();
             // パスワード、メールアドレス、ユーザー名を更新します。
             user.setPassword(updatedUser.getPassword());
-            user.setE_mail(updatedUser.getE_mail());
-            user.setUser_name(updatedUser.getUser_name());
+            user.setEMail(updatedUser.getEMail());
+            user.setUserName(updatedUser.getUserName());
             usersRepository.save(user);
             return "ユーザー情報が正常に更新されました。";
         } else {
             return "指定されたIDのユーザーは見つかりませんでした。";
         }
     }
-    */
+    
 }
