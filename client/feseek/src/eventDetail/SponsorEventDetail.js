@@ -1,4 +1,5 @@
 import React from 'react';
+import './EventDetail.css';
 
 export default class SponsorEventDetail extends React.Component{
 
@@ -7,7 +8,20 @@ export default class SponsorEventDetail extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
-            eventDetail: "",
+            events:[],
+            usersId: "",
+            eventName: "",
+            startDate: "",
+            endDate: "",
+            openTime: "",
+            address: "",
+            access: "",
+            map: "",
+            costs: "",
+            detail: "",
+            organizer: "",
+            season: "",
+
             showModal: false,
             modinformation: "",
             
@@ -32,7 +46,9 @@ export default class SponsorEventDetail extends React.Component{
 
         return(
             <div class="body">
+                <div class="eventh1">
                 <h1>主催者イベント詳細画面（タイムライン投稿モーダルも表示）ページ</h1>
+                </div>
                 <img src="　"></img>
 
                 <p>ここに詳細文をたくさん記載</p>
@@ -72,12 +88,13 @@ export default class SponsorEventDetail extends React.Component{
                     <div class="review">
                     <h2>口コミ</h2>
                         <br />
-                        <iframe src="./review"></iframe>
+                        <iframe class="iframe_tl" src="./review"></iframe>
                     </div>
 
                     <div class="timeline">
                     <h2>タイムライン</h2>
-                        <button onClick={() =>{this.modDetail()}}>投稿</button>
+                        <br />
+                        <button class="btn" onClick={() =>{this.modDetail()}}>投稿</button>
                         <br />
                         <iframe src="./Timeline"></iframe>
                     </div>
