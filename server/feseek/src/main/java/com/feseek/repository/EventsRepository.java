@@ -20,6 +20,7 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 
 	//List<Event> findByGenre(String genre);
 
+	//イベント詳細表示
 	Optional<Event> findById(Integer id);
 
 }
