@@ -1,4 +1,5 @@
 import React from 'react';
+import './InquiryDetail.css';
 
 export default class GeneralAndSponsorInquiryDetail extends React.Component{
 

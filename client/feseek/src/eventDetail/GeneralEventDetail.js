@@ -1,19 +1,54 @@
 import React from 'react';
+import './EventDetail.css';
 
 export default class GeneralEventDetail extends React.Component{
 
+    //親コンポーネントから受け取るデータなどがpropsに入っている。
+    constructor(props) {
+        super(props);
+        //stateの設定。
+        this.state = {
+            eventDetail: "",
+            showModal: false,
+            modSubject: "",
+            modsatisfaction: "",
+            modsecurity: "",
+            modagain: "",
+            modatmosphere: "",
+            modcontinuation: "",
+            modcomment: "",
+            modrevImage: "",
+            
+        }
+    }
+
+    //モーダルウィンドウの表示切り替え
+    toggleModal = () => {
+        const{showModal} = this.state;
+        this.setState({
+            showModal: !showModal
+        });
+    }
+
+    //口コミ投稿ボタンを押下したときに実行する
+    modDetail = () => {
+        this.toggleModal();
+    }
+
     render(){
+            const {showModal} =this.state;
+
         return(
-            <div>
+            <div class="body">
                 <h1>一般利用者イベント詳細画面　タイトル</h1>
                 <img src="　"></img>
 
                 <p>ここに詳細文をたくさん記載</p>
 
                 <h2>基本情報</h2>
-                <table border="1">
+                <table class="list">
                     <tr>
-                        <th>イベント名</th> <td>あ</td>
+                        <th>イベント名</th> <td>第8回富津市民花火大会</td>
                     </tr>
                     <tr>
                         <th>主催者名</th> <td>い</td>
@@ -40,16 +75,63 @@ export default class GeneralEventDetail extends React.Component{
                         <th>連絡先</th> <td>け</td>
                     </tr>
                 </table>
+                
+            <div class="side">
+                <div class="review">
+                <h2>口コミ</h2>
+                    <button onClick={() =>{this.modDetail()}}>投稿</button>
+                    <br />
+                    <iframe src="./review"></iframe>
+                </div>
 
-                <h3>口コミ</h3>
-                <button>投稿</button>
-                <br />
-                <iframe src="./review" width="500" height="400"></iframe>
+                <div class="timeline">
+                <h2>タイムライン</h2>
+                    <br />
+                    <iframe src="./Timeline"></iframe>
+                </div>
+            </div>
 
-                <h3>タイムライン</h3>
-                <button>投稿</button>
-                <br />
-                <iframe src="./Timeline" width="500" height="400"></iframe>
+                {/* モーダルウィンドウ(送信) */}
+                {showModal &&
+                    <div id="overlay">
+                        <div id="content">
+                        <button class="round_btn" onClick={this.toggleModal}></button>
+                            <div><h3>口コミ投稿</h3></div>
+                                件名<input type="text" name="modSubject"/>
+                                <br />
+                                評価<div>
+                                        <input type="checkbox" id="item1" name="modsatisfaction" />
+                                        <label for="modsatisfaction">満足か</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item2" name="modatmosphere" />
+                                        <label for="modatmosphere">雰囲気が良い</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item3" name="modsecurity" />
+                                        <label for="modsecurity">治安が良い</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item4" name="modagain" />
+                                        <label for="modagain">また来たい</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item15" name="modcontinuation" />
+                                        <label for="horns">続いて欲しい</label>
+                                    </div>
+
+                                内容<br />
+                                <textarea name="modcomment" rows="4" cols="70"></textarea>
+                                <br />
+                                画像<br />
+                                <input type="file" name="modrevImage" accept="image/*"></input>
+                                
+                                <br />
+                            <button type="submit" name="post">投稿</button>
+                        </div>
+                    </div>
+                }
+
 
             </div>
         );

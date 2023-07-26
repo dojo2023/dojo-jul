@@ -17,12 +17,10 @@ public class ProfileRestController {
 	private UsersRepository repository;
 	
 	@GetMapping("/api/user/profile")
-	protected Optional<User> profile(@RequestBody String id){
-		return repository.findById(id);
-	}
-	
-	
-	
-	
+	protected Optional<User> profile(@RequestBody User user){
+		//return repository.findById(user.getId());
+		return repository.findById("a0001");
+
+	}	
 
 }

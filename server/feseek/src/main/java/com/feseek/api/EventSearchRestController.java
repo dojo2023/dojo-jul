@@ -1,38 +1,37 @@
 package com.feseek.api;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.feseek.entity.Event;
+import com.feseek.repository.EventsRepository;
 
 @RestController
 public class EventSearchRestController 
 {
-	/*
-}
+	
+
 	@Autowired
 	private EventsRepository repository;
-	//イベント検索(キーワード)
-	@PostMapping("/api/event/keysearch")
-	protected List<Event> keysearch(@RequestBody EventSearch event)
+	@GetMapping("/api/search")
+	protected List<Event> findAll()
 	{
-		/*
-		String keyword = event.getKeyword();
 		
-		return repository. findByEvent_nameOrOpenTimeOrAddressOrAccessOrCostsOrDetailOrOrganizerOrContactAddress
-				
-				 (
-				  "%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				 ,"%" + keyword + "%"
-				);
-				
+		
+	 String keyword = "夏祭り";
+
+    return repository.findByEventNameLike("%" + keyword + "%");
+	//return repository.findAll();
+		 
 	}
+	
+	
 	/*
 	 // ジャンル、都道府県、日付、季節を入力して検索（画面設計図利用者側1ページ)
-    @GetMapping("/api/search")
+    @GetMapping("/api/syousai")
     protected List<Event> searchEvents(
         @RequestParam(required = false) String genre,
         @RequestParam(required = false) String prefecture,

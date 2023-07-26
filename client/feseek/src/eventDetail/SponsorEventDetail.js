@@ -2,16 +2,43 @@ import React from 'react';
 
 export default class SponsorEventDetail extends React.Component{
 
+     //親コンポーネントから受け取るデータなどがpropsに入っている。
+    constructor(props) {
+        super(props);
+        //stateの設定。
+        this.state = {
+            eventDetail: "",
+            showModal: false,
+            modinformation: "",
+            
+        }
+    }
+
+    //モーダルウィンドウの表示切り替え
+    toggleModal = () => {
+        const{showModal} = this.state;
+        this.setState({
+            showModal: !showModal
+        });
+    }
+
+    //口コミ投稿ボタンを押下したときに実行する
+    modDetail = () => {
+        this.toggleModal();
+    }
+
     render(){
+            const {showModal} =this.state;
+
         return(
-            <div>
+            <div class="body">
                 <h1>主催者イベント詳細画面（タイムライン投稿モーダルも表示）ページ</h1>
                 <img src="　"></img>
 
                 <p>ここに詳細文をたくさん記載</p>
 
                 <h2>基本情報</h2>
-                <table border="1">
+                <table class="list">
                     <tr>
                         <th>イベント名</th> <td>あ</td>
                     </tr>
@@ -41,15 +68,34 @@ export default class SponsorEventDetail extends React.Component{
                     </tr>
                 </table>
 
-                <h3>口コミ</h3>
-                <button>投稿</button>
-                <br />
-                <iframe src="./review" width="500" height="400"></iframe>
+                <div class="side">
+                    <div class="review">
+                    <h2>口コミ</h2>
+                        <br />
+                        <iframe src="./review"></iframe>
+                    </div>
 
-                <h3>タイムライン</h3>
-                <button>投稿</button>
-                <br />
-                <iframe src="./Timeline" width="500" height="400"></iframe>
+                    <div class="timeline">
+                    <h2>タイムライン</h2>
+                        <button onClick={() =>{this.modDetail()}}>投稿</button>
+                        <br />
+                        <iframe src="./Timeline"></iframe>
+                    </div>
+                </div>
+
+                    {/* モーダルウィンドウ(送信) */}
+                {showModal &&
+                    <div id="overlay">
+                        <div id="content">
+                        <button class="round_btn" onClick={this.toggleModal}></button>
+                            <div><h3>イベントの最新情報を発信します</h3></div>
+                                内容<br />
+                                <textarea required name="modinformation" rows="10" cols="70"></textarea>
+                                <br />
+                            <button type="submit" name="post">投稿</button>
+                        </div>
+                    </div>
+                }
 
             </div>
         );

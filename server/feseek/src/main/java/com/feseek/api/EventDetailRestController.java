@@ -21,14 +21,14 @@ public class EventDetailRestController {
 	
 	@GetMapping("/api/event/detail")
 	protected Optional<Event> findById(@RequestBody Event event){
-		//return repository.findById(id);
-		return repository.findById(event.getId());
+		return repository.findById(1);
+		//return repository.findById(event.getId());
 	}
 	
 	/*
 	@GetMapping("/api/event/detail")
 	protected List<Event> findAll(){
-		return repository.findAll(1);
+		return repository.findAll();
 	}
 	*/
 	

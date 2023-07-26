@@ -1,5 +1,6 @@
 package com.feseek.api;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -8,12 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.feseek.entity.Event;
 import com.feseek.entity.Timeline;
 import com.feseek.repository.TimelinesRepository;
 
@@ -22,44 +20,51 @@ import com.feseek.repository.TimelinesRepository;
 public class TimelineRestController {
 
     @Autowired
-    private TimelinesRepository timelineRepository;
+    private TimelinesRepository timelinesRepository;
 
-    // 特定のイベントIDに対応するタイムライン情報を取得
+ // 特定のイベントIDに対応するタイムライン情報のうち、infomationだけを取得
     @GetMapping("/{eventId}")
-    public ResponseEntity<List<Timeline>> getTimelinesByEventId(@PathVariable Integer events_id) {
-        List<Timeline> timelines = timelineRepository.findByEvents_id(events_id);
+    public ResponseEntity<List<String>> getTimelinesByEventId(@PathVariable Integer eventId) {
+        List<Timeline> timelines = timelinesRepository.findByEventId(eventId);
         if (timelines.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.ok(timelines);
+        
+        List<String> informationList = new ArrayList<>();
+        for (Timeline timeline : timelines) {
+            informationList.add(timeline.getInfomation());
+        }
+        
+        return ResponseEntity.ok(informationList);
     }
 
-    // タイムラインの削除
-    @DeleteMapping("/{timelineId}")
+
+ // タイムラインの削除
+    @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteTimeline(@PathVariable Integer id) {
-        Optional<Timeline> optionalTimeline = timelineRepository.findById(id);
+        Optional<Timeline> optionalTimeline = timelinesRepository.findById(id);
         if (optionalTimeline.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
 
-        timelineRepository.deleteById(id);
+        timelinesRepository.deleteById(id);
         return ResponseEntity.ok().build();
     }
 
     // テキスト入力での投稿
-    @PostMapping("/{eventId}")
-    public ResponseEntity<Timeline> createTextPost(@PathVariable Integer events_id, @RequestBody String infomation) {
-        Timeline newTimeline = new Timeline();
-        newTimeline.setInfomation(infomation);
-
-        // イベントにタイムラインを紐づける
-        Event event = new Event();
-        event.setId(events_id);
-        newTimeline.setEvent_id(events_id);
-
-        // タイムラインをデータベースに保存
-        Timeline createdTimeline = timelineRepository.save(newTimeline);
-        return ResponseEntity.ok(createdTimeline);
-    }
+//    @PostMapping("/timeline")
+//    public ResponseEntity<Timeline> createTextPost(@RequestBody Timeline newTimeline) {
+//        // イベントにタイムラインを紐づける
+//        if (newTimeline.getEvent() == null) {
+//            Event event = new Event();
+//            event.setId(newTimeline.getEvents_id());
+//            newTimeline.setEvent(event);
+//        }
+//
+//        // タイムラインをデータベースに保存
+//        Timeline createdTimeline = timelinesRepository.save(newTimeline);
+//        return ResponseEntity.ok(createdTimeline);
+//    }
 }
+
 

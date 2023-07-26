@@ -7,9 +7,9 @@ import lombok.Data;
 //@AllArgsConstructor
 public class EventSearch 
 {
-	/*
+	
 	private String keyword;
-	*/
+	
 }
 /*
 //キーワード検索に必要なもの
