@@ -18,42 +18,46 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 
 	//ログイン・ログアウト
-	@RestController
-	@RequestMapping("/api")
-	public class LoginRestController {
+@RestController
+@RequestMapping("/api")
+public class LoginRestController {
 
-	    @Autowired
-	    private UsersRepository usersRepository;
+    @Autowired
+    private UsersRepository usersRepository;
 
-	    //ログイン
-	    @PostMapping("/login")
-	    public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
-	        String id = loginRequest.get("id");
-	        String password = loginRequest.get("password");
+    // ログイン
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
+        String id = loginRequest.get("id");
+        String password = loginRequest.get("password");
 
-	        Optional<User> optionalUser = usersRepository.findById(id);
-	        User user = optionalUser.orElse(null); // デフォルト値としてnullを設定
+        Optional<User> optionalUser = usersRepository.findById(id);
+        User user = optionalUser.orElse(null); // デフォルト値としてnullを設定
 
-	        if (user != null && user.getPassword().equals(password)) {
-	            // 認証成功
-	            HttpSession session = request.getSession();
-	            session.setAttribute("id", id);
-	            return new ResponseEntity<>("Login successful", HttpStatus.OK);
-	        } else {
-	            // 認証失敗
-	            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
-	        }
-	    }
+        if (user != null && user.getPassword().equals(password)) {
+            // 認証成功
+            HttpSession session = request.getSession();
+            session.setAttribute("id", id); // UserIDをセッションに格納
+            //System.out.println(id); セッション確認ID
+            session.setAttribute("categoriesId", user.getCategoriesId()); // 種別IDをセッションに格納
+            //System.out.println(user.getCategoriesId()); セッション確認categoriesID
+            return new ResponseEntity<>("Login successful", HttpStatus.OK);
+        } else {
+            // 認証失敗
+            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+        }
+    }
 
-	    //ログアウト
-	    @PostMapping("/logout")
-	    public ResponseEntity<String> logout(HttpServletRequest request) {
-	        HttpSession session = request.getSession(false);
-	        if (session != null) {
-	            session.removeAttribute("id");
-	            session.invalidate(); // セッションを無効化
-	        }
-	        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
-	    }
-
+    // ログアウト
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.removeAttribute("id");
+            session.removeAttribute("categoriesId"); // セッションから種別IDを削除
+            session.invalidate(); // セッションを無効化
+        }
+        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
+    }
 }
+
