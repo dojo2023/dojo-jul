@@ -40,7 +40,10 @@ export default class GeneralEventDetail extends React.Component{
 
         return(
             <div class="body">
+                <div class="eventh1">
                 <h1>一般利用者イベント詳細画面　タイトル</h1>
+                </div>
+                <br />
                 <img src="　"></img>
 
                 <p>ここに詳細文をたくさん記載</p>
@@ -79,7 +82,8 @@ export default class GeneralEventDetail extends React.Component{
             <div class="side">
                 <div class="review">
                 <h2>口コミ</h2>
-                    <button onClick={() =>{this.modDetail()}}>投稿</button>
+                    <br />
+                    <button class="btn" onClick={() =>{this.modDetail()}}>投稿</button>
                     <br />
                     <iframe src="./review"></iframe>
                 </div>
@@ -87,7 +91,7 @@ export default class GeneralEventDetail extends React.Component{
                 <div class="timeline">
                 <h2>タイムライン</h2>
                     <br />
-                    <iframe src="./Timeline"></iframe>
+                    <iframe class="iframe_tl" src="./Timeline"></iframe>
                 </div>
             </div>
 
