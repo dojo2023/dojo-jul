@@ -1,10 +1,15 @@
 import React from 'react';
+import AdminMenubar from '../menubar/AdminMenubar';
 
 export default class AdminInquiryList extends React.Component{
 
     render(){
         return(
             <div>
+                <div class = "menubar">
+                    <AdminMenubar></AdminMenubar>
+                </div>
+
                 <div>
                     <h1>管理者お問い合わせ一覧ページ</h1>
                 </div>
