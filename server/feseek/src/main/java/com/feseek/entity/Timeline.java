@@ -1,10 +1,13 @@
 package com.feseek.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,9 +23,16 @@ public class Timeline {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="events_id")
 	@NonNull
-	private Integer events_id;
+	private Integer eventsId;
 	@NonNull
 	private String infomation;
+	// Eventとの関連付けを定義
+    @ManyToOne
+    @JoinColumn(name = "event_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Event event;
+
 
 }
