@@ -27,8 +27,8 @@ public class TimelineRestController {
 
  // 特定のイベントIDに対応するタイムライン情報のうち、infomationだけを取得
     @GetMapping("/{eventId}")
-    public ResponseEntity<List<String>> getTimelinesByEventId(@PathVariable Integer eventId) {
-        List<Timeline> timelines = timelinesRepository.findByEventId(eventId);
+    public ResponseEntity<List<String>> getTimelinesByEventId(@PathVariable Integer eventsId) {
+        List<Timeline> timelines = timelinesRepository.findByEventId(eventsId);
         if (timelines.isEmpty()) {
             return ResponseEntity.notFound().build();
         }
