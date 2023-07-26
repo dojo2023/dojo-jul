@@ -1,6 +1,7 @@
 package com.feseek.entity;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,8 +21,10 @@ public class Timeline {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
+	
+	@Column(name="events_id")
 	@NonNull
-	private Integer events_id;
+	private Integer eventsId;
 	@NonNull
 	private String infomation;
 
