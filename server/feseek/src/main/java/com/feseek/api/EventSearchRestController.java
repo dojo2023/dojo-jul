@@ -3,7 +3,6 @@ package com.feseek.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +17,7 @@ public class EventSearchRestController
 	@Autowired
 	private EventsRepository repository;
 	
+	/*
 	//キーワード検索(テストプログラム)
 	@GetMapping("/api/testsearch")
 	protected List<Event> testsearch()
@@ -38,7 +38,7 @@ public class EventSearchRestController
     		//一覧表示するもの
 	      //return repository.findAll();
 	}
-
+*/
 	//キーワード検索
 	@PostMapping("/api/search")
 	protected List<Event> keysearch(@RequestBody EventSearch event)
@@ -91,5 +91,4 @@ public class EventSearchRestController
         }
     }
     */
-    
 }

@@ -1,7 +1,10 @@
 package com.feseek.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -69,6 +72,7 @@ public class Event
 	//------ここまで必須入力項目---------
 	
 	// タイムラインとの関連付けを定義
+	@JsonIgnore
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Timeline> timelines;
 	
@@ -92,5 +96,8 @@ public class Event
 	@Column(name="contact_address")
 	private String contactAddress;
 	
+	private String genre;
+	private String prefecture;
+	private LocalDate date;
 
 }
