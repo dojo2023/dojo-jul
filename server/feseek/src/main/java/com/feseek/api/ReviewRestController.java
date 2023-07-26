@@ -1,20 +1,12 @@
+
 package com.feseek.api;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.feseek.entity.Review;
-import com.feseek.repository.ReviewsRepository;
 
 @RestController
 public class ReviewRestController {
 	//口コミ
-	
+	/*
 	@Autowired
 	private ReviewsRepository repository;
 		
@@ -54,7 +46,7 @@ public class ReviewRestController {
 		repository.delete(Review);
 		return Review;
 	}
-	
+	*/
 	
 	
 	

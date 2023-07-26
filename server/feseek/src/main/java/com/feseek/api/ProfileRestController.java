@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.feseek.entity.User;
@@ -16,11 +16,14 @@ public class ProfileRestController {
 	@Autowired
 	private UsersRepository repository;
 	
-	@GetMapping("/api/user/profile")
-	protected Optional<User> profile(@RequestBody User user){
-		//return repository.findById(user.getId());
-		return repository.findById("a0001");
-
-	}	
+	//表示
+	@GetMapping("/api/user/profile/{id}")
+	protected Optional<User> profile(@PathVariable String id){
+		return repository.findById(id);
+	}
+	
+	//更新
+	
+	//退会
 
 }
