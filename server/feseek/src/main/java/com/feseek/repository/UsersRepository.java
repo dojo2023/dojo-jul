@@ -1,6 +1,7 @@
 package com.feseek.repository;
 
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -12,14 +13,14 @@ public interface UsersRepository extends JpaRepository<User, String> {
     Optional<User> findById(String id);
 
     // ユーザー名とパスワードを使用してユーザー情報を取得するためのメソッド
-    //Optional<User> findByIdAndPassword(String id, String password);
+    Optional<User> findByIdAndPassword(String id, String password);
     
     // メールアドレスを使用してユーザー情報を取得するためのメソッド
-    //List<User> findByE_mail(String e_mail);
+    List<User> findByE_mail(String eMail);
 
     // ユーザー名またはメールアドレスを使用してユーザー情報を取得するためのメソッド
-    //Optional<User> findByUser_nameOrE_mail(String user_name, String e_mail);
+    Optional<User> findByUser_nameOrE_mail(String userName, String eMail);
     
     //種別IDを使用してユーザー種別を取得するためのメソッド（いらなければ削除してよし）
-    //Optional<User> findByCategories_id(Integer Categories_id);
+    Optional<User> findByCategories_id(Integer categoriesId);
 }
