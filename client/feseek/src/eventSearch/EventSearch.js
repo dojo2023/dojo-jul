@@ -12,13 +12,30 @@ export default class EventSearch extends React.Component{
         //stateの設定
         this.state = {
             events:[],
+            areas:[],
             keyword: "",
             genre: "",
             date: "",
-            prefecture: "",
+            area: "",
             season: "",
         }
     }
+
+// 都道府県取得したい
+    // //マウント後に自動で動作する
+    // componentDidMount(){
+    //     //学習用にaxiosでなく、標準のfetchを利用している。
+    //     fetch("/api/book")
+    //     .then(res => res.json())
+    //     .then(json => {
+    //         console.log(json);
+    //         //stateのbooksに受け取ったデータを保持する。
+    //         //stateが変わると自動的に画面が再描画される。
+    //         this.setState({
+    //             books:json
+    //         })
+    //     });
+    // }
 
     onInput = (e) => {
         this.setState({
@@ -52,10 +69,10 @@ export default class EventSearch extends React.Component{
     //   }
 
     detailSearch = () => {
-        const {genre,date,prefecture,season} = this.state;
-        this.handleSearch(genre,date,prefecture,season);
+        const {genre,date,area,season} = this.state;
+        this.handleSearch(genre,date,area,season);
 
-        const data = {genre:genre,date:date,prefecture:prefecture,season:season};
+        const data = {genre:genre,date:date,area:area,season:season};
         axios.post("/api/search",data)
         .then((json) => {
           this.setState({
@@ -66,7 +83,7 @@ export default class EventSearch extends React.Component{
 
     render(){
 
-        const {keyword,genre,date,prefecture,season} = this.state;
+        const {keyword,genre,date,area,season} = this.state;
 
         return(
             <div>
@@ -95,7 +112,7 @@ export default class EventSearch extends React.Component{
                     <br/>
 
                     都道府県
-                    <select name="prefecture" value={prefecture}>
+                    <select name="area" value={area}>
                         <option>北海道</option>
                         <option>b</option>
                         <option>c</option>

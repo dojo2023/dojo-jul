@@ -31,6 +31,15 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
             })
         });
     }
+
+    //画面で何か入力された時に、その値をstateとして保持する。
+    //これにより、JavaScript動作時に毎回画面を見に行くのではなく、画面と連動したstateだけを見ればよくなる。
+    onInput = (e) => {
+        const name = e.target.name;
+        this.setState({
+            [name]: e.target.value
+        });
+    }
     
     //モーダルウィンドウの表示切り替え
     toggleModal = () => {
@@ -48,7 +57,7 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
 
     render(){
 
-            const {inquiry_contents, showModal} =this.state;
+            const {inquiry_contents, modSubject, modInquiry, showModal} =this.state;
 
         return(
             <div>
@@ -68,8 +77,8 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
                     </tr>
                     {inquiry_contents.map((inquiry_content,index) =>
                     <tr class="inquiry_contentrow">
-                        <td></td>
                         <td class="inq_date">{inquiry_content.inq_date}</td>
+                        <td class="subject">{inquiry_content.subject}</td>
                         <td class="inquiry">{inquiry_content.inquiry}</td>
                         <td>
                         <a href="./GeneralAndSponsorInquiryDetail"><button name="register">確認</button></a>
@@ -87,8 +96,8 @@ export default class GeneralAndSponsorInquiryList extends React.Component{
                     <div id="overlay">
                         <div id="content">
 
-                                件名<input type="text" name="modSubject"/>
-                                内容<input type="text" name="modInquiry"/>
+                                件名<input type="text" name="modSubject" onChange={this.onInput} value={modSubject}/>
+                                内容<input type="text" name="modInquiry" onChange={this.onInput} value={modInquiry}/>
 
                             <button onClick={this.toggleModal}>閉じる</button>
                             <button type="submit" name="post">送信</button>

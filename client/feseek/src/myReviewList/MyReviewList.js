@@ -15,20 +15,20 @@ export default class MyReviewList extends React.Component{
         }
     }
 
-    //マウント後に自動で動作する
-    componentDidMount(){
-        //学習用にaxiosでなく、標準のfetchを利用している。
-        fetch("/api/review/mylist")
-        .then(res => res.json())
-        .then(json => {
-            console.log(json);
-            //stateのreviewsに受け取ったデータを保持する。
-            //stateが変わると自動的に画面が再描画される。
-            this.setState({
-                reviews:json
-            })
-        });
-    }
+    // //マウント後に自動で動作する
+    // componentDidMount(){
+    //     //学習用にaxiosでなく、標準のfetchを利用している。
+    //     fetch("/api/review/mylist")
+    //     .then(res => res.json())
+    //     .then(json => {
+    //         console.log(json);
+    //         //stateのreviewsに受け取ったデータを保持する。
+    //         //stateが変わると自動的に画面が再描画される。
+    //         this.setState({
+    //             reviews:json
+    //         })
+    //     });
+    // }
 
     //モーダルウィンドウの表示切り替え
     toggleModal = () => {
@@ -41,15 +41,45 @@ export default class MyReviewList extends React.Component{
     //編集ボタンを押下したときに実行する
     modEdit = () => {
         this.toggleModal();
+
+        // fetch("/api/review/edit")
+        // .then(res => res.json())
+        // .then(json => {
+        //     console.log(json);
+        //     //stateのreviewsに受け取ったデータを保持する。
+        //     //stateが変わると自動的に画面が再描画される。
+        //     this.setState({
+        //         reviews:json
+        //     })
+        // });
+        
     }
 
 
-    // diaDelete = () => {
-    //     // onBeforeunloadイベントのハンドラー関数
-    //     const handleBeforeUnload = (e) => {
-    //         // カスタムメッセージの設定（ブラウザによっては無視される）
-    //         e.returnValue = "本当にページを離れますか？";
-    //     };
+    //削除処理未実装、ダイアログ表示のみ
+    diaDelete = () => {
+        if(window.confirm("本当に削除しますか？")){
+            console.log('削除確認ダイアログ');
+            // axios.post(/api/review/delete)
+            // .then((json)=>{
+            //     console.log(json);
+            //     window.location = './login';
+            // })
+        }else{
+            console.log('削除キャンセル');
+        }
+        }; 
+
+             // fetch("/api/review/delete"")
+        // .then(res => res.json())
+        // .then(json => {
+        //     console.log(json);
+        //     //stateのreviewsに受け取ったデータを保持する。
+        //     //stateが変わると自動的に画面が再描画される。
+        //     this.setState({
+        //         reviews:json
+        //     })
+        // });
     // }
 
     render(){
@@ -80,12 +110,15 @@ export default class MyReviewList extends React.Component{
                         <td class="rev_title">{review.rev_title}</td>
                         {/* <td class="evaluation">{review.satisfaction, review.security, review.again, review.atmosphere, review.continuation}</td> */}
                         <td class="comment">{review.comment}</td>
-                        <td><button onClick={() =>{this.modEdit()}} name="edit">編集</button></td>
-                        <td><button onClick={() =>{this.diaDelete()}} name="delete">削除</button></td>
+                        {/* <td><button onClick={() =>{this.modEdit()}} name="edit">編集</button></td>
+                        <td><button onClick={() =>{this.diaDelete()}} name="delete">削除</button></td> */}
                     </tr>
                     )}
 
                 </table>
+
+                    <button onClick={() =>{this.modEdit()}} name="edit">編集</button>
+                    <button onClick={() =>{this.diaDelete()}} name="delete">削除</button>
 
                 <div>
                     <a href="/generalProfile">戻る</a>
