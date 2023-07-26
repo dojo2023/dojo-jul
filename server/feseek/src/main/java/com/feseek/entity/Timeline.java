@@ -1,6 +1,8 @@
 package com.feseek.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -29,8 +31,10 @@ public class Timeline {
 	private Integer eventsId;
 	@NonNull
 	private String infomation;
+	
 	// Eventとの関連付けを定義
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "event_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Event event;
 
