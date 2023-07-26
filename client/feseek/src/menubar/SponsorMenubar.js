@@ -6,7 +6,7 @@ export default class SponsorMenubar extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            id:"react",
+            id:"",
         }
     }
 

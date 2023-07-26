@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.link a{
+    text-decoration: none;
+    font-size: 1.3em;
+    color: #000;
+}
+.link a:visited{
+    color: #000;
+}
+.link a:hover{
+    color: rgba(105, 102, 98, 0.527);
+}
+.menu{
+    display: flex;
+    gap: 200px;
+    padding: 30px 150px;
+    background-color: rgb(114, 136, 165);
+    border-bottom: 3px dotted #274b78;
+    margin-bottom: 10px;
+}

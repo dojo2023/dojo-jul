@@ -4,8 +4,13 @@ export default class ConfirmForIPassword extends React.Component{
     render(){
         return(
             <div>
-                <h1>パスワード再登録用の本人確認画面</h1>
-                <p><a href="PasswordReRegister">パスワード再登録画面</a></p>
+                <p>あなたのIDとメールアドレスを入力してください</p>
+                <form action="" method="POST">
+                    <input type="id" placeholder="ID"></input>
+                    <input type="email" placeholder="メールアドレス"></input>
+                    <span>※エラーメッセージ</span>
+                    <input type="submit" value={"送信"}></input>
+                </form>
                 <p><a href="../login">ログインページに戻る</a></p>
             </div>
         )

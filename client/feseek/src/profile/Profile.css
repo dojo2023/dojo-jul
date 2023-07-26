@@ -1,0 +1,21 @@
+table.profile{
+    width: 500px;
+    height: 200px;
+    margin: 10px auto;
+    /* border:1px solid #333; */
+}
+table.profile tr td{
+    font-size: 1.3em;
+    width: 50%;
+}
+td.title{
+    text-align: right;
+    margin-right: 20px;
+    /* width: 170px; */
+}
+table.profile{
+    /* border-bottom: 1px solid #333; */
+}
+/* td.title2{
+    width:100px;
+} */
