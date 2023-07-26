@@ -4,8 +4,6 @@ import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,39 +23,39 @@ public class LoginRestController {
     @Autowired
     private UsersRepository usersRepository;
 
-    // ログイン
+    //ログイン
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
+    public String login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
         String id = loginRequest.get("id");
         String password = loginRequest.get("password");
 
         Optional<User> optionalUser = usersRepository.findById(id);
-        User user = optionalUser.orElse(null); // デフォルト値としてnullを設定
+        User user = optionalUser.orElse(null);
 
         if (user != null && user.getPassword().equals(password)) {
             // 認証成功
             HttpSession session = request.getSession();
-            session.setAttribute("id", id); // UserIDをセッションに格納
-            //System.out.println(id); セッション確認ID
-            session.setAttribute("categoriesId", user.getCategoriesId()); // 種別IDをセッションに格納
-            //System.out.println(user.getCategoriesId()); セッション確認categoriesID
-            return new ResponseEntity<>("Login successful", HttpStatus.OK);
+            session.setAttribute("id", id);
+            session.setAttribute("categoriesId", user.getCategoriesId());
+            return "Login successful";
         } else {
             // 認証失敗
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+            return "Invalid credentials";
         }
     }
-
-    // ログアウト
+    
+    //ログアウト
     @PostMapping("/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
+    public String logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.removeAttribute("id");
-            session.removeAttribute("categoriesId"); // セッションから種別IDを削除
-            session.invalidate(); // セッションを無効化
+            session.removeAttribute("categoriesId");
+            session.invalidate();
         }
-        return new ResponseEntity<>("Logout successful", HttpStatus.OK);
+        return "Logout successful";
     }
+
 }
+
 
