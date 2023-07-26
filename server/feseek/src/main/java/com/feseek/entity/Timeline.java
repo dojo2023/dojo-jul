@@ -35,7 +35,7 @@ public class Timeline {
 	// Eventとの関連付けを定義
     @ManyToOne
     @JsonIgnore
-    @JoinColumn(name = "event_id", referencedColumnName = "id", insertable = false, updatable = false)
+    @JoinColumn(name = "events_id", referencedColumnName = "id", insertable = false, updatable = false)
     private Event event;
 
 
