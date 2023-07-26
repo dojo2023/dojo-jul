@@ -23,4 +23,5 @@ public class EventDetailRestController {
 	protected Optional<Event> findById(@PathVariable Integer id){
 		return repository.findById(id);
 	}
+	
 }
