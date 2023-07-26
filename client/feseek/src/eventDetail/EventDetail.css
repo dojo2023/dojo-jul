@@ -2,6 +2,47 @@
 .body {
     width: 100%;
     text-align: center;
+    font-family: "sans-serif" ;
+    background:linear-gradient(#f8fbff, #fff); 
+}
+
+/* タイトル */
+h1 {
+    position: relative;
+    padding: 0.6em;
+    background: #e0edff;
+}
+  
+h1:after {
+    position: absolute;
+    content: '';
+    top: 100%;
+    left: 30px;
+    border: 15px solid transparent;
+    border-top: 15px solid #e0edff;
+    width: 0;
+    height: 0;
+}
+
+h2 {
+    font-family: "Meiryo" ;
+    color: #505050;/*文字色*/
+    padding: 0.5em;/*文字周りの余白*/
+    display: inline-block;
+    line-height: 1.3;/*行高*/
+    background: #dbebf8;/*背景色*/
+    vertical-align: middle;
+    border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+}
+
+h2:before {
+    content: '●';
+    color: white;
+    margin-right: 8px;
+  }
+
+h3 {
+    font-family: "Meiryo" ;
 }
 
 /* 表 */
@@ -39,7 +80,20 @@ table td{
 iframe {
     width: 600px;
     height: 400px;
+    margin-top: 10px;
     overflow: hidden;
+}
+
+.iframe_tl {
+    margin-top: 70px;
+}
+
+.timeline {
+    margin-top: 35px;
+}
+
+.review {
+    margin-top: 35px;
 }
 
 /* モーダル */
@@ -94,3 +148,19 @@ iframe {
   .round_btn::after {
     transform: translate(-50%,-50%) rotate(-45deg);
   }
+
+/* 投稿ボタン */
+.btn,
+a.btn,
+button.btn {
+    font-size: 1.0rem;
+    font-weight: 500;
+    line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 3rem;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+}
+

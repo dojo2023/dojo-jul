@@ -13,7 +13,7 @@ export default class Review extends React.Component{
         return(
             <div>
                 <div>
-                <  h1>口コミ表示ページ</h1>
+                <  h2>口コミ表示ページ</h2>
                 </div>
                 <ul class="review_li">
                     <li class="rev_name">ユーザー名</li>
