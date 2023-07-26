@@ -1,18 +1,34 @@
 import React from 'react';
+import './EventDetail.css';
 
 export default class GuestEventDetail extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            
+            events:[],
+            usersId: "",
+            eventName: "",
+            startDate: "",
+            endDate: "",
+            openTime: "",
+            address: "",
+            access: "",
+            map: "",
+            costs: "",
+            detail: "",
+            organizer: "",
+            season: "",
         }
     }
 
     render(){
         return(
             <div class="body">
+                <div class="eventh1">
                 <h1>ゲストイベント詳細画面　タイトル</h1>
+                </div>
+                <br />
                 <img src="　"></img>
                 
                 <p>ここに詳細文をたくさん記載</p>
