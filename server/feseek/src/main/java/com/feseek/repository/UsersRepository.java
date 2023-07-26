@@ -11,11 +11,11 @@ public interface UsersRepository extends JpaRepository<User, String> {
     //Optional<User> findByIdAndPassword(String id, String password);
     
     // メールアドレスを使用してユーザー情報を取得するためのメソッド
-    //List<User> findByeMmail(String eMail);
+    //List<User> findByEMmail(String eMail);
 
     // ユーザー名またはメールアドレスを使用してユーザー情報を取得するためのメソッド
-    //Optional<User> findByUser_nameOrE_mail(String userName, String eMail);
+    //Optional<User> findByUserNameOrEMail(String userName, String eMail);
     
     //種別IDを使用してユーザー種別を取得するためのメソッド（いらなければ削除してよし）
-    //Optional<User> findByCategories_id(Integer categoriesId);
+    //Optional<User> findByCategoriesId(Integer categoriesId);
 }
