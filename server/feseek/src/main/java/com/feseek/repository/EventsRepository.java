@@ -1,7 +1,6 @@
 
 package com.feseek.repository;
 
-import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,7 +15,7 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 
 	
 	//詳細検索用
-	List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
+	//List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
 
 	//List<Event> findByGenre(String genre);
 

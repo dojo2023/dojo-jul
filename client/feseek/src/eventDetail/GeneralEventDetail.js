@@ -131,7 +131,7 @@ export default class GeneralEventDetail extends React.Component{
                                 <input type="file" name="modrevImage" accept="image/*"></input>
                                 
                                 <br />
-                            <button type="submit" name="post">投稿</button>
+                            <button class="btn" type="submit" name="post">投稿</button>
                         </div>
                     </div>
                 }
