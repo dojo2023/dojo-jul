@@ -33,7 +33,7 @@ public class ProfileRestController {
 	}
 	
 	//退会
-	@PostMapping("/user/profile/delete")
+	@PostMapping("/api/user/profile/delete")
 	protected User delete(@RequestBody User user) {
 		repository.delete(user);
 		return user;
