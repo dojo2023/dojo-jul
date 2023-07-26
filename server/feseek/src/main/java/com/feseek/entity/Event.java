@@ -1,12 +1,15 @@
 package com.feseek.entity;
 
 import java.sql.Date;
+import java.util.List;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -64,6 +67,10 @@ public class Event
 	@NonNull
 	private String season;
 	//------ここまで必須入力項目---------
+	
+	// タイムラインとの関連付けを定義
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    private List<Timeline> timelines;
 	
 	private String url;
 	

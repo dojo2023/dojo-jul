@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,5 +29,10 @@ public class Timeline {
 	private Integer eventsId;
 	@NonNull
 	private String infomation;
+	// Eventとの関連付けを定義
+    @ManyToOne
+    @JoinColumn(name = "event_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Event event;
+
 
 }
