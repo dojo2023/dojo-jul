@@ -48,7 +48,7 @@ public class LoginRestController {
             return new ResponseEntity<>("Login successful", HttpStatus.OK);
         } else {
             // 認証失敗
-            //return new ResponseEntity<>("Invalid credentials", HttpStatus.NOT_FOUND);
+//            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
             return new ResponseEntity<>("Invalid credentials", HttpStatus.OK);
         }
     }
