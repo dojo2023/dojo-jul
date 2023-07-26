@@ -26,7 +26,7 @@ public class User {
 	
 	@NonNull
 	@Column(name="e_mail")
-	private String eMail;
+	private String mail;
 	
 	@Column(name="user_name")
 	@NonNull

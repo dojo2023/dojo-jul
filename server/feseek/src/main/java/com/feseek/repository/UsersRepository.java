@@ -14,11 +14,11 @@ public interface UsersRepository extends JpaRepository<User, String> {
    Optional<User> findByIdAndPassword(String id, String password);
     
     // メールアドレスを使用してユーザー情報を取得するためのメソッド
-   List<User> findByEMail(String eMail);
+   List<User> findByMail(String mail);
 
     // ユーザー名またはメールアドレスを使用してユーザー情報を取得するためのメソッド
-    Optional<User> findByUserNameOrEMail(String userName, String eMail);
+   List<User> findByUserNameOrMail(String userName, String mail);
     
     //種別IDを使用してユーザー種別を取得するためのメソッド（いらなければ削除してよし）
-    Optional<User> findByCategoriesId(Integer categoriesId);
+//    Optional<User> findByCategoriesId(Integer categoriesId);
 }
