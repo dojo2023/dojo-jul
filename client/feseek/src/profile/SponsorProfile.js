@@ -13,7 +13,7 @@ export default class SponsorProfile extends React.Component{
             category:"",
             id:"",
             e_mail:"",
-            profile:[],
+            // profile:[],
         }
     }
 
@@ -33,7 +33,21 @@ export default class SponsorProfile extends React.Component{
         window.location='./UserEdit';
     }
 
+    delete = () =>{
+        const{id} = this.state;
+        if(window.confirm('これまでのデータは全て失われます。本当に退会しますか？')){
+            //アカウント削除処理
+            // axios.delete('api/users/'+ id)
+            // .then
 
+        }else{
+            //何もしない
+        }
+    }
+
+    myEventList = () =>{
+        window.location='./MyEventList';
+    }
     
     render(){
         const{user_name,password,category,id, e_mail} = this.state;
@@ -42,7 +56,7 @@ export default class SponsorProfile extends React.Component{
                 <SponsorMenubar></SponsorMenubar>
 
                 <h3>MYプロフィール※主催者プロフィール</h3>
-                <table class="profile" /*border={"2px solid #000"}*/>
+                <table className="profile" /*border={"2px solid #000"}*/>
                 <tr>
                     <td>ID：{id}</td>
                     <td>権限：{category}</td>
@@ -52,12 +66,14 @@ export default class SponsorProfile extends React.Component{
                     <td>パスワード：{password}</td>
                 </tr>
                 <tr>
-                    <td class="title">メールアドレス：{e_mail}</td>
+                    <td className="title">メールアドレス：{e_mail}</td>
                 </tr>
                 </table>
                 {/* <td><a href="/MyEventList">イベント履歴一覧</a>　<a href="/UserEdit">プロフィール編集</a></td>
                 <td><button>退会</button><button>戻るdokoni?</button></td> */}
-                    <td><button onClick={this.profile}>プロフィール編集</button> <button>退会</button> <button>イベント履歴</button></td>
+                    <td><button onClick={this.profile}>プロフィール編集</button></td>
+                    <td><button onClick={this.delete}>退会</button></td>
+                    <td><button onClick={this.myEventList}>イベント履歴</button></td>
             </div>
         )
     }
