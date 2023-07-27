@@ -28,7 +28,7 @@ public class ReviewRestController {
 	@Autowired
 	private ReviewsRepository repository;
 //		
-	//イベント詳細ページでの口コミ一覧表示(並び替えは後でする)
+	//イベント詳細ページでの口コミ一覧表示
 	@GetMapping("/api/review/show/{eventsId}")
     protected List<Review> events_review(@PathVariable Integer eventsId) {
         return repository.findByEventId(eventsId);
@@ -52,7 +52,7 @@ public class ReviewRestController {
 
 
 	
-	//自分が投稿した口コミ一覧表示(並び替えは後でする)
+	//自分が投稿した口コミ一覧表示
 	@GetMapping("/api/review/mylist")
 	public List<Review> getMyReviews(HttpServletRequest request) {
 	    // ログインしたユーザーのIDを取得
