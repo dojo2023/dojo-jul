@@ -23,7 +23,7 @@ public class UserRestController {
     public UserRestController(UsersRepository userRepository) {
         this.usersRepository = userRepository;
     }
-//    //ユーザーの新規登録
+//    //ユーザーの新規登録　出来なかったやつ
 //    @PostMapping("/register")
 //    //ここのUserが違うかも。
 //  public String registerUser(@RequestBody User request) {
@@ -55,7 +55,7 @@ public class UserRestController {
             return ResponseEntity.ok(createdUser);
         }	
     }
-// // ユーザーの削除
+// // ユーザーの削除　出来なかったやつ
 //    @DeleteMapping("delete/users/{id}")
 //    public String deleteUser(@PathVariable String id) {
 //        // 指定されたIDのユーザーをデータベースから取得します。
@@ -78,7 +78,7 @@ public class UserRestController {
   	}	
   
     
-    // ユーザー情報の更新
+    // ユーザー情報の更新 出来なかったやつ
 //    @PutMapping("update/users/{id}")
 //    public String updateUser(@PathVariable String id, @RequestBody User updatedUser) {
 //        // 指定されたIDのユーザーをデータベースから取得します。
