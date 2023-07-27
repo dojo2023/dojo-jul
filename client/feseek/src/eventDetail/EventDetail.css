@@ -45,6 +45,12 @@ h3 {
     font-family: "Meiryo" ;
 }
 
+/* メッセージ */
+.message{
+    padding-top: 2em;
+}
+
+
 /* 表 */
 table {
     margin-left: auto;
@@ -97,8 +103,17 @@ iframe {
 }
 
 /* テキストボックス　*/
-.login_textbox{
-    margin-top: 5em;
+.default_textbox
+{
+    display: inline-block;
+    margin-bottom: 0.5em;
+    width: 25%;
+    height: 1.5em;
+
+}
+
+.around_textbox{
+    margin-top: 3em;
     margin-bottom: 1em;
 }
 
@@ -170,15 +185,21 @@ button.btn {
     border-radius: 0.5rem;
 }
 
-.login_button{
-    font-size: 0.7em;
+.login_button,
+.default_button{
+    font-size: 1em;
     font-weight: 500;
     line-height: 0.5;
     position: relative;
     display: inline-block;
-    padding: 1rem 3rem;
+    padding: 1em 3em;
+    margin: 1em 2em;
     letter-spacing: 0.1em;
     color: #212529;
     border-radius: 0.5rem;
+}
+
+span{
+    color: red;
 }
 

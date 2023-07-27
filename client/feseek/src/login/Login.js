@@ -78,13 +78,13 @@ export default class Login extends React.Component{
         return(
             <div className="body">
                 <h1>ログインページ</h1>
-                <div className="login_textbox">
+                <div className="around_textbox">
                     {/* <p class="user_p">ID</p> */}
-                    <input type="text" className="l_text" name="id" minLength="5" required placeholder="ID" 
+                    <input type="text" className="default_textbox" name="id" minLength="5" required placeholder="ID" 
                         onChange={this.onInput} value={id}></input>
                     <br></br>
                     {/* <p class="user_p">Password</p> */}
-                    <input type="password" className="l_text" name="password" minLength="8" required placeholder="Password" 
+                    <input type="password" className="default_textbox" name="password" minLength="8" required placeholder="Password" 
                         onChange={this.onInput} value={password}></input>
                 </div>
                 <br></br>
