@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-//import org.hibernate.mapping.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -100,15 +99,20 @@ public class UserRestController {
   	    for (User user : userList) {
   	    	
   	    	System.out.println("userあり");
-  	    	
+
+ 	    	System.out.println(user.getPassword());
+ 	    	System.out.println(password);
   	        if (user.getPassword().equals(password)) {
+
   	        	
   	 	    	System.out.println("パスワードチェックK");
+  	 	    	
+  	 	    	
   	 	      	            // 新しいユーザーIDを設定する
   	            user.setId(newUserId);
   	            usersRepository.save(user);
 
-  	            return ResponseEntity.ok("新しいIDに変更できました。");
+  	            return ResponseEntity.ok("新しいIDに変更できました");
   	        }
   	    }
 
