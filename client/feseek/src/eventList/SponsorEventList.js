@@ -6,21 +6,34 @@ export default class EventList extends React.Component{
     constructor(props) {
         super(props);
         this.state = {
-            
+            list_title:"",
+            list_genre:"",
+            list_prefecture:"",
+            list_remarks:"",
         }
     }
 
     render(){
+        const { list_title , list_genre , list_prefecture , list_remarks } = this.state;
         return(
             <div>
                 <div>主催者イベントリストページ</div>
                 <ul class="event_ul">
+                    <a href="/sponsorEventDetail">
+                        <li class="event_li">
+                            <div className="list_title" value={list_title}> title </div><br></br>
+                            <div className="list_genre" value={list_genre}> genre </div>
+                            <div className="list_prefecture" value={list_prefecture}> area </div>
+                            <div className="list_remarks"><textarea rows="5" cols="125" value={list_remarks}></textarea> </div>
+                        </li>
+                    </a>
+
                     <li class="event_li">
                         <a href="/guestEventDetail">
-                            <div class="list_title">ゲストイベント詳細リンク</div><br></br>
-                            <div class="list_genre">ジャンル</div>
-                            <div class="list_prefecture">都道府県</div>
-                            <div class="list_remarks">詳細</div>
+                            <div className="list_title">ゲストイベント詳細リンク</div><br></br>
+                            <div className="list_genre">ジャンル</div>
+                            <div className="list_prefecture">都道府県</div>
+                            <div className="list_remarks">詳細</div>
                         </a>
                     </li>
                     <li class="event_li">

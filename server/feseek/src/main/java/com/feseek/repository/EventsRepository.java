@@ -25,5 +25,8 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 	    List<Event> findByIdIn(List<Integer> eventIds);
 
 	Optional<Event> findById(Integer id);
+	
+	//1人の主催者が投稿したイベント一覧表示
+	List<Event> findByUsersId(String usersId);
 
 }

@@ -1,5 +1,6 @@
 package com.feseek.api;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +24,12 @@ public class EventDetailRestController {
 	protected Optional<Event> findById(@PathVariable Integer id){
 		return repository.findById(id);
 	}
+	
+	//主催者が投稿したイベント一覧
+	@GetMapping("/api/event/sponser/{usersid}")
+	protected List<Event> findByUsersId (@PathVariable String usersid){
+		return repository.findByUsersId(usersid);
+	}
+	
 	
 }

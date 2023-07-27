@@ -96,6 +96,12 @@ iframe {
     margin-top: 35px;
 }
 
+/* テキストボックス　*/
+.login_textbox{
+    margin-top: 5em;
+    margin-bottom: 1em;
+}
+
 /* モーダル */
 #overlay{
     position:fixed;
@@ -156,6 +162,18 @@ button.btn {
     font-size: 1.0rem;
     font-weight: 500;
     line-height: 1.5;
+    position: relative;
+    display: inline-block;
+    padding: 1rem 3rem;
+    letter-spacing: 0.1em;
+    color: #212529;
+    border-radius: 0.5rem;
+}
+
+.login_button{
+    font-size: 0.7em;
+    font-weight: 500;
+    line-height: 0.5;
     position: relative;
     display: inline-block;
     padding: 1rem 3rem;
