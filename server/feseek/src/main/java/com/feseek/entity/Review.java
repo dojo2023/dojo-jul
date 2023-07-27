@@ -2,7 +2,6 @@ package com.feseek.entity;
 
 import java.sql.Date;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import jakarta.persistence.Column;
@@ -65,10 +64,11 @@ public class Review {
 	@Column(name="rev_image")
 	private String revImage;
 	
-	@ManyToOne
-	@JoinColumn(name = "users_id", referencedColumnName = "id", insertable = false, updatable = false)
-	@JsonIgnore
-	private User user;
+	//eventテーブルとの関連付け
+    @ManyToOne
+    @JoinColumn(name = "users_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private User user;
+	
 	
 	@ManyToOne
     @JoinColumn(name = "events_id", referencedColumnName = "id")

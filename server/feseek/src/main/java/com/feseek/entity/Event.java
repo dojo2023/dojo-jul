@@ -11,6 +11,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -33,6 +35,11 @@ public class Event
 	@Column(name="users_id")
 	@NonNull
 	private String usersId;
+	
+	//users_idを外部キーとして取得
+	@ManyToOne
+	@JoinColumn(name = "users_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private User user;
 	
 	@Column(name="event_name")
 	@NonNull
@@ -62,6 +69,13 @@ public class Event
 	@Column(name="areas_id")
 	@NonNull
 	private Integer areasId;
+	
+
+	//areas_idを外部キーとして取得
+	@ManyToOne
+	@JoinColumn(name = "areas_id", referencedColumnName = "id", insertable = false, updatable = false)
+	private Area area;
+	
 	@NonNull
 	private String detail;
 	@NonNull
@@ -70,10 +84,20 @@ public class Event
 	private String season;
 	//------ここまで必須入力項目---------
 	
+	// イベントジャンルとの関連付けを定義
+	@JsonIgnore
+	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+	private List<EventGenre> eventgenres;
+	
 	// タイムラインとの関連付けを定義
 	@JsonIgnore
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Timeline> timelines;
+	
+	//口コミとの関連付けを定義
+	@JsonIgnore
+	@OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+	private List<Review> reviews;
 	
 	private String url;
 	
