@@ -7,8 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -29,20 +27,9 @@ public class Review {
 	@NonNull
 	private String usersId;
 	
-	//eventテーブルとの関連付け
-    @ManyToOne
-    @JoinColumn(name = "users_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private User user;
-	
 	@Column(name="events_id")
 	@NonNull
 	private Integer eventsId;
-	
-	//eventテーブルとの関連付け
-    @ManyToOne
-    @JoinColumn(name = "events_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private Event event;
-	
 	
 	@NonNull
 	private Integer satisfaction;
