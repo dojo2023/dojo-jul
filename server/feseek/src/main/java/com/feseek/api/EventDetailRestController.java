@@ -30,9 +30,10 @@ public class EventDetailRestController {
 	
 	//主催者が投稿したイベント一覧
 	@GetMapping("/api/event/sponser")
-	protected List<Event> findByUsersId (@PathVariable String usersid, HttpServletRequest request){
+	protected List<Event> findByUsersId (HttpServletRequest request){
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");	
+		String id = (String)session.getAttribute("id");
+		//String id = "aaa";
 		return repository.findByUsersId(id);
 	}
 	
