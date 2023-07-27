@@ -33,7 +33,7 @@ public class EventDetailRestController {
 	protected List<Event> findByUsersId (HttpServletRequest request){
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("id");
-		//String id = "aaa";
+		System.out.println(id);
 		return repository.findByUsersId(id);
 	}
 	
