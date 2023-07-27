@@ -80,6 +80,7 @@ public class EventSearchRestController {
     	  } 
     	 else
     	 {
+    		 //エリアと
     	    if (areasId != null && season != null && startDate != null) 
     	    {
     	      return eventsRepository.findByAreasIdAndSeasonAndStartDate(areasId, season, startDate);
@@ -87,6 +88,14 @@ public class EventSearchRestController {
     	    else if (areasId != null && season != null)
     	    {
     	      return eventsRepository.findByAreasIdAndSeason(areasId, season);
+    	    }
+    	    else if(season != null && startDate != null)
+    	    {
+    	    	return eventsRepository.findBySeasonAndStartDate(season, startDate);
+    	    }
+    	    else if(areasId != null && startDate != null)
+    	    {
+    	    	return eventsRepository.findByAreasIdAndStartDate(areasId, startDate);
     	    }
     	    else if (areasId != null)
     	    {
