@@ -10,6 +10,7 @@ export default class Login extends React.Component{
         this.state = {
             id: "",
             password: "",
+            ErrorMsg:"",
         }
     }
 
@@ -43,9 +44,13 @@ export default class Login extends React.Component{
                 window.location = "/eventSearch"
             }else{
                //ログイン失敗
+               console.log('ログイン失敗');
+               this.setState({
+                    ErrorMsg : <span>※IDまたはパスワードが間違っています</span>
 
+               })
             }
-            console.log(json);
+            // console.log(json);
         });
     }
     
@@ -67,8 +72,7 @@ export default class Login extends React.Component{
     */
 
     render(){
-        const ErrorMsg = "";
-        
+        // let ErrorMsg;        
         //stateに入っている値とテキストボックスの中身を紐づけるため
         const{id,password} = this.state;
         return(
@@ -82,7 +86,7 @@ export default class Login extends React.Component{
                 <input type="password" className="l_text" name="password" minLength="8" required placeholder="Password" 
                     onChange={this.onInput} value={password}></input>
                 <br></br>
-                <p className="error">{ErrorMsg}</p><br></br>
+                <p className="error">{this.state.ErrorMsg}</p><br></br>
 
                 <input type="button" className="l_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
 

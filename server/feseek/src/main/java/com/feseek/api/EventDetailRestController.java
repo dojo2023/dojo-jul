@@ -1,10 +1,12 @@
 package com.feseek.api;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.feseek.entity.Event;
@@ -23,5 +25,12 @@ public class EventDetailRestController {
 	protected Optional<Event> findById(@PathVariable Integer id){
 		return repository.findById(id);
 	}
+	
+	//主催者が投稿したイベント一覧
+	@GetMapping("/api/event/owner")
+	protected List<Event> findByUsersId (@RequestBody Event event){
+		return repository.findByUsersId(event.getUsersId());
+	}
+	
 	
 }
