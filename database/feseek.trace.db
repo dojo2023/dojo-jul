@@ -583,3 +583,15 @@ Syntax error in SQL statement "INSERT INTO reviews  (AGAIN, ATMOSPHERE, COMMENT,
 INSERT INTO reviews  (AGAIN, ATMOSPHERE, COMMENT, CONTINUATION, EVENTS_ID, REV_DATE, REV_IMAGE, REV_TITLE, SATISFACTION, SECURITY, USERS_ID) 
 VALUES 
 (1, 1, '初めて来たのですが、とても楽しい催しばかりでした。', 1, 1, '2023-07-15’, 'src/main/resources/static/img/summer_festival.jpg', '夏祭りレビュー', 1, 0, 'a0001'); [42000-214]
+2023-07-27 13:52:21 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: オブジェクトはすでに閉じられています
+The object is already closed [90007-214]
+2023-07-27 13:56:09 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: オブジェクトはすでに閉じられています
+The object is already closed [90007-214]
+2023-07-27 13:56:30 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: オブジェクトはすでに閉じられています
+The object is already closed [90007-214]
+2023-07-27 13:56:50 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLNonTransientException: オブジェクトはすでに閉じられています
+The object is already closed [90007-214]
