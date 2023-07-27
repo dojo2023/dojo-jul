@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,4 +33,14 @@ public class EventGenre
 	@Column(name="genres_id")
 	@NonNull
 	private Integer genresId;
+	
+	//eventテーブルとの関連付け
+    @ManyToOne
+    @JoinColumn(name = "events_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Event event;
+    
+	//genreテーブルとの関連付け
+    @ManyToOne
+    @JoinColumn(name = "genres_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private Genre genre;
 }
