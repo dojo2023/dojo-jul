@@ -55,7 +55,7 @@ public class EventSearchRestController {
     }
 
     // 詳細検索
-    @PostMapping("/api/syousai")
+    @PostMapping("/api/detail")
     protected List<Event> search(@RequestBody EventSearch event)
     {
     	Integer areasId = event.getAreas_id();
