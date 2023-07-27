@@ -1,6 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import './EventSearch.css';
 
 export default class EventSearch extends React.Component{
 
@@ -131,11 +130,9 @@ export default class EventSearch extends React.Component{
                         <input type="radio" name="season" value={season}/>冬
                         <br/>
                             
-                        <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
+                        <button onClick={this.detailSearch}>検索</button>
+                        {/* <a href="/GuestEventList"></a> */}
 
-                        <div>
-                            <a href="/GuestEventList">戻る</a>
-                        </div>
                     </div>
                 </body>
 
