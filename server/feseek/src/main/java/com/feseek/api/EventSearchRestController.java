@@ -31,7 +31,7 @@ public class EventSearchRestController {
 
     // キーワード検索
     @PostMapping("/api/search")
-    protected List<Event> キーワード検索(@RequestBody EventSearch event) {
+    protected List<Event> keyword(@RequestBody EventSearch event) {
         String keyword = event.getKeyword();
 
         return eventsRepository.findByEventNameLikeOrOpenTimeLikeOrAddressLikeOrAccessLikeOrCostsLikeOrOrganizerLikeOrDetailLikeOrSeasonLikeOrContactAddressLike
