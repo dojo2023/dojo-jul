@@ -6,5 +6,5 @@ import com.feseek.entity.Genre;
 
 public interface GenresRepository extends JpaRepository<Genre, Integer>
 {
-
+	Genre findByGenreName(String genreName);
 }

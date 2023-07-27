@@ -1,6 +1,7 @@
 
 package com.feseek.repository;
 
+import java.sql.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,12 +15,15 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 	List<Event>findByEventNameLikeOrOpenTimeLikeOrAddressLikeOrAccessLikeOrCostsLikeOrOrganizerLikeOrDetailLikeOrSeasonLikeOrContactAddressLike(String event_name,String openTime,String address,String access,String costs,String organizer,String detail,String season,String contactAddress);
 
 	
-	//詳細検索用
-	//List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
+	//詳細検索用	
+	 	List<Event> findByAreasId(Integer areas_id);
+	    List<Event> findBySeason(String season);
+	    List<Event> findByStartDate(Date start_date);
+	    List<Event> findByAreasIdAndSeason(Integer areas_id,String seasons);
+	    List<Event> findByAreasIdAndSeasonAndStartDate(Integer areas_id, String season,Date startdate);
+	    List<Event> findByAreasIdAndSeasonAndStartDateAndIdIn(Integer areasId, String season, Date startDate, List<Integer> eventIds);
+	    List<Event> findByIdIn(List<Integer> eventIds);
 
-	//List<Event> findByGenre(String genre);
-
-	//イベント詳細表示
 	Optional<Event> findById(Integer id);
 	
 	//1人の主催者が投稿したイベント一覧表示
