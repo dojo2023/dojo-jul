@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 
-import './Login.css';
+//EventDetail.cssが適用されています
 
 export default class Login extends React.Component{
 
@@ -76,19 +76,21 @@ export default class Login extends React.Component{
         //stateに入っている値とテキストボックスの中身を紐づけるため
         const{id,password} = this.state;
         return(
-            <div>
-                <div>ログインページ</div>
-                {/* <p class="user_p">ID</p> */}
-                <input type="text" className="l_text" name="id" minLength="5" required placeholder="ID" 
-                    onChange={this.onInput} value={id}></input>
-                <br></br>
-                {/* <p class="user_p">Password</p> */}
-                <input type="password" className="l_text" name="password" minLength="8" required placeholder="Password" 
-                    onChange={this.onInput} value={password}></input>
+            <div className="body">
+                <h1>ログインページ</h1>
+                <div className="login_textbox">
+                    {/* <p class="user_p">ID</p> */}
+                    <input type="text" className="l_text" name="id" minLength="5" required placeholder="ID" 
+                        onChange={this.onInput} value={id}></input>
+                    <br></br>
+                    {/* <p class="user_p">Password</p> */}
+                    <input type="password" className="l_text" name="password" minLength="8" required placeholder="Password" 
+                        onChange={this.onInput} value={password}></input>
+                </div>
                 <br></br>
                 <p className="error">{this.state.ErrorMsg}</p><br></br>
 
-                <input type="button" className="l_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
+                <input type="button" className="login_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
 
                 <a href="/ConfirmForId">IDを忘れた方はこちら</a><br></br>
                 <a href="/ConfirmForPassword">パスワードを忘れた方はこちら</a><br></br>
