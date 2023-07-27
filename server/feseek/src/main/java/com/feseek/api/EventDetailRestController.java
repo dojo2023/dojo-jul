@@ -24,4 +24,7 @@ public class EventDetailRestController {
 		return repository.findById(id);
 	}
 	
+	//主催者が投稿したイベント一覧
+	
+	
 }
