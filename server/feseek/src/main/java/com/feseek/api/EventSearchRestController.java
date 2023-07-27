@@ -49,7 +49,7 @@ public class EventSearchRestController {
 
     // イベント一覧
     @GetMapping("api/event")
-    protected List<Event> イベント一覧() 
+    protected List<Event> findAll() 
     {
         return eventsRepository.findAll();
     }
