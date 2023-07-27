@@ -1,7 +1,10 @@
 package com.feseek.api;
 
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
+//import org.hibernate.mapping.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -56,5 +59,60 @@ public class UserRestController {
             // IDに対応するユーザーが見つからない場合はエラーレスポンスを返す
             return ResponseEntity.notFound().build();
         }	
+  	}
+  	// パスワードリセット
+  	// ID,メールアドレスを入力してもらい正しければ新しいパスワードを設定してもらう。
+  	@PostMapping("/reset-password")
+    protected ResponseEntity<String> resetPassword(@RequestBody Map<String, String> requestMap) {
+        String userId = requestMap.get("userId");
+        String userMail = requestMap.get("userMail");
+        String newPassword = requestMap.get("newPassword");
+
+        // ユーザーの情報を取得するためにメールアドレスを使用する
+        List<User> userList = usersRepository.findByMail(userMail);
+
+        // ユーザーが存在するかチェックする
+        for (User user : userList) {
+            if (user.getId().equals(userId)) {
+                // 新しいパスワードを設定する
+                user.setPassword(newPassword);
+                usersRepository.save(user);
+
+                return ResponseEntity.ok("Password reset successful.");
+            }
+        }
+
+        // ユーザーが見つからない場合はエラーレスポンスを返す
+        return ResponseEntity.notFound().build();
+    }
+  	//IDリセット
+  	//パスワード、メールアドレスを入力してもらい正しければ新しいIDを設定してもらう。
+  	@PostMapping("/reset-id")
+  	protected ResponseEntity<String> resetId(@RequestBody Map<String, String> requestMap) {
+  	    String userMail = requestMap.get("userMail");
+  	    String password = requestMap.get("password");
+  	    String newUserId = requestMap.get("newUserId");
+
+  	    // ユーザーの情報を取得するためにメールアドレスを使用する
+  	    List<User> userList = usersRepository.findByMail(userMail);
+
+  	    // ユーザーが存在し、パスワードが正しいかチェックする
+  	    for (User user : userList) {
+  	    	
+  	    	System.out.println("userあり");
+  	    	
+  	        if (user.getPassword().equals(password)) {
+  	        	
+  	 	    	System.out.println("パスワードチェックK");
+  	 	      	            // 新しいユーザーIDを設定する
+  	            user.setId(newUserId);
+  	            usersRepository.save(user);
+
+  	            return ResponseEntity.ok("新しいIDに変更できました。");
+  	        }
+  	    }
+
+  	    // ユーザーが見つからない場合またはパスワードが間違っている場合はエラーレスポンスを返す
+  	    return ResponseEntity.ok().body("メールかパスワードが間違ってます。");
   	}
 }
