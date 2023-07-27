@@ -12,7 +12,7 @@ export default class GuestMenubar extends React.Component{
     render(){
         return(
             <div>
-                <h1>ゲストメニューバーページ</h1>
+                {/* <h1>ゲストメニューバーページ</h1> */}
                 <div class="menu">
                     <div class="logo">
                         <h2>Feseek</h2>

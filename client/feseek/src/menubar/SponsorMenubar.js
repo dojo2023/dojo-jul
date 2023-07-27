@@ -29,7 +29,7 @@ render(){
         <div>
             <div class="menu">
                 <div class="logo">
-                    <h2>サイト名</h2>
+                    <h2>Feseek</h2>
                 </div>
                 <div class="link">
                     <a href="../eventSearch">検索　</a>/
