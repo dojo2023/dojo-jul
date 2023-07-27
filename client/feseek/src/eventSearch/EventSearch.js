@@ -48,7 +48,7 @@ export default class EventSearch extends React.Component{
         this.handleSearch(keyword);
 
         const data = {keyword:keyword};
-        axios.post("/api/search",data)
+        axios.post("/api/event/keysearch",data)
         .then((json) => {
           this.setState({
             events:json.data
@@ -92,7 +92,7 @@ export default class EventSearch extends React.Component{
                 {/* キーワード検索*/}
                 <div class="keywordSearch">
                     <input type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
-                    <a href="/GuestEventList"><button onClick={this.keywordSearch}>検索</button></a>
+                    <button onClick={this.keywordSearch}>検索</button>
                 </div>
                 <br/>
 
@@ -129,6 +129,10 @@ export default class EventSearch extends React.Component{
                     <br/>
                         
                     <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
+
+                    <div>
+                        <a href="/GuestEventList">戻る</a>
+                    </div>
                 </div>
 
 

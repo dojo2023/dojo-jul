@@ -1,6 +1,7 @@
 package com.feseek.entity;
 
 import java.sql.Date;
+import java.time.LocalDate;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -94,4 +95,9 @@ public class Event
 	
 	@Column(name="contact_address")
 	private String contactAddress;
+	
+	private String genre;
+	private String prefecture;
+	private LocalDate date;
+
 }

@@ -18,10 +18,6 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 	//List<Event> findByGenreAndPrefectureAndDateAndSeasonAndDetail(String genre, String prefecture, Date date, String season, String detail);
 
 	//List<Event> findByGenre(String genre);
-	List<Event> findByAreasId(Integer areas_id);
-    List<Event> findBySeason(String season);
-    List<Event> findByAreasIdAndSeason(Integer areas_id, String season);
-	
 
 	//イベント詳細表示
 	Optional<Event> findById(Integer id);

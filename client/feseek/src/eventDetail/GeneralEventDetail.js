@@ -1,5 +1,4 @@
 import React from 'react';
-import axios from "axios";
 import './EventDetail.css';
 
 export default class GeneralEventDetail extends React.Component{
@@ -9,20 +8,7 @@ export default class GeneralEventDetail extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
-            events:[],
-            usersId: "",
-            eventName: "",
-            startDate: "",
-            endDate: "",
-            openTime: "",
-            address: "",
-            access: "",
-            map: "",
-            costs: "",
-            detail: "",
-            organizer: "",
-            season: "",
- 
+            eventDetail: "",
             showModal: false,
             modSubject: "",
             modsatisfaction: "",
@@ -34,22 +20,6 @@ export default class GeneralEventDetail extends React.Component{
             modrevImage: "",
             
         }
-    }
-
-    
-    //マウント後に自動で動作する
-    componentDidMount(){
-        //学習用にaxiosでなく、標準のfetchを利用している。
-        fetch("/api/event/detail/{id}")
-        .then(res => res.json())
-        .then(json => {
-            console.log(json);
-            //stateのeventsに受け取ったデータを保持する。
-            //stateが変わると自動的に画面が再描画される。
-            this.setState({
-                events:json
-            })
-        });
     }
 
     //モーダルウィンドウの表示切り替え
@@ -66,12 +36,12 @@ export default class GeneralEventDetail extends React.Component{
     }
 
     render(){
-            //画面項目に連動するstateはここで宣言する。
-            const { events, showModal } = this.state;
+            const {showModal} =this.state;
+
         return(
             <div class="body">
                 <div class="eventh1">
-                <h1>一般利用者イベント詳細画面</h1>
+                <h1>一般利用者イベント詳細画面　タイトル</h1>
                 </div>
                 <br />
                 <img src="　"></img>

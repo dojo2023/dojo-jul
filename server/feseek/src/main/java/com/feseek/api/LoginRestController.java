@@ -1,6 +1,5 @@
 package com.feseek.api;
 
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.feseek.entity.LoginRequest;
 import com.feseek.entity.User;
 import com.feseek.repository.UsersRepository;
 
@@ -27,10 +27,13 @@ public class LoginRestController {
 
     // ログイン
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
-        String id = loginRequest.get("id");
-        String password = loginRequest.get("password");
-
+//    public ResponseEntity<String> login(@RequestBody Map<String, String> loginRequest, HttpServletRequest request) {
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest, HttpServletRequest request) {
+    	//String id = loginRequest.get("id");
+        //String password = loginRequest.get("password");
+    	String id = loginRequest.getId();
+    	String password = loginRequest.getPassword();
+    	
         Optional<User> optionalUser = usersRepository.findById(id);
         User user = optionalUser.orElse(null); // デフォルト値としてnullを設定
 
@@ -41,10 +44,12 @@ public class LoginRestController {
             //System.out.println(id); セッション確認ID
             session.setAttribute("categoriesId", user.getCategoriesId()); // 種別IDをセッションに格納
             //System.out.println(user.getCategoriesId()); セッション確認categoriesID
+            
             return new ResponseEntity<>("Login successful", HttpStatus.OK);
         } else {
             // 認証失敗
-            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+//            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>("Invalid credentials", HttpStatus.OK);
         }
     }
 

@@ -1,51 +1,9 @@
 @charset "UTF-8";
 
-.event_ul{
-    padding-right: 16px;
-}
-
 .event_li{
-    background-color: rgb(156, 211, 233);
     list-style: none;
-    border: solid;
-    border-color:#417792;
-    margin-top: 12px;
-    margin-bottom: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 4%;
-    height: 128px;
-    width:80%;
-    position:center;
-}
-
-.list_title{
-    position:relative;
-    top: 12px;
-    left: 8px;
-}
-
-.list_genre{
-    position: relative;
-    top: 48px;
-    left: 8px;
-}
-
-.list_prefecture{
-    position: relative;
-    top: 24px;
-    left: 128px;
-}
-
-.list_remarks{
-    position: relative;
-    bottom: 36px;
-    left: 326px;
-}
-
-textarea {
-    resize: none;
-    user-select: none;
-    cursor: pointer;
-    background-color: white;
+    border-top: dotted;
+    border-bottom: dotted;
+    margin-top: 8px;
+    color:blueviolet;
 }
