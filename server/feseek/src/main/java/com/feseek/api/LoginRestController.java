@@ -45,7 +45,17 @@ public class LoginRestController {
             session.setAttribute("categoriesId", user.getCategoriesId()); // 種別IDをセッションに格納
             //System.out.println(user.getCategoriesId()); セッション確認categoriesID
             
-            return new ResponseEntity<>("Login successful", HttpStatus.OK);
+            //1：一般利用者、2：主催者、3：管理者
+//            if(user.getCategoriesId() == 1) {
+//            	return new ResponseEntity<>("general", HttpStatus.OK);
+//            }
+//            else if(user.getCategoriesId() == 2) {
+//            	return new ResponseEntity<>("sponsor", HttpStatus.OK);
+//            }
+//            else if(user.getCategoriesId() == 3) {
+//            	return new ResponseEntity<>("admin", HttpStatus.OK);
+//            }
+            return String(user.getCategoriesId());
         } else {
             // 認証失敗
 //            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
