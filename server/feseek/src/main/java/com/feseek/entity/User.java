@@ -1,9 +1,13 @@
 package com.feseek.entity;
 
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -35,4 +39,7 @@ public class User {
 	@Column(name="categories_id")
 	@NonNull
 	private Integer categoriesId;
+	
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	 private List<Review> reviews;
 }

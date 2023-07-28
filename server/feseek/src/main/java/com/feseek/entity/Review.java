@@ -2,11 +2,16 @@ package com.feseek.entity;
 
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -27,7 +32,7 @@ public class Review {
 	@NonNull
 	private String usersId;
 	
-	@Column(name="events_id")
+	@Column(name="events_id", insertable = false, updatable = false)
 	@NonNull
 	private Integer eventsId;
 	
@@ -60,5 +65,14 @@ public class Review {
 	@Column(name="rev_image")
 	private String revImage;
 	
+	@ManyToOne
+	@JoinColumn(name = "users_id", referencedColumnName = "id", insertable = false, updatable = false)
+	@JsonIgnore
+	private User user;
+	
+	@ManyToOne
+    @JoinColumn(name = "events_id", referencedColumnName = "id")
+	@JsonIgnoreProperties("reviews") // Eventエンティティのreviewsフィールドをシリアル化から除外
+    private Event event;
 
 }

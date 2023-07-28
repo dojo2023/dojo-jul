@@ -21,11 +21,24 @@ public interface EventsRepository extends JpaRepository<Event,Integer >
 	    List<Event> findByStartDate(Date start_date);
 	    List<Event> findByAreasIdAndSeason(Integer areas_id,String seasons);
 	    List<Event> findByAreasIdAndSeasonAndStartDate(Integer areas_id, String season,Date startdate);
-	    List<Event> findByAreasIdAndSeasonAndStartDateAndIdIn(Integer areasId, String season, Date startDate, List<Integer> eventIds);
 	    List<Event> findByIdIn(List<Integer> eventIds);
 	    List<Event> findBySeasonAndStartDate(String season, Date startDate);
 	    List<Event>  findByAreasIdAndStartDate(Integer areas_id,Date startDate);
+	    List<Event> findByAreasIdAndSeasonAndStartDateAndIdIn(Integer areasId, String season, Date startDate, List<Integer> eventIds);
 
+	    List<Event> findByAreasIdAndSeasonAndIdIn(Integer areasId, String season, List<Integer> eventIds);
+
+	    List<Event> findBySeasonAndStartDateAndIdIn(String season, Date startDate, List<Integer> eventIds);
+
+
+	    List<Event> findByAreasIdAndStartDateAndIdIn(Integer areasId, Date startDate, List<Integer> eventIds);
+
+	    List<Event> findByAreasIdAndIdIn(Integer areasId, List<Integer> eventIds);
+
+	    List<Event> findBySeasonAndIdIn(String season, List<Integer> eventIds);
+
+	    List<Event> findByStartDateAndIdIn(Date startDate, List<Integer> eventIds);
+	
 	Optional<Event> findById(Integer id);
 	
 	//1人の主催者が投稿したイベント一覧表示
