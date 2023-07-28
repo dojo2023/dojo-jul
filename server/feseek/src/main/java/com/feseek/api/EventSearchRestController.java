@@ -50,7 +50,7 @@ public class EventSearchRestController
     }
 
     // イベント一覧
-    @GetMapping("api/event")
+    @GetMapping("/api/event")
     protected List<Event> findAll() 
     {
         return eventsRepository.findAll();

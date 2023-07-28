@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.feseek.entity.Event;
@@ -21,12 +22,10 @@ public class EventDetailRestController {
 	@Autowired
 	private EventsRepository repository;
 	
-	//イベントIDを受け取って表示
-	@GetMapping("/api/event/detail")
-	protected Optional<Event> findById(HttpServletRequest request){
-		HttpSession session = request.getSession();
-		Integer event_id = (Integer)session.getAttribute("eventId");
-		return repository.findById(event_id);
+	//詳細表示
+	@GetMapping("/api/user/detail/{id}")
+	protected Optional<Event> profile(@PathVariable Integer id){
+		return repository.findById(id);
 	}
 	
 	//主催者が投稿したイベント一覧
