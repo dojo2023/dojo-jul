@@ -20,7 +20,8 @@ import com.feseek.repository.EventsRepository;
 import com.feseek.repository.GenresRepository;
 
 @RestController
-public class EventSearchRestController {
+public class EventSearchRestController
+{
 
     @Autowired
     private EventsRepository eventsRepository;
@@ -31,7 +32,8 @@ public class EventSearchRestController {
 
     // キーワード検索
     @PostMapping("/api/search")
-    protected List<Event> keyword(@RequestBody EventSearch event) {
+    protected List<Event> keyword(@RequestBody EventSearch event)
+    {
         String keyword = event.getKeyword();
 
         return eventsRepository.findByEventNameLikeOrOpenTimeLikeOrAddressLikeOrAccessLikeOrCostsLikeOrOrganizerLikeOrDetailLikeOrSeasonLikeOrContactAddressLike
@@ -62,61 +64,63 @@ public class EventSearchRestController {
     	String  season = event.getSeason();
     	Date    startDate = event.getStartDate();
     	String  genreName = event.getGenre();
+    	 if (genreName != null) {
+             // ジャンル名に基づいてイベントを検索
+             Genre genre = genresRepository.findByGenreName(genreName);
+             if (genre != null) {
+                 List<EventGenre> eventGenres = eventGenresRepository.findByGenresId(genre.getId());
+                 if (!eventGenres.isEmpty()) {
+                     List<Integer> eventIds = eventGenres.stream().map(EventGenre::getEventsId).collect(Collectors.toList());
 
-    	 if (genreName != null) 
-    	 {
-    	    // ジャンル名に基づいてイベントを検索
-    	     Genre genre = genresRepository.findByGenreName(genreName);
-    	      if (genre != null)
-    	      {
-    	         List<EventGenre> eventGenres = eventGenresRepository.findByGenresId(genre.getId());
-    	          if (!eventGenres.isEmpty())
-    	          {
-    	             return eventsRepository.findByIdIn(eventGenres.stream().map(EventGenre::getEventsId).collect(Collectors.toList()));
-    	          }
-    	      }
-    	            // ジャンルが見つからないか、該当するイベントが存在しない場合は空のリストを返す
-    	            return Collections.emptyList();
-    	  } 
-    	 else
-    	 {
-    		 //エリアと
-    	    if (areasId != null && season != null && startDate != null) 
-    	    {
-    	      return eventsRepository.findByAreasIdAndSeasonAndStartDate(areasId, season, startDate);
-    	    } 
-    	    else if (areasId != null && season != null)
-    	    {
-    	      return eventsRepository.findByAreasIdAndSeason(areasId, season);
-    	    }
-    	    else if(season != null && startDate != null)
-    	    {
-    	    	return eventsRepository.findBySeasonAndStartDate(season, startDate);
-    	    }
-    	    else if(areasId != null && startDate != null)
-    	    {
-    	    	return eventsRepository.findByAreasIdAndStartDate(areasId, startDate);
-    	    }
-    	    else if (areasId != null)
-    	    {
-    	      return eventsRepository.findByAreasId(areasId);
-    	    } 
-    	    else if (season != null) 
-    	    {
-    	      return eventsRepository.findBySeason(season);
-    	    } 
-    	    else if (startDate != null) 
-    	    {
-    	      return eventsRepository.findByStartDate(startDate);
-    	    } 
-    	    else 
-    	    {
-    	      return eventsRepository.findAll();
-    	    }
-    	 }
-    	}
-    }
-	
+                     // 他の条件が指定されている場合、それらを考慮してイベントを絞り込む
+                     if (areasId != null && season != null && startDate != null) {
+                         return eventsRepository.findByAreasIdAndSeasonAndStartDateAndIdIn(areasId, season, startDate, eventIds);
+                     } else if (areasId != null && season != null) {
+                         return eventsRepository.findByAreasIdAndSeasonAndIdIn(areasId, season, eventIds);
+                     } else if (season != null && startDate != null) {
+                         return eventsRepository.findBySeasonAndStartDateAndIdIn(season, startDate, eventIds);
+                     } else if (areasId != null && startDate != null) {
+                         return eventsRepository.findByAreasIdAndStartDateAndIdIn(areasId, startDate, eventIds);
+                     } else if (areasId != null) {
+                         return eventsRepository.findByAreasIdAndIdIn(areasId, eventIds);
+                     } else if (season != null) {
+                         return eventsRepository.findBySeasonAndIdIn(season, eventIds);
+                     } else if (startDate != null) {
+                         return eventsRepository.findByStartDateAndIdIn(startDate, eventIds);
+                     } else {
+                         return eventsRepository.findByIdIn(eventIds);
+                     }
+                 }
+             }
+             // ジャンルが見つからないか、該当するイベントが存在しない場合は空のリストを返す
+             return Collections.emptyList();
+         } else if (areasId != null && season != null && startDate != null) {
+             // 都道府県と季節と日付に基づいてイベントを検索
+             return eventsRepository.findByAreasIdAndSeasonAndStartDate(areasId, season, startDate);
+         } else if (areasId != null && season != null) {
+             // 都道府県と季節に基づいてイベントを検索
+             return eventsRepository.findByAreasIdAndSeason(areasId, season);
+         } else if (season != null && startDate != null) {
+             // 季節と日付に基づいてイベントを検索
+             return eventsRepository.findBySeasonAndStartDate(season, startDate);
+         } else if (areasId != null && startDate != null) {
+             // 都道府県と日付に基づいてイベントを検索
+             return eventsRepository.findByAreasIdAndStartDate(areasId, startDate);
+         } else if (areasId != null) {
+             // 都道府県に基づいてイベントを検索
+             return eventsRepository.findByAreasId(areasId);
+         } else if (season != null) {
+             // 季節に基づいてイベントを検索
+             return eventsRepository.findBySeason(season);
+         } else if (startDate != null) {
+             // 日付に基づいてイベントを検索
+             return eventsRepository.findByStartDate(startDate);
+         } else {
+             // どの条件も指定されていない場合は全てのイベントを検索
+             return eventsRepository.findAll();
+         }
+     }
+ }
 	/*
 	//キーワード検索(テストプログラム)
 	@GetMapping("/api/testsearch")
