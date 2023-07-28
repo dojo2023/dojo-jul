@@ -89,7 +89,7 @@ public class UserRestController {
   	@PostMapping("/reset-id")
   	protected ResponseEntity<String> resetId(@RequestBody Map<String, String> requestMap) {
   	    String userMail = requestMap.get("userMail");
-  	    String password = requestMap.get("newpassword");
+  	    String password = requestMap.get("password");
   	    String newUserId = requestMap.get("newUserId");
 
   	    // ユーザーの情報を取得するためにメールアドレスを使用する
