@@ -1,11 +1,12 @@
 import React from 'react';
+import './Menu.css';
 
 export default class GuestMenubar extends React.Component{
 
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
-            
+            id:"",
         }
     }
 
