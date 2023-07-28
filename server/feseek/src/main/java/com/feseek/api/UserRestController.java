@@ -41,10 +41,19 @@ public class UserRestController {
 
   //退会
   	@PostMapping("/delete/{id}")
-  	protected User delete(@RequestBody User user) {
-  		usersRepository.delete(user);
-  		return user;
-  	}	
+  	protected ResponseEntity<String> delete(@PathVariable String id) {
+  	    Optional<User> userToDelete = usersRepository.findById(id);
+  	    if (userToDelete.isPresent()) {
+  	        usersRepository.delete(userToDelete.get());
+  	        return ResponseEntity.ok("ユーザーを正常に削除しました。");
+  	    } else {
+  	        return ResponseEntity.notFound().build();
+  	    }
+  	}
+//  	protected User delete(@RequestBody User user) {
+//  		usersRepository.delete(user);
+//  		return user;
+//  	}	
 
   //更新
   	@PostMapping("/update/{id}")
