@@ -113,7 +113,7 @@ export default class MyEventList extends React.Component{
                 <body>
                 {/* イベント一覧表示部分 */}
                     <div className="eventList">
-                        <h3>投稿したイベント一覧ページ(主催者画面)</h3>
+                        <h3>投稿したイベント一覧</h3>
                         {/*投稿したイベントの個数分回す */}
                         {events.map((event,index) =>
                             <div>
@@ -167,13 +167,15 @@ export default class MyEventList extends React.Component{
                                             <td>{event.urlFifth}</td>
                                         </tr> */}
                                     </table>
-                                    <button>編集</button>
-                                    <button>削除</button>
+                                    <div className="btnPosition">
+                                        <button className="eventbtn">編集</button>
+                                        <button className="eventbtn">削除</button>
+                                    </div>
                             </div>
                         )} 
 {/* ------------------------------------------------------------------------------------------------------------------------- */}
                     {/*投稿モーダルを開くボタン*/}
-                    <button onClick={() =>{this.postEvent()}}>イベント投稿(モーダル)</button>
+                    <button className="PostBtn" onClick={() =>{this.postEvent()}}>イベント投稿する</button>
                 </div>
                 </body>
                 {/* イベント投稿モーダル */}
