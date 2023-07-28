@@ -72,6 +72,7 @@ public class Review {
 	
 	@ManyToOne
     @JoinColumn(name = "events_id", referencedColumnName = "id")
+	@JsonIgnore
 	@JsonIgnoreProperties("reviews") // Eventエンティティのreviewsフィールドをシリアル化から除外
     private Event event;
 
