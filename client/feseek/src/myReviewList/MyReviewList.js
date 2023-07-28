@@ -14,8 +14,23 @@ export default class MyReviewList extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchReviewData();
-  }
+    // マウント後にAPIを呼び出す
+    axios.get('/api/review/mylist')
+    .then(response => {
+        // APIレスポンスからデータを取得してstateにセットする
+    // .then(json => {
+    //     console.log(json.data);
+    
+        this.setState({ reviews: response.data });
+    // })
+    })
+    .catch(error => {
+        console.log(error);
+    });
+
+
+
+}
 
   fetchReviewData() {
     axios.get('/api/review/mylist') // Spring BootのAPIエンドポイントを指定
@@ -36,24 +51,42 @@ export default class MyReviewList extends React.Component {
     });
   }
 
-  modEdit = () => {
+  modEdit = (reviewId) => {
     this.toggleModal();
-    // 編集処理を追加
-    // ここで編集する口コミのデータを取得してもよいです
-    // 例えば、this.state.modEdit に編集対象の口コミIDをセットしておき、
-    // モーダル内でそのIDを元に編集対象の口コミデータを表示するなど
-  }
 
-  diaDelete = () => {
+    // 編集対象の口コミデータを取得
+    axios.get(`/api/review/${reviewId}`)
+        .then(response => {
+            // 取得した口コミデータをstateにセットしてモーダル内で表示する
+            this.setState({ modEdit: response.data });
+        })
+        .catch(error => {
+            console.log(error);
+        });
+}
+
+
+diaDelete = (reviewId) => {
     if (window.confirm("本当に削除しますか？")) {
-      console.log('削除確認ダイアログ');
-      // 削除処理を追加
-      // 例えば、this.state.modEdit に削除対象の口コミIDをセットしておき、
-      // それを使ってAPIリクエストを行って削除するなど
+        console.log('削除確認ダイアログ');
+
+        // 削除処理を実行するAPIリクエストを行う
+        axios.delete(`/api/review/${reviewId}`)
+            .then(response => {
+                // 成功した場合は、一覧から該当の口コミを削除する
+                this.setState(prevState => ({
+                    reviews: prevState.reviews.filter(review => review.id !== reviewId)
+                }));
+                console.log('削除が完了しました');
+            })
+            .catch(error => {
+                console.log(error);
+            });
     } else {
-      console.log('削除キャンセル');
+        console.log('削除キャンセル');
     }
-  };
+};
+
 
   render() {
     const { reviews, showModal } = this.state;
@@ -72,25 +105,25 @@ export default class MyReviewList extends React.Component {
             <td>タイトル</td>
             <td>評価</td>
             <td>本文</td>
-            <td></td>
-            <td></td>
+            
           </tr>
 
-          {reviews.map((review, index) =>
+         {reviews.map((review, index) => 
             <tr className="reviewsrow" key={index}>
-              <td className="rev_date">{review.rev_date}</td>
-              <td className="rev_title">{review.rev_title}</td>
+              <td className="revDate">{review.revDate}</td>
+              <td className="revTitle">{review.revTitle}</td>
               {/* <td className="evaluation">{review.satisfaction, review.security, review.again, review.atmosphere, review.continuation}</td> */}
               <td className="comment">{review.comment}</td>
               {/* <td><button onClick={() => { this.modEdit() }} name="edit">編集</button></td>
               <td><button onClick={() => { this.diaDelete() }} name="delete">削除</button></td> */}
             </tr>
           )}
-
+            <button className='default_button' onClick={() => { this.modEdit() }} name="edit">編集</button>
+            <button className='default_button' onClick={() => { this.diaDelete() }} name="delete">削除</button>
         </table>
 
-        <button className='default_button' onClick={() => { this.modEdit() }} name="edit">編集</button>
-        <button className='default_button' onClick={() => { this.diaDelete() }} name="delete">削除</button>
+        
+        
 
         {/* モーダルウィンドウ(送信) */}
         {showModal &&

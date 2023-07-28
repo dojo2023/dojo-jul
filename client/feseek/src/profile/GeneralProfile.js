@@ -33,7 +33,7 @@ export default class GeneralProfile extends React.Component{
 
                             <button className="default_button" onClick={"location.href='/UserEdit'"}>編集</button>
                             <button className="default_button">退会</button>
-                            <a href="/generalProfile/MyReviewList"><button className="default_button">投稿した口コミ一覧ページ</button></a>
+                            <a href="/MyReviewList"><button className="default_button">投稿した口コミ一覧ページ</button></a>
                     
                 </body>
             </div>
