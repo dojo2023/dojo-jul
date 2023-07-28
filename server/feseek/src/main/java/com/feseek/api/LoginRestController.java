@@ -59,7 +59,7 @@ public class LoginRestController {
     public ResponseEntity<String> logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
-            session.removeAttribute("id");
+            session.removeAttribute("userId");
             session.removeAttribute("categoriesId"); // セッションから種別IDを削除
             session.invalidate(); // セッションを無効化
         }

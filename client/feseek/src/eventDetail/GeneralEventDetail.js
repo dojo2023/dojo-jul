@@ -48,6 +48,12 @@ export default class GeneralEventDetail extends React.Component{
     componentDidMount(){
         const{id} = this.state;
         axios.get("/api/event/detail")
+        .then(json =>{
+            console.log(json.data)
+            this.setState({
+                events:json.data
+            })
+        })
     }
 
     //モーダルウィンドウの表示切り替え

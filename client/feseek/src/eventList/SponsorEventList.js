@@ -1,6 +1,6 @@
 import React from "react";
 import SponsorMenubar from "../menubar/SponsorMenubar";
-// import './EventList.css';
+import './EventList.css';
 
 export default class EventList extends React.Component{
 
@@ -23,9 +23,9 @@ export default class EventList extends React.Component{
                 </header>
                 <body>
                     <h1>イベントリスト</h1>
-                    <ul class="event_ul">
+                    <ul className="event_ul">
                         <a href="/sponsorEventDetail">
-                                <li class="event_li">
+                                <li className="event_li">
                                 <div className="list_title" value={list_title}> title </div><br></br>
                                 <div className="list_genre" value={list_genre}> genre </div>
                                 <div className="list_prefecture" value={list_prefecture}> area </div>

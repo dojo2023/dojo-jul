@@ -5,49 +5,60 @@
 }
 
 .event_li{
-    background-color: rgb(156, 211, 233);
+    background-color: #e0edff;
     list-style: none;
     border-top: dotted;
     border-bottom: dotted;
     margin-top: 8px;
-    color:blueviolet;
-    border: solid;
-    border-color:#417792;
+    color:#193f52;
+    border: solid , 4px;
+    border-color:rgb(114, 136, 165);
     margin-top: 12px;
     margin-bottom: 12px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 4%;
+    margin-left: 2%;
+    margin-right: 1%;
+    padding: auto;
     height: 128px;
-    width:80%;
+    width:auto;
     position:center;
+}
+.event_li:hover{
+    opacity:0.7;
 }
 
 .list_title{
+    user-select: none;
     position:relative;
     top: 12px;
-    left: 8px;
+    width: 300px;
+    font-size: large;
 }
 
 .list_genre{
+    user-select: none;
     position: relative;
     top: 48px;
-    left: 8px;
+    width: 300px;
 }
 
 .list_prefecture{
+    user-select: none;
     position: relative;
     top: 24px;
-    left: 128px;
+    left: 100px;
+    width: 300px;
 }
 
 .list_remarks{
     position: relative;
     bottom: 36px;
-    left: 326px;
+    left: 300px;
+    width: 60em;
 }
 
 textarea {
+    height: 4em;
+    width: 60em; 
     resize: none;
     user-select: none;
     cursor: pointer;

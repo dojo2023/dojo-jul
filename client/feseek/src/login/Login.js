@@ -40,16 +40,22 @@ export default class Login extends React.Component{
         .then(json =>{
             //OK(Login successful)なら、次の画面（利用者、主催者、管理者）
             //ここに、ログイン成功した際のurlを記述するのはカッコ悪いので、WebAPIでログイン成功したときのurlを教えて貰う方がすっきり
-            if(json.data === 'Login successful'){
-                //ログイン成功
-                window.location = "/eventSearch"
-            }else{
-               //ログイン失敗
-               console.log('ログイン失敗');
-               this.setState({
-                    ErrorMsg : <span>※IDまたはパスワードが間違っています</span>
-
-               })
+            switch(json.data){
+                case 1:
+                    //一般利用者
+                    window.location = './generalEventList';
+                    break;
+                case 2:
+                    //主催者
+                    window.location = './SponserEventList'
+                    break;
+                case 3:
+                    //ゲスト
+                    window.location = './GuestEventList'
+                    break;
+                default:
+                    //ログイン失敗
+                    this.setState({ErrorMsg : <span>※IDまたはパスワードが間違っています</span>})
             }
             // console.log(json);
         });

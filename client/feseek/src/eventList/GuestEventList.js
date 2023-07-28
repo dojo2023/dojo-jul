@@ -1,6 +1,6 @@
 import React from "react";
 import GuestMenubar from "../menubar/GuestMenubar";
-// import './EventList.css';
+import './EventList.css';
 
 export default class EventList extends React.Component{
 
@@ -23,13 +23,13 @@ export default class EventList extends React.Component{
                 </header>
                 <body>
                     <h1>イベントリスト</h1>
-                    <ul class="event_ul">
+                    <ul className="event_ul">
                         <a href="/guestEventDetail">
-                            <li class="event_li">
-                                <div class="list_title" value={list_title}> title </div><br></br>
-                                <div class="list_genre" value={list_genre}> genre </div>
-                                <div class="list_prefecture" value={list_prefecture}> area </div>
-                                <div class="list_remarks"><textarea rows="5" cols="125" value={list_remarks}></textarea> </div>
+                            <li className="event_li">
+                                <div className="list_title" value={list_title}> title </div><br></br>
+                                <div className="list_genre" value={list_genre}> genre </div>
+                                <div className="list_prefecture" value={list_prefecture}> area </div>
+                                <div className="list_remarks"><textarea rows="5" cols="125" value={list_remarks}></textarea> </div>
                             </li>
                         </a>
 
