@@ -27,6 +27,7 @@ public class User {
 	@Id
 	@NonNull
 	private String id;
+	//private Long id;
 	@NonNull
 	private String password;
 	
