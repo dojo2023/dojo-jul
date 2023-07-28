@@ -28,6 +28,10 @@ public class EventPostRestController {
             // ユーザーIDがセッションに保存されていない場合は、エラー
             throw new RuntimeException("User ID not found in session.");
         }
+        
+     // イベントIDをセッションに保存
+        Integer eventId = event.getId(); // イベントIDを取得（仮定）
+        session.setAttribute("event_id", eventId.toString());
 
         // ユーザーIDを投稿にセットして紐づける
         event.setUsersId(usersId);
