@@ -72,13 +72,13 @@ export default class User extends React.Component{
                     {/* <p class="user_p">メールアドレス</p> */}
                     <input type="text" className="default_textbox" name="mail" onChange={this.onInput} required placeholder="メールアドレス"></input><br></br>
                     {/* <p class="user_p">権限選択</p> */}
-                    <select className="default_textbox" name="categoriesId" onChange={this.onInput} >
-                        <option value="">選択してください</option>
+                    <select className="default_select" name="categoriesId" onChange={this.onInput} >
+                        <option value="">---選択してください---</option>
                         <option value="0">一般利用者</option>
                         <option value="1">主催者</option>
                     </select>
                 </div>
-                <p>すべて必須項目です</p>
+                <p className = "Hissu" >すべて必須項目です</p>
                 <input type="button" className="default_button" value="登録" onClick={this.newUser}></input>
             </div>
         )

@@ -1,0 +1,22 @@
+.default_textbox{
+    width: 20em;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border:solid 2px #417792;
+    border-radius: 12px 12px 12px 12px;/*角を丸く*/
+}
+
+.default_select{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    text-align: center;
+}
+
+.Hissu{
+    color:red;
+    font-size: large;
+}
