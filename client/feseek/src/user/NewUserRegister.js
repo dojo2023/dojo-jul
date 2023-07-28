@@ -73,7 +73,7 @@ export default class User extends React.Component{
                     <input type="text" className="default_textbox" name="mail" onChange={this.onInput} required placeholder="メールアドレス"></input><br></br>
                     {/* <p class="user_p">権限選択</p> */}
                     <select className="default_select" name="categoriesId" onChange={this.onInput} >
-                        <option value="">---選択してください---</option>
+                        <option value="">---権限を選択してください---</option>
                         <option value="0">一般利用者</option>
                         <option value="1">主催者</option>
                     </select>

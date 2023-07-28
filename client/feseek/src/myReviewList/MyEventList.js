@@ -40,7 +40,7 @@ export default class MyEventList extends React.Component{
         // const usersId = 'aaa';
         // console.log(usersId)
         // const {usersId} = this.state;
-        axios.get("/api/event/sponser/aaa")
+        axios.get("/api/event/sponser")
         .then( json =>{
             console.log(json.data);
             this.setState({
@@ -69,15 +69,36 @@ export default class MyEventList extends React.Component{
         });
     }
 
-    //投稿ボタンクリック時の処理
+    //投稿する時の処理
     eventPost = () =>{
         console.log("eventPost");
         const {usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
-        const data = {eventName:eventName,startDate:startDate,endDate:endDate,openTime:openTime,address:address,access:access,map:map,costs:costs,areasId:areasId,detail:detail,organizer:organizer,url:url,urlFirst:urlFirst,urlSecond:urlSecond,urlThird:urlThird,urlForth:urlForth,urlFifth:urlFifth,contactAddress:contactAddress};
+        const data = {
+            eventName:eventName,
+            startDate:startDate,
+            endDate:endDate,
+            openTime:openTime,
+            address:address,
+            access:access,
+            map:map,
+            costs:costs,
+            areasId:areasId,
+            detail:detail,
+            organizer:organizer,
+            url:url,
+            urlFirst:urlFirst,
+            urlSecond:urlSecond,
+            urlThird:urlThird,
+            urlForth:urlForth,
+            urlFifth:urlFifth,
+            contactAddress:contactAddress
+        };
         axios.post('/api/events/add',data)
-        // .then(json =>{
-        //     console.log(json);
-        // })
+        .then(json =>{
+            console.log(json);
+            this.toggleModal();
+            this.componentDidMount();
+        })
     }
 
     render(){
@@ -137,14 +158,14 @@ export default class MyEventList extends React.Component{
                                             <th>詳細</th>
                                             <td>{event.detail}</td>
                                         </tr>
-                                        <tr>
+                                        {/* <tr>
                                             <th>写真</th>
                                             <td>{event.urlFirst}</td>
                                             <td>{event.urlSecond}</td>
                                             <td>{event.urlThird}</td>
                                             <td>{event.urlForth}</td>
                                             <td>{event.urlFifth}</td>
-                                        </tr>
+                                        </tr> */}
                                     </table>
                                     <button>編集</button>
                                     <button>削除</button>
@@ -192,7 +213,7 @@ export default class MyEventList extends React.Component{
                                 <tr>
                                     <th>都道府県</th>
                                     <td>
-                                        <select name="pref">
+                                        <select name="areasId" onChange={this.onInput}>
                                         <option value="" selected>都道府県</option>
                                         <option value="1">北海道</option>
                                         <option value="2">青森県</option>
@@ -276,14 +297,14 @@ export default class MyEventList extends React.Component{
                                     <th>連絡先</th>
                                     <td><input type="text" onChange={this.onInput} value={contactAddress} name="contactAddress"></input></td>
                                 </tr>
-                                <tr>
+                                {/* <tr>
                                     <th>写真</th>
                                     <td><input type="file" onChange={this.onInput} value={urlFirst}></input></td>
                                     <td><input type="file" onChange={this.onInput} value={urlSecond}></input></td>
                                     <td><input type="file" onChange={this.onInput} value={urlThird}></input></td>
                                     <td><input type="file" onChange={this.onInput} value={urlForth}></input></td>
                                     <td><input type="file" onChange={this.onInput} value={urlFifth}></input></td>
-                                </tr>
+                                </tr> */}
                             </table>
                             <button onClick={this.eventPost}>投稿</button>
                             <button onClick={this.toggleModal}>閉じる</button>
