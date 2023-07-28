@@ -40,7 +40,7 @@ export default class MyEventList extends React.Component{
         // const usersId = 'aaa';
         // console.log(usersId)
         // const {usersId} = this.state;
-        axios.get("/api/event/sponser")
+        axios.get("/api/event/sponser/aaa")
         .then( json =>{
             console.log(json.data);
             this.setState({
