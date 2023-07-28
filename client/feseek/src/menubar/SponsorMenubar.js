@@ -29,12 +29,11 @@ render(){
         <div>
             <div class="menu">
                 <div class="logo">
-                    <h2>Feseek</h2>
+                    <a href="SponsorEventList"><h2>Feseek</h2></a>
                 </div>
                 <div class="link">
-                    <a href="../eventSearch">検索　</a>/
-                    <a href="../GeneralAndSponsorInquiryList">　お問い合わせ　</a>/
-                    <a href="../login">　ログイン　</a>・
+                    <a href="SponsorEventList">　イベントリスト　</a>/
+                    {/* <a href="../login">　ログイン　</a>・ */}
                     <a href="" onClick={this.logout}>　ログアウト　</a>/
                     <a href="../SponsorProfile">　プロフィール</a>
                 </div>

@@ -78,65 +78,69 @@ export default class MyEventList extends React.Component{
         const{id,users_id,event_name,janres_id,start_date,end_date,open_time,address,access,map,costs,areas_id,detail,organizer,url,url_first,url_second,url_third,url_forth,url_fifth,contact_address,showModal} = this.state;
         return(
             <div>
-                <SponsorMenubar></SponsorMenubar>   {/*上部メニュー*/}
-                {/* イベント一覧表示部分 */}
-                <div class="eventList">
-                    <h3>投稿したイベント一覧ページ(主催者画面)</h3>
-                {/*投稿したイベントの個数文回す */}
-                <table class="list">
-                    <tr>
-                            <th>イベント名</th>
-                            <td>{event_name}</td>
-                            <th>ジャンル</th>
-                            <td>{janres_id}</td>
-                        </tr>
+                <header>
+                    <SponsorMenubar></SponsorMenubar>   {/*上部メニュー*/}
+                </header>
+                <body>
+                    {/* イベント一覧表示部分 */}
+                    <div class="eventList">
+                        <h1>投稿したイベント一覧</h1>
+                    {/*投稿したイベントの個数文回す */}
+                    <table class="list">
                         <tr>
-                            <th>主催期間</th>
-                            <td>{start_date} ～ {end_date}</td>
-                            <th>開催時間</th>
-                            <td>{open_time}</td>
-                        </tr>
-                        <tr>
-                            <th>都道府県</th>
-                            <td>{areas_id}</td>
-                            <th>住所</th>
-                            <td>{address}</td>
-                        </tr>
-                        <tr>
-                            <th>マップURL</th>
-                            <td>{map}</td>
-                            <th>アクセス</th>
-                            <td>{access}</td>
-                        </tr>
-                        <tr>
-                            <th>参加費</th>
-                            <td>{costs}</td>
-                            <th>ホームページURL</th>
-                            <td>{url}</td>
-                        </tr>
-                        <tr>
-                            <th>主催者</th>
-                            <td>{organizer}</td>
-                            <th>連絡先</th>
-                            <td>{contact_address}</td>
-                        </tr>
-                        <tr>
-                            <th>詳細</th>
-                            <td>{detail}</td>
-                        </tr>
-                        <tr>
-                            <th>写真</th>
-                            <td>{url_first}</td>
-                            <td>{url_second}</td>
-                            <td>{url_third}</td>
-                            <td>{url_forth}</td>
-                            <td>{url_fifth}</td>
-                        </tr>
-                    </table>
+                                <th>イベント名</th>
+                                <td>{event_name}</td>
+                                <th>ジャンル</th>
+                                <td>{janres_id}</td>
+                            </tr>
+                            <tr>
+                                <th>主催期間</th>
+                                <td>{start_date} ～ {end_date}</td>
+                                <th>開催時間</th>
+                                <td>{open_time}</td>
+                            </tr>
+                            <tr>
+                                <th>都道府県</th>
+                                <td>{areas_id}</td>
+                                <th>住所</th>
+                                <td>{address}</td>
+                            </tr>
+                            <tr>
+                                <th>マップURL</th>
+                                <td>{map}</td>
+                                <th>アクセス</th>
+                                <td>{access}</td>
+                            </tr>
+                            <tr>
+                                <th>参加費</th>
+                                <td>{costs}</td>
+                                <th>ホームページURL</th>
+                                <td>{url}</td>
+                            </tr>
+                            <tr>
+                                <th>主催者</th>
+                                <td>{organizer}</td>
+                                <th>連絡先</th>
+                                <td>{contact_address}</td>
+                            </tr>
+                            <tr>
+                                <th>詳細</th>
+                                <td>{detail}</td>
+                            </tr>
+                            <tr>
+                                <th>写真</th>
+                                <td>{url_first}</td>
+                                <td>{url_second}</td>
+                                <td>{url_third}</td>
+                                <td>{url_forth}</td>
+                                <td>{url_fifth}</td>
+                            </tr>
+                        </table>
 
-                    {/*投稿モーダルを開くボタン*/}
-                    <button onClick={() =>{this.postEvent()}}>イベント投稿(モーダル)</button>
-                </div>
+                        {/*投稿モーダルを開くボタン*/}
+                        <button className="default_button" onClick={() =>{this.postEvent()}}>イベント投稿</button>
+                    </div>
+                </body>
                 {/* イベント投稿モーダル */}
                 {showModal &&
                     <div id="overlay">

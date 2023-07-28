@@ -1,5 +1,12 @@
 /* 全体 */
-.body {
+/* .body {
+    width: 100%;
+    text-align: center;
+    font-family: "sans-serif" ;
+    background:linear-gradient(#f8fbff, #fff); 
+} */
+
+body {
     width: 100%;
     text-align: center;
     font-family: "sans-serif" ;
@@ -52,12 +59,25 @@ h3 {
 
 
 /* 表 */
+/* table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    border-collapse:separate;
+    border-spacing: 5px;
+} */
+
 table {
     margin-left: auto;
     margin-right: auto;
     width: 70%;
     border-collapse:separate;
     border-spacing: 5px;
+}
+
+.profile_table{
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 table th,table td{
@@ -76,6 +96,10 @@ table td{
     background-color: #bcd5e4;
     border:solid 1px #85a2af;
 }
+
+
+
+
 
 /* 横並び */
 .side {
@@ -106,7 +130,7 @@ iframe {
 .default_textbox
 {
     display: inline-block;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
     width: 25%;
     height: 1.5em;
 
@@ -115,6 +139,12 @@ iframe {
 .around_textbox{
     margin-top: 3em;
     margin-bottom: 1em;
+}
+
+/* 位置調整 */
+.event_ul,
+.myreviewlist_table{
+    margin-top: 2em;
 }
 
 /* モーダル */

@@ -1,8 +1,9 @@
 import React from "react";
-import './Remind.css';
+// import './Remind.css';
 import IdReRegister from "./IdReRegister";
 import axios from "axios";
 import { json } from "react-router-dom";
+import GuestMenubar from "../menubar/GuestMenubar";
 
 export default class ConfirmForId extends React.Component{
     constructor(props){
@@ -40,18 +41,23 @@ export default class ConfirmForId extends React.Component{
             errMsg = (<p>※エラーメッセージ</p>)
         }
         return(
-            <div className="body">
-                <h1>ID再登録用本人確認ページ</h1>
-                <p className="message">あなたのIDとメールアドレスを入力してください</p>
-                {/* <form action="" method="POST"> */}
-                <div className="around_textbox">
-                    <input type="pass" placeholder="ID" className="default_textbox" name="pass" value={pass} onChange={this.onInput}></input><br />
-                    <input type="email" placeholder="メールアドレス" className="default_textbox" name="email" value={email} onChange={this.onInput}></input><br />
-                </div>
-                    <span>{errMsg}</span>
-                    <input type="submit" className="default_button" value={"送信"} onClick={this.onSubmit}></input>
-                {/* </form> */}
-                <p><a href="../login">ログインページに戻る</a></p>
+            <div>
+                <header>
+                    <GuestMenubar></GuestMenubar>
+                </header>
+                <body>
+                    <h1>ID再登録用本人確認</h1>
+                    <p className="message">あなたのIDとメールアドレスを入力してください</p>
+                    {/* <form action="" method="POST"> */}
+                    <div className="around_textbox">
+                        <input type="pass" placeholder="ID" className="default_textbox" name="pass" value={pass} onChange={this.onInput}></input><br />
+                        <input type="email" placeholder="メールアドレス" className="default_textbox" name="email" value={email} onChange={this.onInput}></input><br />
+                    </div>
+                        <span>{errMsg}</span>
+                        <input type="submit" className="default_button" value={"送信"} onClick={this.onSubmit}></input>
+                    {/* </form> */}
+                    <p><a href="../login">ログインページに戻る</a></p>
+                </body>
             </div>
         )
     }

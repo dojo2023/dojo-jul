@@ -1,5 +1,6 @@
 import React from 'react';
 import './EventDetail.css';
+import GeneralMenubar from '../menubar/GeneralMenubar';
 
 export default class GeneralEventDetail extends React.Component{
 
@@ -39,61 +40,66 @@ export default class GeneralEventDetail extends React.Component{
             const {showModal} =this.state;
 
         return(
-            <div class="body">
-                <div class="eventh1">
-                <h1>一般利用者イベント詳細画面　タイトル</h1>
-                </div>
-                <br />
-                <img src="　"></img>
-
-                <p>ここに詳細文をたくさん記載</p>
-
-                <h2>基本情報</h2>
-                <table class="list">
-                    <tr>
-                        <th>イベント名</th> <td>第8回富津市民花火大会</td>
-                    </tr>
-                    <tr>
-                        <th>主催者名</th> <td>い</td>
-                    </tr>
-                    <tr>
-                        <th>開催日時</th> <td>う</td>
-                    </tr>
-                    <tr>
-                        <th>住所</th> <td>え</td>
-                    </tr>
-                    <tr>
-                        <th>マップURL</th> <td>お</td>
-                    </tr>
-                    <tr>
-                        <th>アクセス</th> <td>か</td>
-                    </tr>
-                    <tr>
-                        <th>参加費</th> <td>き</td>
-                    </tr>
-                    <tr>
-                        <th>HP　URL</th> <td>く</td>
-                    </tr>
-                    <tr>
-                        <th>連絡先</th> <td>け</td>
-                    </tr>
-                </table>
-                
-            <div class="side">
-                <div class="review">
-                <h2>口コミ</h2>
+            <div>
+                <header>
+                    <GeneralMenubar></GeneralMenubar>
+                </header>
+                <body>
+                    <div class="eventh1">
+                    <h1>イベント詳細</h1>
+                    </div>
                     <br />
-                    <button class="btn" onClick={() =>{this.modDetail()}}>投稿</button>
-                    <br />
-                    <iframe src="./review"></iframe>
-                </div>
+                    <img src="　"></img>
 
-                <div class="timeline">
-                <h2>タイムライン</h2>
-                    <br />
-                    <iframe class="iframe_tl" src="./Timeline"></iframe>
+                    <p>ここに詳細文をたくさん記載</p>
+
+                    <h2>基本情報</h2>
+                    <table class="list">
+                        <tr>
+                            <th>イベント名</th> <td>第8回富津市民花火大会</td>
+                        </tr>
+                        <tr>
+                            <th>主催者名</th> <td>い</td>
+                        </tr>
+                        <tr>
+                            <th>開催日時</th> <td>う</td>
+                        </tr>
+                        <tr>
+                            <th>住所</th> <td>え</td>
+                        </tr>
+                        <tr>
+                            <th>マップURL</th> <td>お</td>
+                        </tr>
+                        <tr>
+                            <th>アクセス</th> <td>か</td>
+                        </tr>
+                        <tr>
+                            <th>参加費</th> <td>き</td>
+                        </tr>
+                        <tr>
+                            <th>HP　URL</th> <td>く</td>
+                        </tr>
+                        <tr>
+                            <th>連絡先</th> <td>け</td>
+                        </tr>
+                    </table>
+                    
+                <div class="side">
+                    <div class="review">
+                    <h2>口コミ</h2>
+                        <br />
+                        <button class="btn" onClick={() =>{this.modDetail()}}>投稿</button>
+                        <br />
+                        <iframe src="./review"></iframe>
+                    </div>
+
+                    <div class="timeline">
+                    <h2>タイムライン</h2>
+                        <br />
+                        <iframe class="iframe_tl" src="./Timeline"></iframe>
+                    </div>
                 </div>
-            </div>
+            </body>
 
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&

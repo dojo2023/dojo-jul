@@ -94,7 +94,7 @@ export default class MyReviewList extends React.Component{
 
                 <h1>投稿した口コミ一覧</h1>
 
-                <table>
+                <table className='myreviewlist_table'>
                     <tr>
                         <td>日時</td>
                         <td>タイトル</td>
@@ -117,12 +117,8 @@ export default class MyReviewList extends React.Component{
 
                 </table>
 
-                    <button onClick={() =>{this.modEdit()}} name="edit">編集</button>
-                    <button onClick={() =>{this.diaDelete()}} name="delete">削除</button>
-
-                <div>
-                    <a href="/generalProfile">戻る</a>
-                </div>
+                    <button className='default_button' onClick={() =>{this.modEdit()}} name="edit">編集</button>
+                    <button className='default_button' onClick={() =>{this.diaDelete()}} name="delete">削除</button>
 
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&
