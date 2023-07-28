@@ -1,4 +1,6 @@
 import React from 'react';
+import axios from 'axios';
+import './EventDetail.css';
 import SponsorMenubar from '../menubar/SponsorMenubar';
 
 export default class SponsorEventDetail extends React.Component{
@@ -8,11 +10,37 @@ export default class SponsorEventDetail extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
+            events:[],
+            id:"",
+            usersId:"",
+            eventName:"",
+            startDate:"",
+            endDate:"",
+            openTime:"",
+            address:"",
+            access:"",
+            map:"",
+            costs:"",
+            areasId:"",
+            detail:"",
+            url:"",
+            urlFirst:"",
+            urlSecond:"",
+            urlThird:"",
+            urlForth:"",
+            urlFifth:"",
+            contactAddress:"",
+
             eventDetail: "",
             showModal: false,
             modinformation: "",
             
         }
+    }
+
+    componentDidMount(){
+        const{id} = this.state;
+        axios.get("/api/event/detail")
     }
 
     //モーダルウィンドウの表示切り替え
@@ -29,10 +57,10 @@ export default class SponsorEventDetail extends React.Component{
     }
 
     render(){
-            const {showModal} =this.state;
+        const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
 
         return(
-            <div class="body">
+            <div className="body">
                 <header>
                     <SponsorMenubar></SponsorMenubar>
                 </header>
@@ -43,46 +71,47 @@ export default class SponsorEventDetail extends React.Component{
                     <p>ここに詳細文をたくさん記載</p>
 
                     <h2>基本情報</h2>
-                    <table class="list">
+                    <table className="list">
                         <tr>
-                            <th>イベント名</th> <td>あ</td>
+                            <th>イベント名</th> <td>{eventName}</td>
                         </tr>
                         <tr>
-                            <th>主催者名</th> <td>い</td>
+                            <th>主催者名</th> <td>{organizer}</td>
                         </tr>
                         <tr>
-                            <th>開催日時</th> <td>う</td>
+                            <th>開催日時</th> <td>{startDate} ～ {endDate} {openTime}</td>
                         </tr>
                         <tr>
-                            <th>住所</th> <td>え</td>
+                            <th>住所</th> <td>{address}</td>
                         </tr>
                         <tr>
-                            <th>マップURL</th> <td>お</td>
+                            <th>マップURL</th> <td>{map}</td>
                         </tr>
                         <tr>
-                            <th>アクセス</th> <td>か</td>
+                            <th>アクセス</th> <td>{access}</td>
                         </tr>
                         <tr>
-                            <th>参加費</th> <td>き</td>
+                            <th>参加費</th> <td>{costs}</td>
                         </tr>
                         <tr>
-                            <th>HP　URL</th> <td>く</td>
+                            <th>HP　URL</th> <td>{url}</td>
                         </tr>
                         <tr>
-                            <th>連絡先</th> <td>け</td>
+                            <th>連絡先</th> <td>{contactAddress}</td>
                         </tr>
                     </table>
 
-                    <div class="side">
-                        <div class="review">
+                    <div className="side">
+                        <div className="review">
                         <h2>口コミ</h2>
                             <br />
-                            <iframe src="./review"></iframe>
+                            <iframe className="iframe_tl" src="./review"></iframe>
                         </div>
 
                         <div class="timeline">
                         <h2>タイムライン</h2>
-                            <button onClick={() =>{this.modDetail()}}>投稿</button>
+                        <br />
+                            <button className="btn"　onClick={() =>{this.modDetail()}}>投稿</button>
                             <br />
                             <iframe src="./Timeline"></iframe>
                         </div>

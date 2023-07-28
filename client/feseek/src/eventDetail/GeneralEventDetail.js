@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import './EventDetail.css';
 import GeneralMenubar from '../menubar/GeneralMenubar';
 
@@ -9,6 +10,27 @@ export default class GeneralEventDetail extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
+            events:[],
+            id:"",
+            usersId:"",
+            eventName:"",
+            startDate:"",
+            endDate:"",
+            openTime:"",
+            address:"",
+            access:"",
+            map:"",
+            costs:"",
+            areasId:"",
+            detail:"",
+            url:"",
+            urlFirst:"",
+            urlSecond:"",
+            urlThird:"",
+            urlForth:"",
+            urlFifth:"",
+            contactAddress:"",
+
             eventDetail: "",
             showModal: false,
             modSubject: "",
@@ -21,6 +43,11 @@ export default class GeneralEventDetail extends React.Component{
             modrevImage: "",
             
         }
+    }
+
+    componentDidMount(){
+        const{id} = this.state;
+        axios.get("/api/event/detail")
     }
 
     //モーダルウィンドウの表示切り替え
@@ -37,15 +64,14 @@ export default class GeneralEventDetail extends React.Component{
     }
 
     render(){
-            const {showModal} =this.state;
-
+            const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
         return(
             <div>
                 <header>
                     <GeneralMenubar></GeneralMenubar>
                 </header>
                 <body>
-                    <div class="eventh1">
+                    <div className="eventh1">
                     <h1>イベント詳細</h1>
                     </div>
                     <br />
@@ -54,49 +80,49 @@ export default class GeneralEventDetail extends React.Component{
                     <p>ここに詳細文をたくさん記載</p>
 
                     <h2>基本情報</h2>
-                    <table class="list">
+                    <table className="list">
                         <tr>
-                            <th>イベント名</th> <td>第8回富津市民花火大会</td>
+                            <th>イベント名</th> <td>{eventName}</td>
                         </tr>
                         <tr>
-                            <th>主催者名</th> <td>い</td>
+                            <th>主催者名</th> <td>{organizer}</td>
                         </tr>
                         <tr>
-                            <th>開催日時</th> <td>う</td>
+                            <th>開催日時</th> <td>{startDate} ～ {endDate} {openTime}</td>
                         </tr>
                         <tr>
-                            <th>住所</th> <td>え</td>
+                            <th>住所</th> <td>{address}</td>
                         </tr>
                         <tr>
-                            <th>マップURL</th> <td>お</td>
+                            <th>マップURL</th> <td>{map}</td>
                         </tr>
                         <tr>
-                            <th>アクセス</th> <td>か</td>
+                            <th>アクセス</th> <td>{access}</td>
                         </tr>
                         <tr>
-                            <th>参加費</th> <td>き</td>
+                            <th>参加費</th> <td>{costs}</td>
                         </tr>
                         <tr>
-                            <th>HP　URL</th> <td>く</td>
+                            <th>HP　URL</th> <td>{url}</td>
                         </tr>
                         <tr>
-                            <th>連絡先</th> <td>け</td>
+                            <th>連絡先</th> <td>{contactAddress}</td>
                         </tr>
                     </table>
                     
-                <div class="side">
-                    <div class="review">
+                <div className="side">
+                    <div className="review">
                     <h2>口コミ</h2>
                         <br />
-                        <button class="btn" onClick={() =>{this.modDetail()}}>投稿</button>
+                        <button className="btn" onClick={() =>{this.modDetail()}}>投稿</button>
                         <br />
                         <iframe src="./review"></iframe>
                     </div>
 
-                    <div class="timeline">
+                    <div className="timeline">
                     <h2>タイムライン</h2>
                         <br />
-                        <iframe class="iframe_tl" src="./Timeline"></iframe>
+                        <iframe className="iframe_tl" src="./Timeline"></iframe>
                     </div>
                 </div>
             </body>
@@ -105,7 +131,7 @@ export default class GeneralEventDetail extends React.Component{
                 {showModal &&
                     <div id="overlay">
                         <div id="content">
-                        <button class="round_btn" onClick={this.toggleModal}></button>
+                            <button class="round_btn" onClick={this.toggleModal}></button>
                             <div><h3>口コミ投稿</h3></div>
                                 件名<input type="text" name="modSubject"/>
                                 <br />
