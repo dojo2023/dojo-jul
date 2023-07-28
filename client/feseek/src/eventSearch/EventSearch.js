@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './EventSearch.css';
+// import './EventSearch.css';
 
 export default class EventSearch extends React.Component{
 
@@ -90,7 +90,7 @@ export default class EventSearch extends React.Component{
             
             <div>
                 <body>
-                    <h1>イベント検索ページ</h1>
+                    <h1>イベント検索</h1>
 
                     {/* キーワード検索*/}
                     <div className="keywordSearch">

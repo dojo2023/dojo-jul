@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import './UserInfo.css';
+import GuestMenubar from "../menubar/GuestMenubar";
 
 export default class User extends React.Component{
 
@@ -34,15 +35,22 @@ export default class User extends React.Component{
     render(){
         return(
             <div>
-                <div>ユーザー情報編集ページ</div>
-                {/* <p class="user_p">Password</p> */}
-                <input type="password" class="u_text" name="u_password" minlength="8" required placeholder="Password(8~20文字で入力ください)"></input><br></br>
-                {/* <p class="user_p">ユーザー名</p> */}
-                <input type="text" class="u_text" name="u_name" minlength="2" required placeholder="ユーザー名(2~20文字で入力ください)"></input><br></br>
-                {/* <p class="user_p">メールアドレス</p> */}
-                <input type="text" class="u_text" name="mail_ad" required placeholder="メールアドレス"></input><br></br>
-                <p class="error"></p><br></br>
-                <input type="button" class="u_button" value="更新" onclick={this.saveUser}></input>
+                <header>
+                    <GuestMenubar></GuestMenubar>
+                </header>
+                <body>
+                    <h1>ユーザー情報編集</h1>
+                        <div className="around_textbox">
+                        {/* <p class="user_p">Password</p> */}
+                        <input type="password" className="default_textbox" name="u_password" minlength="8" required placeholder="Password(8~20文字で入力ください)"></input><br></br>
+                        {/* <p class="user_p">ユーザー名</p> */}
+                        <input type="text" className="default_textbox" name="u_name" minlength="2" required placeholder="ユーザー名(2~20文字で入力ください)"></input><br></br>
+                        {/* <p class="user_p">メールアドレス</p> */}
+                        <input type="text" className="default_textbox" name="mail_ad" required placeholder="メールアドレス"></input><br></br>
+                    </div>
+                    <p class="error"></p><br></br>
+                    <input type="button" className="default_button" value="更新" onclick={this.saveUser}></input>
+                </body>
             </div>
         )
     }

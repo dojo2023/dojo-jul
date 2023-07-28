@@ -15,12 +15,11 @@ export default class GeneralMenubar extends React.Component{
                 {/* <h1>一般利用者メニューバーページ</h1> */}
                 <div class="menu">
                     <div class="logo">
-                        <h2>Feseek</h2>
+                        <a href="GeneralEventList"><h2>Feseek</h2></a>
                     </div>
                     <div class="link">
-                        <a href="eventSearch">検索　</a>/
-                        <a href="GeneralAndSponsorInquiryList">　お問い合わせ　</a>/
-                        <a href="login">　ログイン　</a>・
+                        <a href="GeneralEventList">イベントリスト　</a>/
+                        {/* <a href="login">　ログイン　</a>・ */}
                         <a href="">　ログアウト　</a>/
                         <a href="GeneralProfile">　プロフィール</a>
                     </div>

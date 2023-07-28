@@ -15,10 +15,10 @@ export default class GuestMenubar extends React.Component{
                 {/* <h1>ゲストメニューバーページ</h1> */}
                 <div class="menu">
                     <div class="logo">
-                        <h2>Feseek</h2>
+                    <a href="GuestEventList"><h2>Feseek</h2></a>
                     </div>
                     <div class="link">
-                        <a href="eventSearch">検索　</a>/
+                        <a href="GuestEventList">イベントリスト　</a>/
                         <a href="login">　ログイン・新規登録はこちら</a>
                     </div>
                 </div>

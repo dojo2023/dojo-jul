@@ -12,10 +12,8 @@ render(){
                     <h2>Feseek</h2>
                 </div>
                 <div class="link">
-                    <a href="/eventSearch">検索　</a>/
-                    <a href="AdminInquiryList">　問い合わせ一覧　</a>/
-                    <a href="login">　ログイン　</a>・
-                    <a href="">　ログアウト　</a>/
+                    {/* <a href="login">　ログイン　</a>・ */}
+                    <a href="">　ログアウト　</a>
                 </div>
             </div>
         </div>

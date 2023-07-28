@@ -45,7 +45,7 @@ export default class TimeLine extends React.Component{
     render(){
         return(
             <div>
-                <div>タイムラインページ</div>
+                <div>タイムライン</div>
                 <ul class="time_ul">
                     <li class="time_li">
                         <div class="tl_name">ユーザー名</div><br></br>

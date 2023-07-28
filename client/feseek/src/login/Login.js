@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import GuestMenubar from "../menubar/GuestMenubar";
 
 //EventDetail.cssが適用されています
 
@@ -76,25 +77,30 @@ export default class Login extends React.Component{
         //stateに入っている値とテキストボックスの中身を紐づけるため
         const{id,password} = this.state;
         return(
-            <div className="body">
-                <h1>ログインページ</h1>
-                <div className="around_textbox">
-                    {/* <p class="user_p">ID</p> */}
-                    <input type="text" className="default_textbox" name="id" minLength="5" required placeholder="ID" 
-                        onChange={this.onInput} value={id}></input>
+            <div>
+                <header>
+                    <GuestMenubar></GuestMenubar>
+                </header>
+                <body>
+                    <h1>ログイン</h1>
+                    <div className="around_textbox">
+                        {/* <p class="user_p">ID</p> */}
+                        <input type="text" className="default_textbox" name="id" minLength="5" required placeholder="ID" 
+                            onChange={this.onInput} value={id}></input>
+                        <br></br>
+                        {/* <p class="user_p">Password</p> */}
+                        <input type="password" className="default_textbox" name="password" minLength="8" required placeholder="Password" 
+                            onChange={this.onInput} value={password}></input>
+                    </div>
                     <br></br>
-                    {/* <p class="user_p">Password</p> */}
-                    <input type="password" className="default_textbox" name="password" minLength="8" required placeholder="Password" 
-                        onChange={this.onInput} value={password}></input>
-                </div>
-                <br></br>
-                <p className="error">{this.state.ErrorMsg}</p><br></br>
+                    <p className="error">{this.state.ErrorMsg}</p><br></br>
 
-                <input type="button" className="login_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
+                    <input type="button" className="login_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
 
-                <a href="/ConfirmForId">IDを忘れた方はこちら</a><br></br>
-                <a href="/ConfirmForPassword">パスワードを忘れた方はこちら</a><br></br>
-                <a href="/NewUserRegister">新規登録はこちら</a>
+                    <a href="/ConfirmForId">IDを忘れた方はこちら</a><br></br>
+                    <a href="/ConfirmForPassword">パスワードを忘れた方はこちら</a><br></br>
+                    <a href="/NewUserRegister">新規登録はこちら</a>
+                </body>
             </div>
         )
     }
