@@ -50,10 +50,7 @@ public class UserRestController {
   	        return ResponseEntity.notFound().build();
   	    }
   	}
-//  	protected User delete(@RequestBody User user) {
-//  		usersRepository.delete(user);
-//  		return user;
-//  	}	
+
 
   //更新
   	@PostMapping("/update/{id}")
