@@ -2,6 +2,23 @@ POST http://localhost:8080/api/events/add HTTP/1.1
 content-type: application/json
 
 {
-    "id": "a0001",
-    "password": "a1a1"
+    "access":"長野電鉄善光寺下駅から徒歩12分",
+    "address":"〒380-0852長野県長野市元善町",
+    "areas_id":1,
+    "contact_address":"080-4368-9345",
+    "costs":"大人1500円、子供(小学生以下)無料",
+    "detail":"7年に一度の御開帳をぜひご覧ください!",
+    "end_date":"2023-08-31",
+    "event_name":"善光寺御開帳",
+    "map":"https://goo.gl/maps/AcXKu7BC2NS39ySu6",
+    "open_time":"10:00~16:30",
+    "organizer":"金子 亮太",
+    "season":"夏",
+    "start_date":"2023-06-01",
+    "url":"zenkoji@official.com",
+    "url_fifth":"",
+    "url_first":"",
+    "url_fourth":"",
+    "url_second":"",
+    "url_third":""
 }

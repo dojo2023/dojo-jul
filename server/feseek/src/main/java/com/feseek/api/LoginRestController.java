@@ -40,7 +40,7 @@ public class LoginRestController {
         if (user != null && user.getPassword().equals(password)) {
             // 認証成功
             HttpSession session = request.getSession();
-            session.setAttribute("id", id); // UserIDをセッションに格納
+            session.setAttribute("userId", id); // UserIDをセッションに格納
             //System.out.println(id); セッション確認ID
             session.setAttribute("categoriesId", user.getCategoriesId().toString()); // 種別IDをセッションに格納
             //System.out.println(user.getCategoriesId()); セッション確認categoriesID
