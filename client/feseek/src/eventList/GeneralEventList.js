@@ -23,6 +23,7 @@ export default class EventList extends React.Component{
             area: "",
             season: "",
             showModal: false,
+            index: "",
         }
     }
 
@@ -76,8 +77,11 @@ export default class EventList extends React.Component{
         });
     }
 
+    generalEventDetail = (index) =>{
+    }
+
     render(){
-        const { events,keyword,genre,date,area,season,showModal } = this.state;
+        const { events,keyword,genre,date,area,season,showModal,index } = this.state;
         return(
             <div>
                 <header>
@@ -85,7 +89,7 @@ export default class EventList extends React.Component{
                 </header>
                 <body>
                     <h1>イベントリスト</h1>
-                    <button onClick={() =>{this.modSearch()}}>絞り込み検索</button>
+                    <button className="default_button" onClick={() =>{this.modSearch()}}>絞り込み検索</button>
 {/*                         
                         <li class="event_li">
                             <a href="/generalEventDetail">
@@ -103,7 +107,7 @@ export default class EventList extends React.Component{
                                 <div class="list_remarks">詳細</div>
                             </a>
                         </li> */}
-
+                    
                     {events.map((event,index) =>
                         // <table>
                         //     <tr>
@@ -112,17 +116,21 @@ export default class EventList extends React.Component{
                         //         <td>{event.areasId}</td>
                         //     </tr>
                         // </table>
-                        <a href="generalEventDetail">
+                        
+                        <a href="generalEventDetail" onClick={this.generalEventDetail}>
                             <li class="event_li">
                                 <div>{event.eventName}</div>
-                                <div>{event.janresId}</div>
-                                <div>{event.areasId}</div>
+                                {/* <div>{event.janresId}</div>
+                                <div>{event.areasId}</div> */}
+                                {event.id}
                                 <div>開催期間：　{event.startDate} ～ {event.endDate}</div>
                                 <div>開催時間：　{event.openTime}</div>
                                 <div>参加費：　{event.costs}</div>
                             </li>
                         </a>
+                        
                     )} 
+                   
 
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&
@@ -134,7 +142,7 @@ export default class EventList extends React.Component{
 
 
                     {/* キーワード検索*/}
-                    <div className="keywordSearch">
+                    <div className="around_textbox">
                         <input type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
                         <button type="submit" onClick={this.keywordSearch} name="post">検索</button>
                     </div>

@@ -10,7 +10,7 @@ export default class GeneralEventDetail extends React.Component{
         super(props);
         //stateの設定。
         this.state = {
-            events:[],
+            event:[],
             id:"",
             usersId:"",
             eventName:"",
@@ -45,13 +45,18 @@ export default class GeneralEventDetail extends React.Component{
         }
     }
 
+
+
     componentDidMount(){
         const{id} = this.state;
-        axios.get("/api/event/detail")
+
+        const test_id = 1;
+        
+        axios.get("/api/user/detail/"+test_id)
         .then(json =>{
             console.log(json.data)
             this.setState({
-                events:json.data
+                event:json.data
             })
         })
     }
@@ -70,7 +75,7 @@ export default class GeneralEventDetail extends React.Component{
     }
 
     render(){
-            const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
+            const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,event} = this.state;
         return(
             <div>
                 <header>
@@ -88,31 +93,31 @@ export default class GeneralEventDetail extends React.Component{
                     <h2>基本情報</h2>
                     <table className="list">
                         <tr>
-                            <th>イベント名</th> <td>{eventName}</td>
+                            <th>イベント名</th> <td>{event.eventName}</td>
                         </tr>
                         <tr>
-                            <th>主催者名</th> <td>{organizer}</td>
+                            <th>主催者名</th> <td>{event.organizer}</td>
                         </tr>
                         <tr>
-                            <th>開催日時</th> <td>{startDate} ～ {endDate} {openTime}</td>
+                            <th>開催日時</th> <td>{event.startDate} ～ {event.endDate} {openTime}</td>
                         </tr>
                         <tr>
-                            <th>住所</th> <td>{address}</td>
+                            <th>住所</th> <td>{event.address}</td>
                         </tr>
                         <tr>
-                            <th>マップURL</th> <td>{map}</td>
+                            <th>マップURL</th> <td>{event.map}</td>
                         </tr>
                         <tr>
-                            <th>アクセス</th> <td>{access}</td>
+                            <th>アクセス</th> <td>{event.access}</td>
                         </tr>
                         <tr>
-                            <th>参加費</th> <td>{costs}</td>
+                            <th>参加費</th> <td>{event.costs}</td>
                         </tr>
                         <tr>
-                            <th>HP　URL</th> <td>{url}</td>
+                            <th>HP　URL</th> <td>{event.url}</td>
                         </tr>
                         <tr>
-                            <th>連絡先</th> <td>{contactAddress}</td>
+                            <th>連絡先</th> <td>{event.contactAddress}</td>
                         </tr>
                     </table>
                     
