@@ -24,7 +24,7 @@ public class EventDetailRestController {
 	
 	//詳細表示
 	@GetMapping("/api/user/detail/{index}")
-	protected Optional<Event> profile(@PathVariable Integer index){
+	protected Optional<Event> detail(@PathVariable Integer index){
 		return repository.findById(index);
 	}
 	
@@ -32,9 +32,14 @@ public class EventDetailRestController {
 	@GetMapping("/api/event/sponser")
 	protected List<Event> findByUsersId (HttpServletRequest request){
 		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
+		String id = (String)session.getAttribute("userId");
 		return repository.findByUsersId(id);
 	}
+	
+//	@GetMapping("/api/event/sponser")
+//	protected List<Event> findByUsersId (){
+//		return repository.findByUsersId("a0001");
+//	}
 	
 	
 }
