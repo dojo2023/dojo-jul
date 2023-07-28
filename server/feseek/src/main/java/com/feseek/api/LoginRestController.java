@@ -42,19 +42,28 @@ public class LoginRestController {
             HttpSession session = request.getSession();
             session.setAttribute("id", id); // UserIDをセッションに格納
             //System.out.println(id); セッション確認ID
-            session.setAttribute("categoriesId", user.getCategoriesId().toString()); // 種別IDをセッションに格納
+            session.setAttribute("categoriesId", user.getCategoriesId()); // 種別IDをセッションに格納
             //System.out.println(user.getCategoriesId()); セッション確認categoriesID
-            String category_id = (String)session.getAttribute("categoriesId");
             
-            return new ResponseEntity<>(category_id, HttpStatus.OK);
+            //1：一般利用者、2：主催者、3：管理者
+//            if(user.getCategoriesId() == 1) {
+//            	return new ResponseEntity<>("general", HttpStatus.OK);
+//            }
+//            else if(user.getCategoriesId() == 2) {
+//            	return new ResponseEntity<>("sponsor", HttpStatus.OK);
+//            }
+//            else if(user.getCategoriesId() == 3) {
+//            	return new ResponseEntity<>("admin", HttpStatus.OK);
+//            }
+            return new ResponseEntity<>("Login successful", HttpStatus.OK);
         } else {
             // 認証失敗
 //            return new ResponseEntity<>("Invalid credentials", HttpStatus.UNAUTHORIZED);
             return new ResponseEntity<>("Invalid credentials", HttpStatus.OK);
-        }     
+        }
     }
 
-	// ログアウト
+    // ログアウト
     @PostMapping("/logout")
     public ResponseEntity<String> logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);

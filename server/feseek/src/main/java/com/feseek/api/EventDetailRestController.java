@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.feseek.entity.Event;
 import com.feseek.repository.EventsRepository;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-
 @RestController
 public class EventDetailRestController {
 	
@@ -29,12 +26,9 @@ public class EventDetailRestController {
 	}
 	
 	//主催者が投稿したイベント一覧
-	@GetMapping("/api/event/sponser")
-	protected List<Event> findByUsersId (HttpServletRequest request){
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("id");
-		System.out.println(id);
-		return repository.findByUsersId(id);
+	@GetMapping("/api/event/sponser/{usersid}")
+	protected List<Event> findByUsersId (@PathVariable String usersid){
+		return repository.findByUsersId(usersid);
 	}
 	
 	
