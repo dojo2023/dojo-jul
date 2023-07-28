@@ -30,8 +30,8 @@ public class EventPostRestController {
         }
         
      // イベントIDをセッションに保存
-        Integer eventId = event.getId(); // イベントIDを取得（仮定）
-        session.setAttribute("event_id", eventId.toString());
+//        Integer eventId = event.getId(); // イベントIDを取得（仮定）
+//        session.setAttribute("event_id", eventId.toString());
 
         // ユーザーIDを投稿にセットして紐づける
         event.setUsersId(usersId);

@@ -36,10 +36,4 @@ public class EventDetailRestController {
 		return repository.findByUsersId(id);
 	}
 	
-//	@GetMapping("/api/event/sponser")
-//	protected List<Event> findByUsersId (){
-//		return repository.findByUsersId("a0001");
-//	}
-	
-	
 }

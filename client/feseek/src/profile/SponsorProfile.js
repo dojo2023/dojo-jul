@@ -7,26 +7,28 @@ export default class SponsorProfile extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            user_name:"",
+            userName:"",
             password:"",
-            category_id:"",
+            categoriesId:"",
             category:"",
             id:"",
-            e_mail:"",
-            // profile:[],
+            mail:"",
+            profile:{
+                category: {}
+            },
         }
     }
 
     componentDidMount(){
         // const {user_name, category_id,category,id, e_mail} = this.state;
         // const data = {user_name:user_name, category_id:category_id, category:category, id:id, e_mail:e_mail};
-        // axios.get("/api/user/profile")
-        // .then(json => {
-        //     console.log(json);
-        //     this.setState({
-        //         profile:json
-        //     });
-        // })
+        axios.get("/api/user/profile/a0001")
+        .then(json => {
+            console.log(json.data);
+            this.setState({
+                profile:json.data
+            });
+        })
     }
 
     profile = () =>{
@@ -50,7 +52,7 @@ export default class SponsorProfile extends React.Component{
     }
     
     render(){
-        const{user_name,password,category,id, e_mail} = this.state;
+        const{profile} = this.state;
         return(
             <div>
                 <header>
@@ -61,15 +63,15 @@ export default class SponsorProfile extends React.Component{
                     <h1>MYプロフィール</h1>
                     <table className="profile_table" /*border={"2px solid #000"}*/>
                         <tr>
-                            <td>ID：{id}</td>
-                            <td>権限：{category}</td>
+                            <td>ID：{profile.id}</td>
+                            <td>権限：{profile.category.category}</td>
                         </tr>
                         <tr>
-                            <td>ユーザー名：{user_name}</td>
-                            <td>パスワード：{password}</td>
+                            <td>ユーザー名：{profile.userName}</td>
+                            <td>パスワード：{profile.password}</td>
                         </tr>
                         <tr>
-                            <td className="title">メールアドレス：{e_mail}</td>
+                            <td className="title">メールアドレス：{profile.mail}</td>
                         </tr>
                     </table>
 

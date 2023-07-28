@@ -47,7 +47,7 @@ export default class Login extends React.Component{
                     break;
                 case 2:
                     //主催者
-                    window.location = './SponserEventList'
+                    window.location = './SponsorEventList'
                     break;
                 case 3:
                     //ゲスト
@@ -95,7 +95,7 @@ export default class Login extends React.Component{
                             onChange={this.onInput} value={id}></input>
                         <br></br>
                         {/* <p class="user_p">Password</p> */}
-                        <input type="password" className="default_textbox" name="password" minLength="3" required placeholder="Password" 
+                        <input type="password" className="default_textbox" name="password" minLength="4" required placeholder="Password" 
                             onChange={this.onInput} value={password}></input>
                     </div>
                     <br></br>
@@ -103,7 +103,7 @@ export default class Login extends React.Component{
 
                     <input type="button" className="login_button" value="ログイン" onClick={this.onSubmit}></input><br></br>
 
-                    <a href="/ConfirmForId">IDを忘れた方はこちら</a><br></br>
+                    {/* <a href="/ConfirmForId">IDを忘れた方はこちら</a><br></br> */}
                     <a href="/ConfirmForPassword">パスワードを忘れた方はこちら</a><br></br>
                     <a href="/NewUserRegister">新規登録はこちら</a>
                 </body>
