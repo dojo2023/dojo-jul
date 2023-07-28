@@ -1,26 +1,57 @@
 import React from 'react';
+import axios from 'axios';
+import GuestMenubar from '../menubar/GuestMenubar';
 
 export default class GuestEventDetail extends React.Component{
 
     constructor(props) {
         super(props);
         this.state = {
-            
+            events:[],
+            id:"",
+            usersId:"",
+            eventName:"",
+            startDate:"",
+            endDate:"",
+            openTime:"",
+            address:"",
+            access:"",
+            map:"",
+            costs:"",
+            areasId:"",
+            detail:"",
+            url:"",
+            urlFirst:"",
+            urlSecond:"",
+            urlThird:"",
+            urlForth:"",
+            urlFifth:"",
+            contactAddress:"",
         }
     }
 
+    componentDidMount(){
+        const{id} = this.state;
+        axios.get("/api/event/detail/"+id)
+    }
+
     render(){
+        const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
         return(
             <div class="body">
-                <h1>ゲストイベント詳細画面　タイトル</h1>
-                <img src="　"></img>
-                
-                <p>ここに詳細文をたくさん記載</p>
-
+                <header>
+                    <GuestMenubar></GuestMenubar>
+                </header>
+                <body>
+                    <h1>イベント詳細</h1>
+                    <img src="　"></img>
+                    
+                    <p>ここに詳細文をたくさん記載</p>
+                </body>
                 <h2>基本情報</h2>
                 <table class="list">
                     <tr>
-                        <th>イベント名</th> <td>あ</td>
+                        <th>イベント名</th> <td>{eventName}</td>
                     </tr>
                     <tr>
                         <th>主催者名</th> <td>い</td>

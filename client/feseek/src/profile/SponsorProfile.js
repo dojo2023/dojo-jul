@@ -53,27 +53,33 @@ export default class SponsorProfile extends React.Component{
         const{user_name,password,category,id, e_mail} = this.state;
         return(
             <div>
-                <SponsorMenubar></SponsorMenubar>
+                <header>
+                    <SponsorMenubar></SponsorMenubar>
+                </header>
 
-                <h3>MYプロフィール※主催者プロフィール</h3>
-                <table className="profile" /*border={"2px solid #000"}*/>
-                <tr>
-                    <td>ID：{id}</td>
-                    <td>権限：{category}</td>
-                </tr>
-                <tr>
-                    <td>ユーザー名：{user_name}</td>
-                    <td>パスワード：{password}</td>
-                </tr>
-                <tr>
-                    <td className="title">メールアドレス：{e_mail}</td>
-                </tr>
-                </table>
-                {/* <td><a href="/MyEventList">イベント履歴一覧</a>　<a href="/UserEdit">プロフィール編集</a></td>
-                <td><button>退会</button><button>戻るdokoni?</button></td> */}
-                    <td><button onClick={this.profile}>プロフィール編集</button></td>
-                    <td><button onClick={this.delete}>退会</button></td>
-                    <td><button onClick={this.myEventList}>イベント履歴</button></td>
+                <body>
+                    <h1>MYプロフィール</h1>
+                    <table className="profile_table" /*border={"2px solid #000"}*/>
+                        <tr>
+                            <td>ID：{id}</td>
+                            <td>権限：{category}</td>
+                        </tr>
+                        <tr>
+                            <td>ユーザー名：{user_name}</td>
+                            <td>パスワード：{password}</td>
+                        </tr>
+                        <tr>
+                            <td className="title">メールアドレス：{e_mail}</td>
+                        </tr>
+                    </table>
+
+                        {/* <td><a href="/MyEventList">イベント履歴一覧</a>　<a href="/UserEdit">プロフィール編集</a></td>
+                        <td><button>退会</button><button>戻るdokoni?</button></td> */}
+                        <button className="default_button" onClick={this.profile}>プロフィール編集</button>
+                        <button className="default_button" onClick={this.delete}>退会</button>
+                        <button className="default_button" onClick={this.myEventList}>イベント履歴</button>
+
+                 </body>
             </div>
         )
     }

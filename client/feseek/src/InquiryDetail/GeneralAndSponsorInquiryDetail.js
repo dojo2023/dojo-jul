@@ -49,7 +49,7 @@ export default class GeneralAndSponsorInquiryDetail extends React.Component{
 
         return(
             <div>
-                <h1>一般利用者、主催者お問い合わせ詳細ページ</h1>
+                <h1>お問い合わせ詳細</h1>
 
                 <table>
                 <tr>

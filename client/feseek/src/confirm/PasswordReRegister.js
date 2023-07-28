@@ -1,10 +1,15 @@
 import React from "react";
+import GuestMenubar from "../menubar/GuestMenubar";
 
 export default class PasswordReRegister extends React.Component{
     render(){
         return(
-            <div className="body">
-                <h1>パスワード再登録ページ</h1>
+            <div>
+                <header>
+                    <GuestMenubar></GuestMenubar>
+                </header>
+            <body>
+                <h1>パスワード再登録</h1>
                 <form action="" method="POST">
                     <p className="message">新しいパスワードを入力してください</p>
                         <div className="around_textbox">
@@ -16,6 +21,7 @@ export default class PasswordReRegister extends React.Component{
                 </form>
                 <p><a href="/confirm/PasswordReRegister">次の画面</a></p>   {/* 試行用 */}
                 <p><a href="../login">ログインページに戻る</a></p>
+            </body>
             </div>
         )
     }
