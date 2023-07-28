@@ -23,9 +23,9 @@ public class EventDetailRestController {
 	private EventsRepository repository;
 	
 	//詳細表示
-	@GetMapping("/api/user/detail/{id}")
-	protected Optional<Event> profile(@PathVariable Integer id){
-		return repository.findById(id);
+	@GetMapping("/api/user/detail/{index}")
+	protected Optional<Event> profile(@PathVariable Integer index){
+		return repository.findById(index);
 	}
 	
 	//主催者が投稿したイベント一覧

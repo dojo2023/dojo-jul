@@ -52,7 +52,7 @@ export default class App extends React.Component {
               <Route path='/IdReRegister' element={<IdReRegister></IdReRegister>}></Route>
               <Route path='/PasswordReRegister' element={<PasswordReRegister></PasswordReRegister>}></Route>
               <Route path="/generalMenubar" element={<GeneralMenubar></GeneralMenubar>}></Route>
-              <Route path="/eventSearch" element={<EventSearch handleSearch={this.handleSearch}></EventSearch>}></Route>
+              <Route path="/eventSearch" element={<EventSearch></EventSearch>}></Route>
               <Route path="/MyReviewList" element={<MyReviewList></MyReviewList>}></Route>
               <Route path='/AdminInquiryList' element={<AdminInquiryList></AdminInquiryList>}></Route>
               <Route path='/GeneralAndSponsorInquiryList' element={<GeneralAndSponsorInquiryList></GeneralAndSponsorInquiryList>}></Route>
@@ -60,9 +60,9 @@ export default class App extends React.Component {
               <Route path='/AdminInquiryDetail' element={<AdminInquiryDetail></AdminInquiryDetail>}></Route>
               <Route path='/NewUserRegister' element={<NewUserRegister></NewUserRegister>}></Route>
               <Route path='/UserEdit' element={<UserEdit></UserEdit>}></Route>
-              <Route path='/GuestEventList' element={<GuestEventList></GuestEventList>}></Route>
-              <Route path='/GeneralEventList' element={<GeneralEventList></GeneralEventList>}></Route>
-              <Route path='/SponsorEventList' element={<SponsorEventList></SponsorEventList>}></Route>
+              <Route path='/GuestEventList' element={<GuestEventList handleSearch={this.handleSearch}></GuestEventList>}></Route>
+              <Route path='/GeneralEventList' element={<GeneralEventList handleSearch={this.handleSearch}></GeneralEventList>}></Route>
+              <Route path='/SponsorEventList' element={<SponsorEventList handleSearch={this.handleSearch}></SponsorEventList>}></Route>
               <Route path='/Timeline' element={<Timeline></Timeline>}></Route>
               <Route path="/guestMenubar" element={<GuestMenubar></GuestMenubar>}></Route>
               <Route path="/generalProfile" element={<GeneralProfile></GeneralProfile>}></Route>
