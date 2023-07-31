@@ -144,7 +144,7 @@ export default class EventList extends React.Component{
                     <br/>
 
                     {/* 詳細検索*/}
-                    <div className="detailSearch">
+                    {/* <div className="detailSearch">
                         ジャンル
                         <select name="genre" value={genre}>
                             <option>食べる</option>
@@ -208,10 +208,10 @@ export default class EventList extends React.Component{
                             <option value="46">鹿児島県</option>
                             <option value="47">沖縄県</option>
                         </select>
-                        <br/>
+                        <br/> */}
 
                         {/* ラジオボタンのvalueの書き方保留中     */}
-                        季節
+                        {/* 季節
                         <input type="radio" name="season" value={season} checked/>春
                         <input type="radio" name="season" value={season}/>夏
                         <input type="radio" name="season" value={season}/>秋
@@ -220,7 +220,7 @@ export default class EventList extends React.Component{
                             
                         <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
 
-                    </div>
+                    </div> */}
 
 
 

@@ -82,20 +82,13 @@ export default class SponsorEventDetail extends React.Component{
                     <SponsorMenubar></SponsorMenubar>
                 </header>
                 <body>
-                    <div className="eventh1">
+                <div className="eventh1">
                     <h1>イベント詳細</h1>
                     </div>
                     <br />
-                    {/* <img src="　"></img> */}
-
-                    <table>
-                    <tr>
-                        <th>イベント名</th> <td>{event.eventName}</td>
-                    </tr>
-                    <tr>
-                        <th>詳細文</th> <td>{event.detail}</td>
-                    </tr>
-                    </table>
+                    {event.eventName}<br/>
+                    <img src={event.urlFirst} height="500px"></img><br/>
+                    詳細文 {event.detail}<br/>
 
                     <h2>基本情報</h2>
                     <table className="list">
