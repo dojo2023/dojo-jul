@@ -6,11 +6,11 @@ import SponsorMenubar from '../menubar/SponsorMenubar';
 export default class SponsorEventDetail extends React.Component{
 
      //親コンポーネントから受け取るデータなどがpropsに入っている。
-    constructor(props) {
+     constructor(props) {
         super(props);
         //stateの設定。
         this.state = {
-            events:[],
+            event:[],
             id:"",
             usersId:"",
             eventName:"",
@@ -33,14 +33,32 @@ export default class SponsorEventDetail extends React.Component{
 
             eventDetail: "",
             showModal: false,
-            modinformation: "",
+            modSubject: "",
+            modsatisfaction: "",
+            modsecurity: "",
+            modagain: "",
+            modatmosphere: "",
+            modcontinuation: "",
+            modcomment: "",
+            modrevImage: "",
             
         }
     }
 
+
+
     componentDidMount(){
         const{id} = this.state;
-        axios.get("/api/event/detail")
+
+        const test_id = 1;
+        
+        axios.get("/api/user/detail/"+test_id)
+        .then(json =>{
+            console.log(json.data)
+            this.setState({
+                event:json.data
+            })
+        })
     }
 
     //モーダルウィンドウの表示切り替え
@@ -57,80 +75,123 @@ export default class SponsorEventDetail extends React.Component{
     }
 
     render(){
-        const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,events} = this.state;
-
+            const{id,usersId,eventName,startDate,endDate,openTime,address,access,map,costs,areasId,detail,organizer,url,urlFirst,urlSecond,urlThird,urlForth,urlFifth,contactAddress,showModal,event} = this.state;
         return(
-            <div className="body">
+            <div>
                 <header>
                     <SponsorMenubar></SponsorMenubar>
                 </header>
                 <body>
+                    <div className="eventh1">
                     <h1>イベント詳細</h1>
-                    <img src="　"></img>
+                    </div>
+                    <br />
+                    {/* <img src="　"></img> */}
 
-                    <p>ここに詳細文をたくさん記載</p>
+                    <table>
+                    <tr>
+                        <th>イベント名</th> <td>{event.eventName}</td>
+                    </tr>
+                    <tr>
+                        <th>詳細文</th> <td>{event.detail}</td>
+                    </tr>
+                    </table>
 
                     <h2>基本情報</h2>
                     <table className="list">
+
                         <tr>
-                            <th>イベント名</th> <td>{eventName}</td>
+                            <th>イベント名</th> <td>{event.eventName}</td>
                         </tr>
                         <tr>
-                            <th>主催者名</th> <td>{organizer}</td>
+                            <th>主催者名</th> <td>{event.organizer}</td>
                         </tr>
                         <tr>
-                            <th>開催日時</th> <td>{startDate} ～ {endDate} {openTime}</td>
+                            <th>開催期間</th> <td>{event.startDate} ～ {event.endDate}</td>
                         </tr>
                         <tr>
-                            <th>住所</th> <td>{address}</td>
+                            <th>開催時間</th> <td>{event.openTime}</td>
                         </tr>
                         <tr>
-                            <th>マップURL</th> <td>{map}</td>
+                            <th>住所</th> <td>{event.address}</td>
                         </tr>
                         <tr>
-                            <th>アクセス</th> <td>{access}</td>
+                            <th>マップURL</th> <td>{event.map}</td>
                         </tr>
                         <tr>
-                            <th>参加費</th> <td>{costs}</td>
+                            <th>アクセス</th> <td>{event.access}</td>
                         </tr>
                         <tr>
-                            <th>HP　URL</th> <td>{url}</td>
+                            <th>参加費</th> <td>{event.costs}</td>
                         </tr>
                         <tr>
-                            <th>連絡先</th> <td>{contactAddress}</td>
+                            <th>HP　URL</th> <td>{event.url}</td>
                         </tr>
+                        <tr>
+                            <th>連絡先</th> <td>{event.contactAddress}</td>
+                        </tr>
+                        
                     </table>
-
-                    <div className="side">
-                        <div className="review">
-                        <h2>口コミ</h2>
-                            <br />
-                            <iframe className="iframe_tl" src="./review"></iframe>
-                        </div>
-
-                        <div class="timeline">
-                        <h2>タイムライン</h2>
+                    
+                <div className="side">
+                    <div className="review">
+                    <h2>口コミ</h2>
                         <br />
-                            <button className="btn"　onClick={() =>{this.modDetail()}}>投稿</button>
-                            <br />
-                            <iframe src="./Timeline"></iframe>
-                        </div>
+                        <button className="btn" onClick={() =>{this.modDetail()}}>投稿</button>
+                        <br />
+                        <iframe src="./review"></iframe>
                     </div>
 
-                        {/* モーダルウィンドウ(送信) */}
-                    {showModal &&
-                        <div id="overlay">
-                            <div id="content">
+                    <div className="timeline">
+                    <h2>タイムライン</h2>
+                        <br />
+                        <iframe className="iframe_tl" src="./Timeline"></iframe>
+                    </div>
+                </div>
+            </body>
+
+                {/* モーダルウィンドウ(送信) */}
+                {showModal &&
+                    <div id="overlay">
+                        <div id="content">
                             <button class="round_btn" onClick={this.toggleModal}></button>
-                                <div><h3>イベントの最新情報を発信します</h3></div>
-                                    内容<br />
-                                    <textarea required name="modinformation" rows="10" cols="70"></textarea>
-                                    <br />
-                                <button type="submit" name="post">投稿</button>
-                            </div>
+                            <div><h3>口コミ投稿</h3></div>
+                                件名<input type="text" name="modSubject"/>
+                                <br />
+                                評価<div>
+                                        <input type="checkbox" id="item1" name="modsatisfaction" />
+                                        <label for="modsatisfaction">満足か</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item2" name="modatmosphere" />
+                                        <label for="modatmosphere">雰囲気が良い</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item3" name="modsecurity" />
+                                        <label for="modsecurity">治安が良い</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item4" name="modagain" />
+                                        <label for="modagain">また来たい</label>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" id="item15" name="modcontinuation" />
+                                        <label for="horns">続いて欲しい</label>
+                                    </div>
+
+                                内容<br />
+                                <textarea name="modcomment" rows="4" cols="70"></textarea>
+                                <br />
+                                画像<br />
+                                <input type="file" name="modrevImage" accept="image/*"></input>
+                                
+                                <br />
+                            <button class="btn" type="submit" name="post">投稿</button>
                         </div>
-                    }
-                </body>
+                    </div>
+                }
+
+
             </div>
         );
     }

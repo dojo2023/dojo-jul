@@ -86,12 +86,20 @@ export default class GeneralEventDetail extends React.Component{
                     <h1>イベント詳細</h1>
                     </div>
                     <br />
-                    <img src="　"></img>
+                    {/* <img src="　"></img> */}
 
-                    <p>ここに詳細文をたくさん記載</p>
+                    <table>
+                    <tr>
+                        <th>イベント名</th> <td>{event.eventName}</td>
+                    </tr>
+                    <tr>
+                        <th>詳細文</th> <td>{event.detail}</td>
+                    </tr>
+                    </table>
 
                     <h2>基本情報</h2>
                     <table className="list">
+
                         <tr>
                             <th>イベント名</th> <td>{event.eventName}</td>
                         </tr>
@@ -99,7 +107,10 @@ export default class GeneralEventDetail extends React.Component{
                             <th>主催者名</th> <td>{event.organizer}</td>
                         </tr>
                         <tr>
-                            <th>開催日時</th> <td>{event.startDate} ～ {event.endDate} {openTime}</td>
+                            <th>開催期間</th> <td>{event.startDate} ～ {event.endDate}</td>
+                        </tr>
+                        <tr>
+                            <th>開催時間</th> <td>{event.openTime}</td>
                         </tr>
                         <tr>
                             <th>住所</th> <td>{event.address}</td>
@@ -119,6 +130,7 @@ export default class GeneralEventDetail extends React.Component{
                         <tr>
                             <th>連絡先</th> <td>{event.contactAddress}</td>
                         </tr>
+                        
                     </table>
                     
                 <div className="side">
