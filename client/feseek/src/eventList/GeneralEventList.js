@@ -139,16 +139,16 @@ export default class EventList extends React.Component{
 
                                 {/* 件名<input type="text"  onChange={this.onInput}/>
                                 内容<input type="text" onChange={this.onInput} /> */}
-
+                    <button className="round_btn" onClick={this.toggleModal}>×</button>
 
                     {/* キーワード検索*/}
                     <div className="around_textbox">
                         <input type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
                         <button type="submit" onClick={this.keywordSearch} name="post">検索</button>
                     </div>
-                    <br/>
+                    {/* <br/> */}
 
-                    {/* 詳細検索*/}
+                    {/* 詳細検索
                     <div className="detailSearch">
                         ジャンル
                         <select name="genre" value={genre}>
@@ -215,7 +215,7 @@ export default class EventList extends React.Component{
                         </select>
                         <br/>
 
-                        {/* ラジオボタンのvalueの書き方保留中     */}
+                        
                         季節
                         <input type="radio" name="season" value={season} checked/>春
                         <input type="radio" name="season" value={season}/>夏
@@ -225,11 +225,11 @@ export default class EventList extends React.Component{
                             
                         <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
 
-                    </div>
+                    </div> */}
 
 
 
-                            <button onClick={this.toggleModal}>閉じる</button>
+                            
                             {/* <button type="submit" onClick={this.keywordSearch} name="post">検索</button> */}
                         </div>
                     </div>
