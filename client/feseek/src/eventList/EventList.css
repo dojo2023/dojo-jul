@@ -64,3 +64,57 @@ textarea {
     cursor: pointer;
     background-color: white;
 }
+input.search{
+    padding: 10px;
+    width: 300px;
+}
+button[name=post]{
+    padding: 8px 20px;
+    margin-left: 10px;
+    background-color: #5273c7;
+    color: white;
+    border-color: rgb(87, 139, 218);
+}
+.detailSearch span{
+    color: black;
+    font-size: 1.3em;
+    margin-right: 100px;
+    margin-left: 10px;
+}
+select[name="genre"], input[type="date"], select[name="area"], input[name="season"]{
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.detailSearch{
+    width: 300px;
+    margin: 0 auto;
+    /* position: relative; */
+}
+#contentSpo{
+    color:#000;
+    z-index:2;
+    width:auto;
+    margin:20px 0;
+    padding: 1em;
+    background:#fff;
+    text-align: left;
+    /* display:inline-block; */
+    height: auto;
+    overflow:hidden;
+    overflow-y: scroll;
+    overflow-x: hidden; 
+}
+.searchb{
+    /* display: flex;
+    gap: 10px; */
+    width: 90px;
+    margin:0 auto;
+}
+.searchBtn,.close{
+    padding: 5px 20px;
+    /* position: absolute; */
+}
+.keywordSearch{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}

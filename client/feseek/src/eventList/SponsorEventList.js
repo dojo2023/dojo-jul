@@ -130,7 +130,7 @@ export default class EventList extends React.Component{
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&
                     <div id="overlay">
-                        <div id="content">
+                        <div id="contentSpo">
 
                                 {/* 件名<input type="text"  onChange={this.onInput}/>
                                 内容<input type="text" onChange={this.onInput} /> */}
@@ -138,7 +138,7 @@ export default class EventList extends React.Component{
 
                     {/* キーワード検索*/}
                     <div className="keywordSearch">
-                        <input type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
+                        <input className="search" type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
                         <button type="submit" onClick={this.keywordSearch} name="post">検索</button>
                     </div>
                     <br/>
@@ -221,12 +221,11 @@ export default class EventList extends React.Component{
                         <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
 
                     </div> */}
-
-
-
-                            <button onClick={this.toggleModal}>閉じる</button>
-                            {/* <button type="submit" onClick={this.keywordSearch} name="post">検索</button> */}
-                        </div>
+                    <div className="searchb">
+                        <button onClick={this.toggleModal} className="close">閉じる</button>
+                    </div>
+                        {/* <button type="submit" onClick={this.keywordSearch} name="post">検索</button> */}
+                    </div>
                     </div>
 
                     

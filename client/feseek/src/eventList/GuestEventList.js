@@ -130,7 +130,7 @@ export default class EventList extends React.Component{
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&
                     <div id="overlay">
-                        <div id="content">
+                        <div id="contentSpo">
 
                                 {/* 件名<input type="text"  onChange={this.onInput}/>
                                 内容<input type="text" onChange={this.onInput} /> */}
@@ -138,14 +138,14 @@ export default class EventList extends React.Component{
 
                     {/* キーワード検索*/}
                     <div className="keywordSearch">
-                        <input type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
+                        <input className="search" type="text" onChange={this.onInput} value={keyword} placeholder="キーワード検索"></input>
                         <button type="submit" onClick={this.keywordSearch} name="post">検索</button>
                     </div>
-                    <br/>
+                    {/* <br/> */}
 
                     {/* 詳細検索*/}
                     {/* <div className="detailSearch">
-                        ジャンル
+                        <span>ジャンル</span>
                         <select name="genre" value={genre}>
                             <option>食べる</option>
                             <option>見る</option>
@@ -154,11 +154,11 @@ export default class EventList extends React.Component{
                         </select>
                         <br/>
                         
-                        日付
+                        <span>日付</span>
                         <input type="date" value={date}></input>
                         <br/>
 
-                        都道府県
+                        <span>都道府県</span>
                         <select name="area" value={area}>
                             <option value="1">北海道</option>
                             <option value="2">青森県</option>
@@ -211,21 +211,23 @@ export default class EventList extends React.Component{
                         <br/> */}
 
                         {/* ラジオボタンのvalueの書き方保留中     */}
-                        {/* 季節
+                        {/* <span>季節</span>
                         <input type="radio" name="season" value={season} checked/>春
                         <input type="radio" name="season" value={season}/>夏
                         <input type="radio" name="season" value={season}/>秋
                         <input type="radio" name="season" value={season}/>冬
                         <br/>
-                            
-                        <a href="/GuestEventList"><button onClick={this.detailSearch}>検索</button></a>
-
+                    <div className="searchb">
+                        <a href="/GuestEventList" className="searchBtn"><button onClick={this.detailSearch}>検索</button></a>
+                        閉じるボタンをここに移動
+                        <button onClick={this.toggleModal} className="close">閉じる</button>
+                    </div>
                     </div> */}
 
-
-
-                            <button onClick={this.toggleModal}>閉じる</button>
-                            {/* <button type="submit" onClick={this.keywordSearch} name="post">検索</button> */}
+                    <div className="searchb">
+                        <button onClick={this.toggleModal} className="close">閉じる</button>
+                        {/* <button type="submit" onClick={this.keywordSearch} name="post">検索</button> */}
+                    </div>
                         </div>
                     </div>
 
