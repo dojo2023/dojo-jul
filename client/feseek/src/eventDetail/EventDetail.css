@@ -265,3 +265,19 @@ button.btnK{
     margin-top: 10px;
 }
 /*------------*/
+
+/* イベント詳細 */
+.top_title{
+    display:inline-block;
+    font-size: 20px;
+    background-color: #bcd5e4;
+    margin-top: 1em;
+    margin-bottom: 2em;
+    padding: 1em;
+}
+
+.top_detail{
+    margin-top: 1em;
+    margin-bottom: 3em;
+    font-size: 20px;
+}
