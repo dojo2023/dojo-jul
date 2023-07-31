@@ -90,6 +90,10 @@ table th{
     background-color: #5273c7;
     color: white;
     border:solid 1px #417792;
+    /*-----追加部分-----*/
+    display: inline-block;
+    width: 100px;
+    /*----------------*/
 }
 
 table td{

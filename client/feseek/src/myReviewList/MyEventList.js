@@ -71,6 +71,14 @@ export default class MyEventList extends React.Component{
         });
     }
 
+    edit = () =>{
+        //イベント編集処理
+    }
+
+    delete = () =>{
+        //イベント削除処理
+    }
+
     //投稿する時の処理
     eventPost = () =>{
         console.log("eventPost");
@@ -119,6 +127,11 @@ export default class MyEventList extends React.Component{
                         {/*投稿したイベントの個数分回す */}
                         {events.map((event,index) =>
                             <div>
+                                <div className="btnPosition">
+                                    <button className="eventbtn" onClick={this.edit}>編集</button>
+                                    <button className="eventbtn" onClick={this.delete}>削除</button>
+                                </div>
+
                                 <table className="list">
                                     <tr>
                                             <th>イベント名</th>
@@ -169,10 +182,6 @@ export default class MyEventList extends React.Component{
                                             <td>{event.urlFifth}</td>
                                         </tr> */}
                                     </table>
-                                    <div className="btnPosition">
-                                        <button className="eventbtn">編集</button>
-                                        <button className="eventbtn">削除</button>
-                                    </div>
                             </div>
                         )} 
 {/* ------------------------------------------------------------------------------------------------------------------------- */}
@@ -310,8 +319,10 @@ export default class MyEventList extends React.Component{
                                     <td><input type="file" onChange={this.onInput} value={urlFifth}></input></td>
                                 </tr> */}
                             </table>
-                            <button onClick={this.eventPost}>投稿</button>
-                            <button onClick={this.toggleModal}>閉じる</button>
+                            <div className="modBtn">
+                                <button className="Btn1" onClick={this.eventPost}>投稿</button>
+                                <button className="Btn2" onClick={this.toggleModal}>閉じる</button>
+                            </div>
                         </div>
                     </div>
                 }
