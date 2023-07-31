@@ -2,8 +2,8 @@
 
 .time_li{
     list-style: none;
-    border-top: dotted;
-    border-bottom: dotted;
+    border-top: solid 2px #417792;
+    border-bottom: solid 2px #417792;
     margin-top: 8px;
-    color:blueviolet;
+    color:snow;
 }
