@@ -130,7 +130,7 @@ export default class SponsorEventDetail extends React.Component{
                     <div className="review">
                     <h2>口コミ</h2>
                         <br />
-                        <button className="btn" onClick={() =>{this.modDetail()}}>投稿</button>
+                        <button className="btnP" onClick={() =>{this.modDetail()}}>投稿</button>
                         <br />
                         <iframe src="./review"></iframe>
                     </div>
