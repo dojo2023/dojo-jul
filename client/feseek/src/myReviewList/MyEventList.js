@@ -21,7 +21,9 @@ export default class MyEventList extends React.Component{
             access:"",
             map:"",
             costs:"",
-            areasId:"",
+            areasId:{
+                area:{}
+            },
             detail:"",
             url:"",
             urlFirst:"",
@@ -132,7 +134,7 @@ export default class MyEventList extends React.Component{
                                         </tr>
                                         <tr>
                                             <th>都道府県</th>
-                                            <td>{event.areasId}</td>
+                                            <td>{event.area.area}</td>
                                             <th>住所</th>
                                             <td>{event.address}</td>
                                         </tr>
