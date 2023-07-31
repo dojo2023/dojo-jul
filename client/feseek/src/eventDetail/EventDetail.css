@@ -108,6 +108,10 @@ table td{
 /* 横並び */
 .side {
     display: flex;
+    /*-----追加部分-----*/
+    gap: 10px;
+    margin: 0 30px;
+    /*------------------*/
     text-align: left;
  }
 
@@ -123,7 +127,7 @@ iframe {
 }
 
 .timeline {
-    margin-top: 35px;
+    margin-top: 45px;
 }
 
 .review {
@@ -178,7 +182,9 @@ iframe {
     display: block;
     position: relative;
     top:10px;
-    left:500px;
+    /*----変更部分----*/
+    left:570px;
+    /*----------------*/
     width: 30px;
     height: 30px;
     border: 2px solid #7e7e7e; /* 枠の調整 */
@@ -205,9 +211,9 @@ iframe {
   }
 
 /* 投稿ボタン */
-.btn,
-a.btn,
-button.btn {
+.btnP,
+a.btnP,
+button.btnP {
     font-size: 1.0rem;
     font-weight: 500;
     line-height: 1.5;
@@ -236,4 +242,26 @@ button.btn {
 span{
     color: red;
 }
-
+/*------追加部分-----*/
+.h3Title{
+    margin-top: 10px;
+}
+textarea.kuchiText{
+    width: 500px;
+    padding: 10px;
+    font-size: 1.3em;
+}
+button.btnK{
+    color: white;
+    width: 100px;
+    margin-top: 30px;
+    margin-left: 200px;
+}
+.kuchikomi{
+    padding: 5px 30px;
+    font-size: 1.2em;
+}
+.btnP{
+    margin-top: 10px;
+}
+/*------------*/

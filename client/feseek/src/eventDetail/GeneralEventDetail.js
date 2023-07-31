@@ -130,7 +130,7 @@ export default class GeneralEventDetail extends React.Component{
                     <div className="review">
                     <h2>口コミ</h2>
                         <br />
-                        <button className="btn" onClick={() =>{this.modDetail()}}>投稿</button>
+                        <button className="btnP" onClick={() =>{this.modDetail()}}>投稿</button>
                         <br />
                         <iframe src="./review"></iframe>
                     </div>
@@ -146,13 +146,14 @@ export default class GeneralEventDetail extends React.Component{
                 {/* モーダルウィンドウ(送信) */}
                 {showModal &&
                     <div id="overlay">
-                        <div id="content">
+                        <div id="contentSpo">
                             <button class="round_btn" onClick={this.toggleModal}></button>
-                            <div><h3>口コミ投稿</h3></div>
-                                件名<input type="text" name="modSubject"/>
+                            {/* <div><h3>口コミ投稿</h3></div> */}
+                                <h3 className='h3Title'>件名</h3><input className='kuchikomi' type="text" name="modSubject"/>
                                 <br />
-                                評価<div>
-                                        <input type="checkbox" id="item1" name="modsatisfaction" />
+                                <h3 className='h3Title'>評価</h3>
+                                    <div>
+                                        <input className='kuchikomi' type="checkbox" id="item1" name="modsatisfaction" />
                                         <label for="modsatisfaction">満足か</label>
                                     </div>
                                     <div>
@@ -172,14 +173,12 @@ export default class GeneralEventDetail extends React.Component{
                                         <label for="horns">続いて欲しい</label>
                                     </div>
 
-                                内容<br />
-                                <textarea name="modcomment" rows="4" cols="70"></textarea>
-                                <br />
-                                画像<br />
-                                <input type="file" name="modrevImage" accept="image/*"></input>
+                                <h3 className='h3Title'>内容</h3>
+                                <textarea className='kuchiText' name="modcomment" rows="4" cols="70"></textarea>
+                                <h3 className='h3Title'>画像</h3>
+                                <input className='kuchiImg' type="file" name="modrevImage" accept="image"></input>
                                 
-                                <br />
-                            <button class="btn" type="submit" name="post">投稿</button>
+                            <button class="btnK" type="submit" name="post">投稿</button>
                         </div>
                     </div>
                 }

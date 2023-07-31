@@ -16,7 +16,7 @@ export default class PasswordReRegister extends React.Component{
                         <input type="password" placeholder="パスワード" className="default_textbox"></input><br />
                         <input type="password" placeholder="パスワード(確認用)" className="default_textbox"></input><br />
                     </div>
-                    <span>※エラーメッセージ</span><br />
+                    {/* <span>※パスワードが一致しません</span><br /> */}
                     <input type="submit" className="default_button" value={"登録"}></input>
                 </form>
                 <p><a href="/confirm/PasswordReRegister">次の画面</a></p>   {/* 試行用 */}
