@@ -56,12 +56,13 @@ public class ReviewRestController {
 	@GetMapping("/api/review/mylist")
 	public List<Review> getMyReviews(HttpServletRequest request) {
 	    // ログインしたユーザーのIDを取得
-	    HttpSession session = request.getSession(false);
-	    if (session == null || session.getAttribute("id") == null) {
+	    HttpSession session = request.getSession();
+	    System.out.println(session.getAttribute("userId"));
+	    if (session == null || session.getAttribute("userId") == null) {
 	        return Collections.emptyList();
 	    }
 
-	    String userId = (String) session.getAttribute("id");
+	    String userId = (String) session.getAttribute("userId");
 		// ユーザーIDを使って自分の投稿した口コミを取得する
 	    return repository.findByUserId(userId);
 

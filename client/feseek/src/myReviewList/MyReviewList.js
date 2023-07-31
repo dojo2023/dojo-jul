@@ -16,12 +16,12 @@ export default class MyReviewList extends React.Component {
   componentDidMount() {
     // マウント後にAPIを呼び出す
     axios.get('/api/review/mylist')
-    .then(response => {
+    // .then(response => {
         // APIレスポンスからデータを取得してstateにセットする
-    // .then(json => {
-    //     console.log(json.data);
+    .then(json => {
+        console.log(json.data);
     
-        this.setState({ reviews: response.data });
+         this.setState({ reviews: json.data });
     // })
     })
     .catch(error => {
@@ -113,13 +113,14 @@ diaDelete = (reviewId) => {
               <td className="revDate">{review.revDate}</td>
               <td className="revTitle">{review.revTitle}</td>
               {/* <td className="evaluation">{review.satisfaction, review.security, review.again, review.atmosphere, review.continuation}</td> */}
+              <td>☆☆☆☆☆</td>
               <td className="comment">{review.comment}</td>
               {/* <td><button onClick={() => { this.modEdit() }} name="edit">編集</button></td>
               <td><button onClick={() => { this.diaDelete() }} name="delete">削除</button></td> */}
+              <button className='default_button' onClick={() => { this.modEdit() }} name="edit">編集</button>
+              <button className='default_button' onClick={() => { this.diaDelete() }} name="delete">削除</button>
             </tr>
           )}
-            <button className='default_button' onClick={() => { this.modEdit() }} name="edit">編集</button>
-            <button className='default_button' onClick={() => { this.diaDelete() }} name="delete">削除</button>
         </table>
 
         
